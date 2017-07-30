@@ -1,0 +1,16 @@
+{
+  "ActivityComments":{
+    "Name"			:"The name of the activity.  If available, a picture will be named 'Name.png'",
+    "Description"	:"Expanded description",
+    "Entertainment"	:"Amount of points added to/subtracted from  from your 'Entertainment' score",
+    "SME"			:"Amount of points added to/subtracted from  your 'Social Media Engagement' score",
+    "Stamina"		:"Amount of points added to/subtracted from stamina by this activity",
+    "Cost"			:"Cost in dollars for the activity",
+    "Duration"		:"Duration of one instance of the activity in hours",
+    "CountsAsSleep"	:"Whether or not this activity should be considered sleep.  Sleeping has no effect on hunger/thirst",
+    "DayOnly"		:"Whether an activity is only doable between 8 AM and midnight",
+    "Category"		:"Tourism, Shopping, Refreshment, Relaxation",
+    "ResetsThirst"	:"If true, counts as drinking something and resets thirst to 0",
+    "ResetsHunger"  :"If true, counts as eating something and resets hunger to 0"
+  }
+}

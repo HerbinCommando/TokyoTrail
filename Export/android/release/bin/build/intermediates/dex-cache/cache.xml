@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/heathgifford/Programming/AkibaTrail/Export/android/release/bin/app/build/intermediates/exploded-aar/bin.deps/extension-api/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="25.0.3"
+        sha1="e882fc18d2a0612aa2ab828c3a09703408ec35ef">
+        <dex dex="/Users/heathgifford/Programming/AkibaTrail/Export/android/release/bin/app/build/intermediates/pre-dexed/debug/bin.deps-extension-api-unspecified_f9c056d6365ef6e935ea740a8445d746bf80d8d0.jar" />
+    </item>
+
+</items>

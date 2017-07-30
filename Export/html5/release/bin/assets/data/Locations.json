@@ -1,0 +1,157 @@
+{
+  "Locations":[
+    {
+      "Name"			: "Anywhere",
+      "Description"   : "These activities are available anywhere in Tokyo within a few blocks' walk",
+      "Activities":[
+        {
+          "Name"			:"Convenience Store Beverage",
+          "Description"	:"You step into the nearest konbini, squeeze through the aisles to the back, and select a refreshing beverage.  Then you quickly pay for it without making eye contact and drink it out front so you can throw the empty bottle into the store's recycle bin rather than carry it around all day.",
+          "Filename"    : "default_activity_icon",
+          "EntertainmentPoints"	:0,
+          "SMEPoints"			:0,
+          "Stamina"		:0,
+          "Cost"			:1,
+          "Duration"		:0,
+          "CountsAsSleep"	:false,
+          "TimesOfDay"		:"All Day",
+          "Category"		:"Refreshment",
+          "ResetsThirst" 	:true,
+          "ResetsHunger"    :false
+        }
+      ,{
+          "Name"			:"Convenience Store Snack",
+          "Description"	:"You step into the nearest konbini, stare blankly at the dizzying array of bizarre snacks for several minutes, then grab a can of American potato chips you recognize but don't particularly like.  You snack on the chips as you continue your adventures.",
+          "Filename"    : "default_activity_icon",
+          "EntertainmentPoints"	:0,
+          "SMEPoints"			:0,
+          "Stamina"		:0,
+          "Cost"			:1,
+          "Duration"		:0,
+          "CountsAsSleep"	:false,
+          "TimesOfDay"		:"All Day",
+          "Category"		:"Refreshment",
+          "ResetsHunger" 	:true,
+          "ResetsThirst"    :false
+        }
+      ,{
+          "Name"			:"Sleep in a Stairwell",
+          "Description"	:"Lie down on the ground and take a nap in the stairwell to a nearby subway station.",
+          "Filename"    : "default_activity_icon",
+          "EntertainmentPoints"	:0,
+          "SMEPoints"			:0,
+          "Stamina"		:1,
+          "Cost"			:0,
+          "Duration"		:1,
+          "CountsAsSleep"	:true,
+          "TimesOfDay"		:"All Day",
+          "Category"		:"Relaxation",
+          "ResetsHunger"    :false,
+          "ResetsThirst"    :false
+        }
+      ]
+    },
+    {
+      "Name"			:"Akihabara District",
+      "Description"     :"Tokyo's Technology/Gaming/Anime/Hentai District.  The Mecca of nerds everywhere.",
+      "Filename"        :"default_activity_icon",
+      "Activities":[
+        {
+          "Name"			:"Play the Claw Machines",
+          "Description"	:"Try your skill at the claw machines in an arcade.",
+          "EntertainmentPoints"	:20,
+          "SMEPoints"			:3,
+          "Stamina"		:-1,
+          "Cost"			:30,
+          "Duration"		:1,
+          "CountsAsSleep"	:false,
+          "TimesOfDay"		:"Daytime",
+          "Category"		:"Tourism",
+          "ResetsHunger"    :false,
+          "ResetsThirst"    :false
+        }
+      ,{
+          "Name"			:"Maid Cafe",
+          "Description"	:"Relax at a nearby Maid Cafe, where young women in elaborate French Maid outfits fawn over you while serving overpriced, low-quality food and drinks.  Sort of like Hooters for anime nerds.",
+          "Filename"    :"default_activity_icon",
+          "EntertainmentPoints"	:20,
+          "SMEPoints"			:5,
+          "Stamina"		:1,
+          "Cost"			:40,
+          "Duration"		:1,
+          "CountsAsSleep"	:false,
+          "TimesOfDay"		:"Night Time",
+          "Category"		:"Refreshment",
+          "ResetsThirst" :true,
+          "ResetsHunger" :true
+        }
+      ]
+    },
+    {
+      "Name"			: "Boring District",
+      "Description"   : "One of Tokyo's many boring locations for tourists",
+      "Activities":[
+        {
+          "Name"			:"Visit a Shrine",
+          "Description"	:"Visit a boring 500+ year-old shrine",
+          "Filename"    :"default_activity_icon",
+          "EntertainmentPoints"	:1,
+          "SMEPoints"			:20,
+          "Stamina"		:-1,
+          "Cost"			:5,
+          "Duration"		:1,
+          "CountsAsSleep"	:false,
+          "TimesOfDay"		:"Daytime",
+          "Category"		:"Tourism",
+          "ResetsHunger"    :false,
+          "ResetsThirst"    :false
+        }
+      ,{
+          "Name"			:"Visit a Park",
+          "Description"	:"Visit a boring park full of tourists taking boring photos of the same boring trees",
+          "Filename"    :"default_activity_icon",
+          "EntertainmentPoints"	:1,
+          "SMEPoints"			:20,
+          "Stamina"		:-1,
+          "Cost"			:5,
+          "Duration"		:1,
+          "CountsAsSleep"	:false,
+          "TimesOfDay"		:"Daytime",
+          "Category"		:"Tourism",
+          "ResetsHunger"    :false,
+          "ResetsThirst"    :false
+        }
+      ,{
+          "Name"			:"Visit a Tall Tower",
+          "Description"	:"Ride an elevator to the top of some boring tower with a dubious claim to a world record",
+          "Filename"    :"default_activity_icon",
+          "EntertainmentPoints"	:5,
+          "SMEPoints"			:20,
+          "Stamina"		:-2,
+          "Cost"			:25,
+          "Duration"		:2,
+          "CountsAsSleep"	:false,
+          "TimesOfDay"		:"Daytime",
+          "Category"		:"Tourism",
+          "ResetsHunger"    :false,
+          "ResetsThirst"    :false
+        }
+      ,{
+          "Name"			:"Buy Lame Souvenirs",
+          "Description"	:"Buy lame souvenirs for your friends at a mall or a shop or whatever.",
+          "Filename"    :"default_activity_icon",
+          "EntertainmentPoints"	:5,
+          "SMEPoints"			:20,
+          "Stamina"		:-1,
+          "Cost"			:25,
+          "Duration"		:1,
+          "CountsAsSleep"	:false,
+          "TimesOfDay"		:"Daytime",
+          "Category"		:"Shopping",
+          "ResetsHunger"    :false,
+          "ResetsThirst"    :false
+        }
+      ]
+    }
+  ]
+}

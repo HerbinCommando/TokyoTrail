@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	
+	<meta title="Tokyo Trail" package="com.gamejam.akibatrail" version="1.0.0" company="Mars Cilla Consulting" />
+	<app main="com.gamejam.Main" path="Export" file="AkibaTrail" />
+	
+	<source path="src" />
+	
+	<haxelib name="lime" />
+	<haxelib name="openfl" />
+	
+	<assets path="Assets" rename="assets" />
+    <!--<assets path="Assets/images" rename="images" include="*" />
+    <assets path="Assets/data" rename="data" include="*" />
+    <assets path="Assets/activity_icons" rename="activity_icons" include="*" />-->
+	
+</project>

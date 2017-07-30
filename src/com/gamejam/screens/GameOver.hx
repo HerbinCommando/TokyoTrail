@@ -29,7 +29,6 @@ class GameOver extends Sprite {
         gameOverText.height = 50;
         gameOverText.text = "Game Over!";
         addChild(gameOverText);
-        gameOverText.x = centerX;
 
         restartButton = new TextButton("Start a New Game", 300, 40);
         addChild(restartButton);

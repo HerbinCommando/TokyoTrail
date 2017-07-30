@@ -72,25 +72,9 @@ class ActivitySelection extends Sprite {
     public function onClickActivity(e:MouseEvent):Void {
 
         var btn:TextButton = cast(e.currentTarget, TextButton);
-        //var activityData:Dynamic = getActivityDataByName(btn.text.text);
         var activityData:Dynamic = btn.cargo;
         onActivitySelectedFn(activityData);
 
     }
-
-    // Hackey way to get activity data from the activity button. I could refactor to pass around an Activity data Dynamic
-    /*
-    public function getActivityDataByName(activityName:String):Dynamic {
-
-        for (act in locationActivities) {
-            if (act.Name == activityName) {
-                return act;
-            }
-        }
-
-        return null;
-
-    }
-    */
 
 }

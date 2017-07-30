@@ -15,7 +15,6 @@ import com.gamejam.game.MainGameState;
 import com.gamejam.screens.CityLocation;
 import com.gamejam.screens.CharacterSetup;
 import com.gamejam.screens.GameOver;
-import com.gamejam.utils.ImageButton;
 import com.gamejam.utils.TextButton;
 
 class Main extends Sprite {
@@ -43,7 +42,6 @@ class Main extends Sprite {
 
 		trace("running");
 
-        Assets.loadText("assets/data/ActivityDescriptions.json", handleActivityDescriptionsJson);
         Assets.loadText("assets/data/Locations.json", handleLocationsJson);
         Assets.loadText("assets/data/HungerLevels.json", handleHungerLevelsJson);
         Assets.loadText("assets/data/ThirstLevels.json", handleThirstLevelsJson);
@@ -94,16 +92,8 @@ class Main extends Sprite {
 
         trace(s);
         var data:Dynamic = Json.parse(s);
-        trace(data);
+        //trace(data);
         locations = data.Locations;
-
-    }
-
-    public function handleActivityDescriptionsJson(s:String):Void {
-
-        trace(s);
-        var activityDescriptions:Dynamic = Json.parse(s);
-        //trace("parsed");
 
     }
 

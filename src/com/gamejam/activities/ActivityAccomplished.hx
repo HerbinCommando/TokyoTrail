@@ -47,62 +47,68 @@ class ActivityAccomplished extends Sprite {
 
         nameText = new TextField();
         nameText.setTextFormat(TextFormats.SUBTITLES);
+        nameText.width = 800;
+        nameText.height = 50;
         addChild(nameText);
 
         descText = new TextField();
         descText.setTextFormat(TextFormats.NORMAL_TEXT);
+        descText.multiline = true;
+        descText.wordWrap = true;
+        descText.width = 800;
+        descText.height = 60;
         addChild(descText);
-        descText.y = 25;
+        descText.y = 65;
 
         entertainmentPointsText = new TextField();
         entertainmentPointsText.setTextFormat(TextFormats.NORMAL_TEXT);
         addChild(entertainmentPointsText);
-        entertainmentPointsText.y = 40;
+        entertainmentPointsText.y = 120;
 
         smePointsText = new TextField();
         smePointsText.setTextFormat(TextFormats.NORMAL_TEXT);
         addChild(smePointsText);
-        smePointsText.y = 55;
+        smePointsText.y = 135;
 
         staminaText = new TextField();
         staminaText.setTextFormat(TextFormats.NORMAL_TEXT);
         addChild(staminaText);
-        staminaText.y = 70;
+        staminaText.y = 150;
 
         costText = new TextField();
         costText.setTextFormat(TextFormats.NORMAL_TEXT);
         addChild(costText);
-        costText.y = 85;
+        costText.y = 165;
 
         durationText = new TextField();
         durationText.setTextFormat(TextFormats.NORMAL_TEXT);
         addChild(durationText);
-        durationText.y = 100;
+        durationText.y = 180;
 
         countsAsSleepText = new TextField();
         countsAsSleepText.setTextFormat(TextFormats.NORMAL_TEXT);
         addChild(countsAsSleepText);
-        countsAsSleepText.y = 115;
+        countsAsSleepText.y = 195;
 
         timesOfDayText = new TextField();
         timesOfDayText.setTextFormat(TextFormats.NORMAL_TEXT);
         addChild(timesOfDayText);
-        timesOfDayText.y = 130;
+        timesOfDayText.y = 210;
 
         categoryText = new TextField();
         categoryText.setTextFormat(TextFormats.NORMAL_TEXT);
         addChild(categoryText);
-        categoryText.y = 145;
+        categoryText.y = 225;
 
         resetsThirstText = new TextField();
         resetsThirstText.setTextFormat(TextFormats.NORMAL_TEXT);
         addChild(resetsThirstText);
-        resetsThirstText.y = 160;
+        resetsThirstText.y = 240;
 
         resetsHungerText = new TextField();
         resetsHungerText.setTextFormat(TextFormats.NORMAL_TEXT);
         addChild(resetsHungerText);
-        resetsHungerText.y = 175;
+        resetsHungerText.y = 255;
 
         var centerX:Float = Lib.current.stage.stageWidth / 2;
 

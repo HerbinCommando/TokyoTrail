@@ -60,7 +60,7 @@ class LocationSelection extends Sprite {
         titleText.height = 50;
         titleText.text = "Choose A New Location";
         addChild(titleText);
-        titleText.x = centerX;
+        //titleText.x = centerX;
 
         onLocationSelectedFn = locationSelectedFn;
         availableLocations = new Array<TextButton>();
@@ -83,7 +83,7 @@ class LocationSelection extends Sprite {
             btn.addEventListener(MouseEvent.CLICK, onClickLocation);
             btn.cargo = location;
             addChild(btn);
-            btn.y = availableLocations.length * 55;
+            btn.y = 165 + availableLocations.length * 55;
             availableLocations.push(btn);
         }
 
@@ -92,25 +92,9 @@ class LocationSelection extends Sprite {
     public function onClickLocation(e:MouseEvent):Void {
 
         var btn:TextButton = cast(e.currentTarget, TextButton);
-        //var locationData:Dynamic = getLocationDataByName(btn.text.text);
         var locationData:Dynamic = btn.cargo;
         onLocationSelectedFn(locationData);
 
     }
-
-    // Hackey way to get location data from the location button. I could refactor to pass around a Location data Dynamic
-    /*
-    public function getLocationDataByName(locationName:String):Dynamic {
-
-        for (loc in locations) {
-            if (loc.Name == locationName) {
-                return loc;
-            }
-        }
-
-        return null;
-
-    }
-    */
 
 }

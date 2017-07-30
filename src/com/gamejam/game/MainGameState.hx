@@ -21,6 +21,7 @@ class MainGameState {
         characterStatusDisplay.x = Lib.current.stage.stageWidth - 300;
 
         activityAccomplished = new ActivityAccomplished();
+        activityAccomplished.whiteBg.addEventListener(MouseEvent.CLICK, onClickActivityAccomplishedOK);
         activityAccomplished.okBtn.addEventListener(MouseEvent.CLICK, onClickActivityAccomplishedOK);
 
     }
@@ -45,6 +46,7 @@ class MainGameState {
         trace("Player is doing activity " + activityData.Name);
         activityAccomplished.setupActivityData(activityData);
         Lib.current.stage.addChild(activityAccomplished);
+        Lib.current.stage.addChild(characterStatusDisplay);
         characterStatusDisplay.updateDisplay(character);
         return advanceGameTime(activityData.Duration);
 

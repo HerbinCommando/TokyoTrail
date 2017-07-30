@@ -7,11 +7,9 @@ import openfl.display.Sprite;
 import openfl.events.MouseEvent;
 import openfl.text.TextField;
 import openfl.text.TextFieldType;
-//import openfl.text.TextFormat;
 import openfl.Lib;
 
 import com.gamejam.character.Character;
-import com.gamejam.character.StatBar;
 import com.gamejam.utils.TextButton;
 import com.gamejam.utils.TextFormats;
 
@@ -21,7 +19,6 @@ class CharacterSetup extends Sprite {
     public var characterNameText:TextField;
     public var createCharacterText:TextField;
     public var createCharacterButton:TextButton;
-    public var statBar:StatBar;
     public var characterImage:Bitmap;
 
     public var createdCharacter:Character;
@@ -57,7 +54,7 @@ class CharacterSetup extends Sprite {
             characterClassBtn.addEventListener(MouseEvent.CLICK, onClickCharacterClass);
             characterClassBtn.cargo = charData;
             addChild(characterClassBtn);
-            characterClassBtn.y = numClasses++ * 55;
+            characterClassBtn.y = 165 + numClasses++ * 55;
         }
 
         createCharacterText = new TextField();
@@ -66,7 +63,7 @@ class CharacterSetup extends Sprite {
         createCharacterText.height = 50;
         createCharacterText.text = "Choose Your Occupation";
         addChild(createCharacterText);
-        createCharacterText.x = centerX;
+        //createCharacterText.x = centerX;
 
         createCharacterButton = new TextButton("Begin Your Journey", 300, 40);
         createCharacterButton.addEventListener(MouseEvent.CLICK, onClickCreateCharacter);
@@ -84,17 +81,8 @@ class CharacterSetup extends Sprite {
         characterNameText.border = true;
         characterNameText.addEventListener(MouseEvent.CLICK, function(e:MouseEvent){ characterNameText.setSelection(0,characterNameText.text.length); });
         addChild(characterNameText);
-        characterNameText.y = 425;
+        characterNameText.y = 65;
 
-        /*
-        statBar = new StatBar();
-        addChild(statBar);
-
-
-        characterImage = new Bitmap (Assets.getBitmapData ("assets/images/bald_bull_headshot.jpeg"));
-        addChild(characterImage);
-        characterImage.y = 100;
-        */
     }
 
 

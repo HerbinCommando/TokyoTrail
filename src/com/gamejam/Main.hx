@@ -35,7 +35,7 @@ class Main extends Sprite {
     public var thirstLevels:Array<Dynamic>;
     public var hungerLevels:Array<Dynamic>;
     public var locations:Array<Dynamic>;
-    public var characterTypes:Array<Dynamic>;
+    public var characterTypeData:Array<Dynamic>;
 
 	public function new () {
 
@@ -69,7 +69,7 @@ class Main extends Sprite {
         trace(s);
         var data:Dynamic = Json.parse(s);
         //trace(data);
-        characterTypes = data.CharacterTypes;
+        characterTypeData = data.CharacterTypes;
 
     }
 
@@ -110,7 +110,7 @@ class Main extends Sprite {
 	public function showCreateCharacterScreen() {
 
         if (characterSetupScreen == null) {
-            characterSetupScreen = new CharacterSetup();
+            characterSetupScreen = new CharacterSetup(characterTypeData);
             characterSetupScreen.createCharacterButton.addEventListener(MouseEvent.CLICK, onClickCreateCharacter);
         }
         addChild(characterSetupScreen);
@@ -120,7 +120,7 @@ class Main extends Sprite {
     public function onClickCreateCharacter(e:MouseEvent):Void {
 
         var activeChar:Character = characterSetupScreen.createdCharacter;
-        mainGameState = new MainGameState(activeChar);
+        mainGameState = new MainGameState(activeChar, hungerLevels, thirstLevels);
 
         if (cityLocationScreen == null) {
             cityLocationScreen = new CityLocation(locations, onGameIsNowOver);

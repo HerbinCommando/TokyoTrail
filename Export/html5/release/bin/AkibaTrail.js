@@ -1018,7 +1018,7 @@ $hxClasses["ApplicationMain"] = ApplicationMain;
 ApplicationMain.__name__ = ["ApplicationMain"];
 ApplicationMain.main = function() {
 	var projectName = "AkibaTrail";
-	var config = { build : "132", company : "Mars Cilla Consulting", file : "AkibaTrail", fps : 60, name : "Tokyo Trail", orientation : "", packageName : "com.gamejam.akibatrail", version : "1.0.0", windows : [{ allowHighDPI : false, alwaysOnTop : false, antialiasing : 0, background : 16777215, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : true, height : 0, hidden : null, maximized : null, minimized : null, parameters : { }, resizable : true, stencilBuffer : true, title : "Tokyo Trail", vsync : false, width : 0, x : null, y : null}]};
+	var config = { build : "1", company : "Mars Cilla Consulting", file : "AkibaTrail", fps : 60, name : "Tokyo Trail", orientation : "", packageName : "com.gamejam.akibatrail", version : "1.0.0", windows : [{ allowHighDPI : false, alwaysOnTop : false, antialiasing : 0, background : 16777215, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : true, height : 0, hidden : null, maximized : null, minimized : null, parameters : { }, resizable : true, stencilBuffer : true, title : "Tokyo Trail", vsync : false, width : 0, x : null, y : null}]};
 	lime_system_System.__registerEntryPoint(projectName,ApplicationMain.create,config);
 };
 ApplicationMain.create = function(config) {
@@ -3029,11 +3029,11 @@ com_gamejam_Main.prototype = $extend(openfl_display_Sprite.prototype,{
 	,thirstLevels: null
 	,hungerLevels: null
 	,locations: null
-	,characterTypes: null
+	,characterTypeData: null
 	,handleCharacterTypesJson: function(s) {
 		haxe_Log.trace(s,{ fileName : "Main.hx", lineNumber : 69, className : "com.gamejam.Main", methodName : "handleCharacterTypesJson"});
 		var data = JSON.parse(s);
-		this.characterTypes = data.CharacterTypes;
+		this.characterTypeData = data.CharacterTypes;
 	}
 	,handleThirstLevelsJson: function(s) {
 		haxe_Log.trace(s,{ fileName : "Main.hx", lineNumber : 78, className : "com.gamejam.Main", methodName : "handleThirstLevelsJson"});
@@ -3057,14 +3057,14 @@ com_gamejam_Main.prototype = $extend(openfl_display_Sprite.prototype,{
 	}
 	,showCreateCharacterScreen: function() {
 		if(this.characterSetupScreen == null) {
-			this.characterSetupScreen = new com_gamejam_screens_CharacterSetup();
+			this.characterSetupScreen = new com_gamejam_screens_CharacterSetup(this.characterTypeData);
 			this.characterSetupScreen.createCharacterButton.addEventListener("click",$bind(this,this.onClickCreateCharacter));
 		}
 		this.addChild(this.characterSetupScreen);
 	}
 	,onClickCreateCharacter: function(e) {
 		var activeChar = this.characterSetupScreen.createdCharacter;
-		this.mainGameState = new com_gamejam_game_MainGameState(activeChar);
+		this.mainGameState = new com_gamejam_game_MainGameState(activeChar,this.hungerLevels,this.thirstLevels);
 		if(this.cityLocationScreen == null) {
 			this.cityLocationScreen = new com_gamejam_screens_CityLocation(this.locations,$bind(this,this.onGameIsNowOver));
 		}
@@ -3742,64 +3742,71 @@ _$UInt_UInt_$Impl_$.toFloat = function(this1) {
 var com_gamejam_activities_ActivityDescription = function(data) {
 	openfl_display_Sprite.call(this);
 	this.activityData = data;
-	this.format = new openfl_text_TextFormat();
-	this.format.color = 8421504;
-	this.format.size = 18;
 	this.nameText = new openfl_text_TextField();
-	this.nameText.setTextFormat(this.format);
+	this.nameText.setTextFormat(com_gamejam_utils_TextFormats.SUBTITLES);
 	this.nameText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.Name));
 	this.addChild(this.nameText);
 	this.descText = new openfl_text_TextField();
-	this.descText.setTextFormat(this.format);
+	this.descText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
 	this.descText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.Description));
 	this.addChild(this.descText);
+	this.descText.set_y(25);
 	this.entertainmentPointsText = new openfl_text_TextField();
-	this.entertainmentPointsText.setTextFormat(this.format);
+	this.entertainmentPointsText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
 	this.entertainmentPointsText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.EntertainmentPoints));
 	this.addChild(this.entertainmentPointsText);
+	this.entertainmentPointsText.set_y(40);
 	this.smePointsText = new openfl_text_TextField();
-	this.smePointsText.setTextFormat(this.format);
+	this.smePointsText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
 	this.smePointsText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.SMEPoints));
 	this.addChild(this.smePointsText);
+	this.smePointsText.set_y(55);
 	this.staminaText = new openfl_text_TextField();
-	this.staminaText.setTextFormat(this.format);
+	this.staminaText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
 	this.staminaText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.Stamina));
 	this.addChild(this.staminaText);
+	this.staminaText.set_y(70);
 	this.costText = new openfl_text_TextField();
-	this.costText.setTextFormat(this.format);
+	this.costText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
 	this.costText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.Cost));
 	this.addChild(this.costText);
+	this.costText.set_y(85);
 	this.durationText = new openfl_text_TextField();
-	this.durationText.setTextFormat(this.format);
+	this.durationText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
 	this.durationText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.Duration));
 	this.addChild(this.durationText);
+	this.durationText.set_y(100);
 	this.countsAsSleepText = new openfl_text_TextField();
-	this.countsAsSleepText.setTextFormat(this.format);
+	this.countsAsSleepText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
 	this.countsAsSleepText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.CountsAsSleep));
 	this.addChild(this.countsAsSleepText);
+	this.countsAsSleepText.set_y(115);
 	this.timesOfDayText = new openfl_text_TextField();
-	this.timesOfDayText.setTextFormat(this.format);
+	this.timesOfDayText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
 	this.timesOfDayText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.TimesOfDay));
 	this.addChild(this.timesOfDayText);
+	this.timesOfDayText.set_y(130);
 	this.categoryText = new openfl_text_TextField();
-	this.categoryText.setTextFormat(this.format);
+	this.categoryText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
 	this.categoryText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.Category));
 	this.addChild(this.categoryText);
+	this.categoryText.set_y(145);
 	this.resetsThirstText = new openfl_text_TextField();
-	this.resetsThirstText.setTextFormat(this.format);
+	this.resetsThirstText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
 	this.resetsThirstText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.ResetsThirst));
 	this.addChild(this.resetsThirstText);
+	this.resetsThirstText.set_y(160);
 	this.resetsHungerText = new openfl_text_TextField();
-	this.resetsHungerText.setTextFormat(this.format);
+	this.resetsHungerText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
 	this.resetsHungerText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.ResetsHunger));
 	this.addChild(this.resetsHungerText);
+	this.resetsHungerText.set_y(175);
 };
 $hxClasses["com.gamejam.activities.ActivityDescription"] = com_gamejam_activities_ActivityDescription;
 com_gamejam_activities_ActivityDescription.__name__ = ["com","gamejam","activities","ActivityDescription"];
 com_gamejam_activities_ActivityDescription.__super__ = openfl_display_Sprite;
 com_gamejam_activities_ActivityDescription.prototype = $extend(openfl_display_Sprite.prototype,{
-	format: null
-	,nameText: null
+	nameText: null
 	,descText: null
 	,entertainmentPointsText: null
 	,smePointsText: null
@@ -3842,9 +3849,20 @@ com_gamejam_activities_CityActivity.prototype = $extend(openfl_display_Sprite.pr
 	}
 	,__class__: com_gamejam_activities_CityActivity
 });
-var com_gamejam_character_Character = function(characterName) {
+var com_gamejam_character_Character = function(characterName,data) {
 	openfl_display_Sprite.call(this);
 	this.charName = characterName;
+	this.className = data.Class;
+	this.maxStamina = data.MaxStamina;
+	this.stamina = this.maxStamina;
+	this.maxHunger = data.MaxHunger;
+	this.hunger = 0;
+	this.maxThirst = data.maxThirst;
+	this.thirst = 0;
+	this.money = data.Money;
+	this.hoursLeft = data.HoursLeft;
+	this.entertainmentPoints = 0;
+	this.socialMediaEngagement = 0;
 };
 $hxClasses["com.gamejam.character.Character"] = com_gamejam_character_Character;
 com_gamejam_character_Character.__name__ = ["com","gamejam","character","Character"];
@@ -3852,6 +3870,18 @@ com_gamejam_character_Character.__super__ = openfl_display_Sprite;
 com_gamejam_character_Character.prototype = $extend(openfl_display_Sprite.prototype,{
 	charName: null
 	,profileImage: null
+	,className: null
+	,stamina: null
+	,maxStamina: null
+	,hunger: null
+	,maxHunger: null
+	,thirst: null
+	,maxThirst: null
+	,money: null
+	,hoursLeft: null
+	,entertainmentPoints: null
+	,socialMediaEngagement: null
+	,characterData: null
 	,__class__: com_gamejam_character_Character
 });
 var com_gamejam_character_StatBar = function() {
@@ -3890,41 +3920,110 @@ com_gamejam_character_StatBar.prototype = $extend(openfl_display_Sprite.prototyp
 	}
 	,__class__: com_gamejam_character_StatBar
 });
-var com_gamejam_game_MainGameState = function(activeCharacter) {
+var com_gamejam_game_CharacterStatusDisplay = function(hungerLevelData,thirstLevelData) {
+	openfl_display_Sprite.call(this);
+	this.hungerData = hungerLevelData;
+	this.thirstData = thirstLevelData;
+	this.nameText = new openfl_text_TextField();
+	this.nameText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
+	this.nameText.set_width(300);
+	this.nameText.set_height(20);
+	this.addChild(this.nameText);
+	this.staminaStatusText = new openfl_text_TextField();
+	this.staminaStatusText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
+	this.staminaStatusText.set_width(300);
+	this.staminaStatusText.set_height(20);
+	this.addChild(this.staminaStatusText);
+	this.staminaStatusText.set_y(20);
+	this.hungerStatusText = new openfl_text_TextField();
+	this.hungerStatusText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
+	this.hungerStatusText.set_width(300);
+	this.hungerStatusText.set_height(20);
+	this.addChild(this.hungerStatusText);
+	this.hungerStatusText.set_y(40);
+	this.thirstStatusText = new openfl_text_TextField();
+	this.thirstStatusText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
+	this.thirstStatusText.set_width(300);
+	this.thirstStatusText.set_height(20);
+	this.addChild(this.thirstStatusText);
+	this.thirstStatusText.set_y(60);
+};
+$hxClasses["com.gamejam.game.CharacterStatusDisplay"] = com_gamejam_game_CharacterStatusDisplay;
+com_gamejam_game_CharacterStatusDisplay.__name__ = ["com","gamejam","game","CharacterStatusDisplay"];
+com_gamejam_game_CharacterStatusDisplay.__super__ = openfl_display_Sprite;
+com_gamejam_game_CharacterStatusDisplay.prototype = $extend(openfl_display_Sprite.prototype,{
+	hungerData: null
+	,thirstData: null
+	,nameText: null
+	,staminaStatusText: null
+	,hungerStatusText: null
+	,thirstStatusText: null
+	,updateDisplay: function($char) {
+		this.nameText.set_text($char.charName);
+		var _g = 0;
+		var _g1 = this.hungerData;
+		while(_g < _g1.length) {
+			var data = _g1[_g];
+			++_g;
+			if($char.hunger >= data.level) {
+				this.hungerStatusText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.description));
+				break;
+			}
+		}
+		var _g2 = 0;
+		var _g11 = this.thirstData;
+		while(_g2 < _g11.length) {
+			var data1 = _g11[_g2];
+			++_g2;
+			if($char.thirst >= data1.level) {
+				this.thirstStatusText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data1.description));
+				break;
+			}
+		}
+		this.staminaStatusText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic($char.stamina));
+	}
+	,__class__: com_gamejam_game_CharacterStatusDisplay
+});
+var com_gamejam_game_MainGameState = function(activeCharacter,hungerData,thirstData) {
 	this.character = activeCharacter;
+	this.characterStatusDisplay = new com_gamejam_game_CharacterStatusDisplay(hungerData,thirstData);
+	openfl_Lib.current.stage.addChild(this.characterStatusDisplay);
+	this.characterStatusDisplay.set_x(openfl_Lib.current.stage.stageWidth - 300);
+	this.characterStatusDisplay.updateDisplay(activeCharacter);
 };
 $hxClasses["com.gamejam.game.MainGameState"] = com_gamejam_game_MainGameState;
 com_gamejam_game_MainGameState.__name__ = ["com","gamejam","game","MainGameState"];
 com_gamejam_game_MainGameState.prototype = {
 	character: null
+	,characterStatusDisplay: null
 	,canDoActivity: function(activityData) {
 		return true;
 	}
 	,doActivity: function(activityData) {
+		this.characterStatusDisplay.updateDisplay(this.character);
 		return this.advanceGameTime(activityData.Duration);
 	}
 	,advanceGameTime: function(hours) {
-		haxe_Log.trace("advancing game time by " + hours + " hours.",{ fileName : "MainGameState.hx", lineNumber : 31, className : "com.gamejam.game.MainGameState", methodName : "advanceGameTime"});
+		haxe_Log.trace("advancing game time by " + hours + " hours.",{ fileName : "MainGameState.hx", lineNumber : 42, className : "com.gamejam.game.MainGameState", methodName : "advanceGameTime"});
 		var isGameOver = false;
 		isGameOver = this.checkGameOverConditions();
 		return isGameOver;
 	}
 	,checkGameOverConditions: function() {
-		haxe_Log.trace("checking FAKE, MADE UP game over conditions fakeInt == " + com_gamejam_game_MainGameState.fakeInt,{ fileName : "MainGameState.hx", lineNumber : 45, className : "com.gamejam.game.MainGameState", methodName : "checkGameOverConditions"});
+		haxe_Log.trace("checking FAKE, MADE UP game over conditions fakeInt == " + com_gamejam_game_MainGameState.fakeInt,{ fileName : "MainGameState.hx", lineNumber : 56, className : "com.gamejam.game.MainGameState", methodName : "checkGameOverConditions"});
 		var isGameOver = --com_gamejam_game_MainGameState.fakeInt <= 0;
 		return isGameOver;
 	}
 	,__class__: com_gamejam_game_MainGameState
 };
-var com_gamejam_screens_CharacterSetup = function() {
+var com_gamejam_screens_CharacterSetup = function(characterClassData) {
 	openfl_display_Sprite.call(this);
 	this.createdCharacter = null;
+	this.characterData = characterClassData;
+	this.selectedCharacterClassData = this.characterData[0];
 	var centerX = openfl_Lib.current.stage.stageWidth / 2;
-	var format = new openfl_text_TextFormat();
-	format.color = 8421504;
-	format.size = 32;
 	this.createCharacterText = new openfl_text_TextField();
-	this.createCharacterText.setTextFormat(format);
+	this.createCharacterText.setTextFormat(com_gamejam_utils_TextFormats.TITLES);
 	this.createCharacterText.set_width(800);
 	this.createCharacterText.set_height(50);
 	this.createCharacterText.set_text("Choose Your Occupation");
@@ -3936,12 +4035,12 @@ var com_gamejam_screens_CharacterSetup = function() {
 	this.createCharacterButton.set_x(centerX);
 	this.createCharacterButton.set_y(openfl_Lib.current.stage.stageHeight - 125);
 	this.characterNameText = new openfl_text_TextField();
-	this.characterNameText.setTextFormat(format);
+	this.characterNameText.setTextFormat(com_gamejam_utils_TextFormats.FORM_PROPMPS);
 	this.characterNameText.set_width(800);
 	this.characterNameText.set_height(50);
 	this.characterNameText.set_text("Enter Name...");
 	this.addChild(this.characterNameText);
-	this.characterNameText.set_y(400);
+	this.characterNameText.set_y(425);
 	this.statBar = new com_gamejam_character_StatBar();
 	this.addChild(this.statBar);
 	this.characterImage = new openfl_display_Bitmap(openfl_utils_Assets.getBitmapData("assets/images/bald_bull_headshot.jpeg"));
@@ -3958,8 +4057,10 @@ com_gamejam_screens_CharacterSetup.prototype = $extend(openfl_display_Sprite.pro
 	,statBar: null
 	,characterImage: null
 	,createdCharacter: null
+	,characterData: null
+	,selectedCharacterClassData: null
 	,onClickCreateCharacter: function(e) {
-		this.createdCharacter = new com_gamejam_character_Character(this.characterNameText.get_text());
+		this.createdCharacter = new com_gamejam_character_Character(this.characterNameText.get_text(),this.selectedCharacterClassData);
 	}
 	,__class__: com_gamejam_screens_CharacterSetup
 });
@@ -3969,17 +4070,14 @@ var com_gamejam_screens_CityLocation = function(locations,gameOverHack) {
 	this.locationData = locations;
 	this.gameOverHackFunction = gameOverHack;
 	this.cityActivities = new List();
-	this.format = new openfl_text_TextFormat();
-	this.format.color = 8421504;
-	this.format.size = 32;
 	this.cityLocationText = new openfl_text_TextField();
-	this.cityLocationText.setTextFormat(this.format);
+	this.cityLocationText.setTextFormat(com_gamejam_utils_TextFormats.TITLES);
 	this.cityLocationText.set_width(800);
 	this.cityLocationText.set_height(50);
 	this.addChild(this.cityLocationText);
 	this.cityLocationText.set_x(centerX);
 	this.cityDescriptionText = new openfl_text_TextField();
-	this.cityDescriptionText.setTextFormat(this.format);
+	this.cityDescriptionText.setTextFormat(com_gamejam_utils_TextFormats.SUBTITLES);
 	this.cityDescriptionText.set_width(800);
 	this.cityDescriptionText.set_height(50);
 	this.addChild(this.cityDescriptionText);
@@ -3990,8 +4088,7 @@ $hxClasses["com.gamejam.screens.CityLocation"] = com_gamejam_screens_CityLocatio
 com_gamejam_screens_CityLocation.__name__ = ["com","gamejam","screens","CityLocation"];
 com_gamejam_screens_CityLocation.__super__ = openfl_display_Sprite;
 com_gamejam_screens_CityLocation.prototype = $extend(openfl_display_Sprite.prototype,{
-	format: null
-	,cityLocationText: null
+	cityLocationText: null
 	,cityDescriptionText: null
 	,locationData: null
 	,activityData: null
@@ -4013,8 +4110,8 @@ com_gamejam_screens_CityLocation.prototype = $extend(openfl_display_Sprite.proto
 		var maxX = openfl_Lib.current.stage.stageWidth;
 		var maxY = openfl_Lib.current.stage.stageHeight;
 		while(this.activityData.length > this.cityActivities.length) this.cityActivities.push(new com_gamejam_activities_CityActivity());
-		haxe_Log.trace("activityData.length = " + this.activityData.length,{ fileName : "CityLocation.hx", lineNumber : 94, className : "com.gamejam.screens.CityLocation", methodName : "setupActivities"});
-		haxe_Log.trace("cityActivities.length = " + this.cityActivities.length,{ fileName : "CityLocation.hx", lineNumber : 95, className : "com.gamejam.screens.CityLocation", methodName : "setupActivities"});
+		haxe_Log.trace("activityData.length = " + this.activityData.length,{ fileName : "CityLocation.hx", lineNumber : 92, className : "com.gamejam.screens.CityLocation", methodName : "setupActivities"});
+		haxe_Log.trace("cityActivities.length = " + this.cityActivities.length,{ fileName : "CityLocation.hx", lineNumber : 93, className : "com.gamejam.screens.CityLocation", methodName : "setupActivities"});
 		var activityIndex = 0;
 		var _g_head = this.cityActivities.h;
 		while(_g_head != null) {
@@ -4022,7 +4119,7 @@ com_gamejam_screens_CityLocation.prototype = $extend(openfl_display_Sprite.proto
 			_g_head = _g_head.next;
 			var cityActivity = val;
 			if(activityIndex < this.cityActivities.length) {
-				haxe_Log.trace("City Activity being added",{ fileName : "CityLocation.hx", lineNumber : 101, className : "com.gamejam.screens.CityLocation", methodName : "setupActivities"});
+				haxe_Log.trace("City Activity being added",{ fileName : "CityLocation.hx", lineNumber : 99, className : "com.gamejam.screens.CityLocation", methodName : "setupActivities"});
 				cityActivity.setupCityActivity(this.activityData[activityIndex++]);
 				cityActivity.addEventListener("click",$bind(this,this.onCityActivityClicked));
 				this.addChild(cityActivity);
@@ -4047,11 +4144,8 @@ com_gamejam_screens_CityLocation.prototype = $extend(openfl_display_Sprite.proto
 var com_gamejam_screens_GameOver = function() {
 	openfl_display_Sprite.call(this);
 	var centerX = openfl_Lib.current.stage.stageWidth / 2;
-	var format = new openfl_text_TextFormat();
-	format.color = 8421504;
-	format.size = 48;
 	this.gameOverText = new openfl_text_TextField();
-	this.gameOverText.setTextFormat(format);
+	this.gameOverText.setTextFormat(com_gamejam_utils_TextFormats.TITLES);
 	this.gameOverText.set_text("Game Over!");
 	this.addChild(this.gameOverText);
 	this.gameOverText.set_x(centerX);
@@ -4078,9 +4172,9 @@ var com_gamejam_utils_ImageButton = function(upStatePath,downStatePath) {
 	this.downState = new openfl_display_Bitmap(openfl_utils_Assets.getBitmapData(downStatePath));
 	this.addChild(this.downState);
 	this.downState.set_alpha(0);
-	this.addEventListener("mouseDown",$bind(this,this.onMouseDown));
-	this.addEventListener("mouseUp",$bind(this,this.onMouseUp));
-	this.addEventListener("mouseOut",$bind(this,this.onMouseUp));
+	this.upState.addEventListener("mouseDown",$bind(this,this.onMouseDown));
+	this.upState.addEventListener("mouseUp",$bind(this,this.onMouseUp));
+	this.upState.addEventListener("mouseOut",$bind(this,this.onMouseUp));
 };
 $hxClasses["com.gamejam.utils.ImageButton"] = com_gamejam_utils_ImageButton;
 com_gamejam_utils_ImageButton.__name__ = ["com","gamejam","utils","ImageButton"];
@@ -4102,17 +4196,14 @@ var com_gamejam_utils_TextButton = function(buttonText,w,h) {
 	openfl_display_Sprite.call(this);
 	this.mouseChildren = true;
 	this.buttonMode = true;
-	var format = new openfl_text_TextFormat();
-	format.color = 8421504;
-	format.size = 24;
 	this.text = new openfl_text_TextField();
-	this.text.setTextFormat(format);
+	this.text.setTextFormat(com_gamejam_utils_TextFormats.BUTTONS);
 	this.text.set_width(w - 20);
 	this.text.set_height(h - 5);
 	this.text.set_text(buttonText);
 	this.addChild(this.text);
-	haxe_Log.trace("ImageButton hitSprite has w,h = " + this.get_width() + "," + this.get_height(),{ fileName : "TextButton.hx", lineNumber : 34, className : "com.gamejam.utils.TextButton", methodName : "new"});
-	haxe_Log.trace("ImageButton hitSprite has params w,h = " + w + "," + h,{ fileName : "TextButton.hx", lineNumber : 35, className : "com.gamejam.utils.TextButton", methodName : "new"});
+	haxe_Log.trace("ImageButton hitSprite has w,h = " + this.get_width() + "," + this.get_height(),{ fileName : "TextButton.hx", lineNumber : 30, className : "com.gamejam.utils.TextButton", methodName : "new"});
+	haxe_Log.trace("ImageButton hitSprite has params w,h = " + w + "," + h,{ fileName : "TextButton.hx", lineNumber : 31, className : "com.gamejam.utils.TextButton", methodName : "new"});
 	this.get_graphics().beginFill(3158064);
 	this.get_graphics().drawRoundRect(0,0,w,h,25,25);
 	this.get_graphics().endFill();
@@ -4137,6 +4228,127 @@ com_gamejam_utils_TextButton.prototype = $extend(openfl_display_Sprite.prototype
 	}
 	,__class__: com_gamejam_utils_TextButton
 });
+var openfl_text_TextFormat = function(font,size,color,bold,italic,underline,url,target,align,leftMargin,rightMargin,indent,leading) {
+	this.font = font;
+	this.size = size;
+	this.color = color;
+	this.bold = bold;
+	this.italic = italic;
+	this.underline = underline;
+	this.url = url;
+	this.target = target;
+	this.align = align;
+	this.leftMargin = leftMargin;
+	this.rightMargin = rightMargin;
+	this.indent = indent;
+	this.leading = leading;
+};
+$hxClasses["openfl.text.TextFormat"] = openfl_text_TextFormat;
+openfl_text_TextFormat.__name__ = ["openfl","text","TextFormat"];
+openfl_text_TextFormat.prototype = {
+	align: null
+	,blockIndent: null
+	,bold: null
+	,bullet: null
+	,color: null
+	,font: null
+	,indent: null
+	,italic: null
+	,kerning: null
+	,leading: null
+	,leftMargin: null
+	,letterSpacing: null
+	,rightMargin: null
+	,size: null
+	,tabStops: null
+	,target: null
+	,underline: null
+	,url: null
+	,__ascent: null
+	,__descent: null
+	,clone: function() {
+		var newFormat = new openfl_text_TextFormat(this.font,this.size,this.color,this.bold,this.italic,this.underline,this.url,this.target);
+		newFormat.align = this.align;
+		newFormat.leftMargin = this.leftMargin;
+		newFormat.rightMargin = this.rightMargin;
+		newFormat.indent = this.indent;
+		newFormat.leading = this.leading;
+		newFormat.blockIndent = this.blockIndent;
+		newFormat.bullet = this.bullet;
+		newFormat.kerning = this.kerning;
+		newFormat.letterSpacing = this.letterSpacing;
+		newFormat.tabStops = this.tabStops;
+		newFormat.__ascent = this.__ascent;
+		newFormat.__descent = this.__descent;
+		return newFormat;
+	}
+	,__merge: function(format) {
+		if(format.font != null) {
+			this.font = format.font;
+		}
+		if(format.size != null) {
+			this.size = format.size;
+		}
+		if(format.color != null) {
+			this.color = format.color;
+		}
+		if(format.bold != null) {
+			this.bold = format.bold;
+		}
+		if(format.italic != null) {
+			this.italic = format.italic;
+		}
+		if(format.underline != null) {
+			this.underline = format.underline;
+		}
+		if(format.url != null) {
+			this.url = format.url;
+		}
+		if(format.target != null) {
+			this.target = format.target;
+		}
+		if(format.align != null) {
+			this.align = format.align;
+		}
+		if(format.leftMargin != null) {
+			this.leftMargin = format.leftMargin;
+		}
+		if(format.rightMargin != null) {
+			this.rightMargin = format.rightMargin;
+		}
+		if(format.indent != null) {
+			this.indent = format.indent;
+		}
+		if(format.leading != null) {
+			this.leading = format.leading;
+		}
+		if(format.blockIndent != null) {
+			this.blockIndent = format.blockIndent;
+		}
+		if(format.bullet != null) {
+			this.bullet = format.bullet;
+		}
+		if(format.kerning != null) {
+			this.kerning = format.kerning;
+		}
+		if(format.letterSpacing != null) {
+			this.letterSpacing = format.letterSpacing;
+		}
+		if(format.tabStops != null) {
+			this.tabStops = format.tabStops;
+		}
+		if(format.__ascent != null) {
+			this.__ascent = format.__ascent;
+		}
+		if(format.__descent != null) {
+			this.__descent = format.__descent;
+		}
+	}
+	,__class__: openfl_text_TextFormat
+};
+var com_gamejam_utils_TextFormats = function() { };
+$hxClasses["com.gamejam.utils.TextFormats"] = com_gamejam_utils_TextFormats;
+com_gamejam_utils_TextFormats.__name__ = ["com","gamejam","utils","TextFormats"];
 var haxe_StackItem = $hxClasses["haxe.StackItem"] = { __ename__ : ["haxe","StackItem"], __constructs__ : ["CFunction","Module","FilePos","Method","LocalFunction"] };
 haxe_StackItem.CFunction = ["CFunction",0];
 haxe_StackItem.CFunction.toString = $estr;
@@ -30047,7 +30259,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 370763;
+	this.version = 141992;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = ["lime","utils","AssetCache"];
@@ -66478,124 +66690,6 @@ openfl_text__$TextFieldType_TextFieldType_$Impl_$.toString = function(value) {
 		return null;
 	}
 };
-var openfl_text_TextFormat = function(font,size,color,bold,italic,underline,url,target,align,leftMargin,rightMargin,indent,leading) {
-	this.font = font;
-	this.size = size;
-	this.color = color;
-	this.bold = bold;
-	this.italic = italic;
-	this.underline = underline;
-	this.url = url;
-	this.target = target;
-	this.align = align;
-	this.leftMargin = leftMargin;
-	this.rightMargin = rightMargin;
-	this.indent = indent;
-	this.leading = leading;
-};
-$hxClasses["openfl.text.TextFormat"] = openfl_text_TextFormat;
-openfl_text_TextFormat.__name__ = ["openfl","text","TextFormat"];
-openfl_text_TextFormat.prototype = {
-	align: null
-	,blockIndent: null
-	,bold: null
-	,bullet: null
-	,color: null
-	,font: null
-	,indent: null
-	,italic: null
-	,kerning: null
-	,leading: null
-	,leftMargin: null
-	,letterSpacing: null
-	,rightMargin: null
-	,size: null
-	,tabStops: null
-	,target: null
-	,underline: null
-	,url: null
-	,__ascent: null
-	,__descent: null
-	,clone: function() {
-		var newFormat = new openfl_text_TextFormat(this.font,this.size,this.color,this.bold,this.italic,this.underline,this.url,this.target);
-		newFormat.align = this.align;
-		newFormat.leftMargin = this.leftMargin;
-		newFormat.rightMargin = this.rightMargin;
-		newFormat.indent = this.indent;
-		newFormat.leading = this.leading;
-		newFormat.blockIndent = this.blockIndent;
-		newFormat.bullet = this.bullet;
-		newFormat.kerning = this.kerning;
-		newFormat.letterSpacing = this.letterSpacing;
-		newFormat.tabStops = this.tabStops;
-		newFormat.__ascent = this.__ascent;
-		newFormat.__descent = this.__descent;
-		return newFormat;
-	}
-	,__merge: function(format) {
-		if(format.font != null) {
-			this.font = format.font;
-		}
-		if(format.size != null) {
-			this.size = format.size;
-		}
-		if(format.color != null) {
-			this.color = format.color;
-		}
-		if(format.bold != null) {
-			this.bold = format.bold;
-		}
-		if(format.italic != null) {
-			this.italic = format.italic;
-		}
-		if(format.underline != null) {
-			this.underline = format.underline;
-		}
-		if(format.url != null) {
-			this.url = format.url;
-		}
-		if(format.target != null) {
-			this.target = format.target;
-		}
-		if(format.align != null) {
-			this.align = format.align;
-		}
-		if(format.leftMargin != null) {
-			this.leftMargin = format.leftMargin;
-		}
-		if(format.rightMargin != null) {
-			this.rightMargin = format.rightMargin;
-		}
-		if(format.indent != null) {
-			this.indent = format.indent;
-		}
-		if(format.leading != null) {
-			this.leading = format.leading;
-		}
-		if(format.blockIndent != null) {
-			this.blockIndent = format.blockIndent;
-		}
-		if(format.bullet != null) {
-			this.bullet = format.bullet;
-		}
-		if(format.kerning != null) {
-			this.kerning = format.kerning;
-		}
-		if(format.letterSpacing != null) {
-			this.letterSpacing = format.letterSpacing;
-		}
-		if(format.tabStops != null) {
-			this.tabStops = format.tabStops;
-		}
-		if(format.__ascent != null) {
-			this.__ascent = format.__ascent;
-		}
-		if(format.__descent != null) {
-			this.__descent = format.__descent;
-		}
-	}
-	,__class__: openfl_text_TextFormat
-};
 var openfl_text__$TextFormatAlign_TextFormatAlign_$Impl_$ = {};
 $hxClasses["openfl.text._TextFormatAlign.TextFormatAlign_Impl_"] = openfl_text__$TextFormatAlign_TextFormatAlign_$Impl_$;
 openfl_text__$TextFormatAlign_TextFormatAlign_$Impl_$.__name__ = ["openfl","text","_TextFormatAlign","TextFormatAlign_Impl_"];
@@ -68540,6 +68634,14 @@ com_gamejam_character_StatBar.BORDER_COLOR = 16777215;
 com_gamejam_character_StatBar.MASK_COLOR = 1052688;
 com_gamejam_character_StatBar.FILL_COLOR = 65280;
 com_gamejam_game_MainGameState.fakeInt = 5;
+com_gamejam_utils_TextFormats.TITLES = new openfl_text_TextFormat("courier.ttf",32,526344);
+com_gamejam_utils_TextFormats.SUBTITLES = new openfl_text_TextFormat("courier.ttf",24,526344);
+com_gamejam_utils_TextFormats.BUTTONS = new openfl_text_TextFormat("courier.ttf",24,14606046);
+com_gamejam_utils_TextFormats.FORM_PROPMPS = new openfl_text_TextFormat("courier.ttf",26,592137);
+com_gamejam_utils_TextFormats.FORM_TEXT = new openfl_text_TextFormat("courier.ttf",26,394758);
+com_gamejam_utils_TextFormats.LARGE_TEXT = new openfl_text_TextFormat("arial.ttf",18,394758);
+com_gamejam_utils_TextFormats.NORMAL_TEXT = new openfl_text_TextFormat("arial.ttf",16,394758);
+com_gamejam_utils_TextFormats.SMALL_TEXT = new openfl_text_TextFormat("arial.ttf",12,394758);
 haxe_Serializer.USE_CACHE = false;
 haxe_Serializer.USE_ENUM_INDEX = false;
 haxe_Serializer.BASE64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:";

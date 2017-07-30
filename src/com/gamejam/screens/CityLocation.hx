@@ -4,17 +4,19 @@ package com.gamejam.screens;
 import openfl.display.Bitmap;
 import openfl.display.Sprite;
 import openfl.events.MouseEvent;
-import openfl.text.TextFormat;
+//import openfl.text.TextFormat;
 import openfl.text.TextField;
 import openfl.Lib;
 
 import com.gamejam.activities.CityActivity;
+import com.gamejam.game.CharacterStatusDisplay;
 import com.gamejam.game.MainGameState;
+import com.gamejam.utils.TextFormats;
+
 
 // A city location is a main location, where the player hangs out at
 class CityLocation extends Sprite {
 
-    public var format:TextFormat;
     public var cityLocationText:TextField;
     public var cityDescriptionText:TextField;
     public var locationData:Array<Dynamic>;
@@ -37,19 +39,15 @@ class CityLocation extends Sprite {
         gameOverHackFunction = gameOverHack;
         cityActivities = new List<CityActivity>();
 
-        format = new TextFormat();
-        format.color = 0x808080;
-        format.size = 32;
-
         cityLocationText = new TextField();
-        cityLocationText.setTextFormat(format);
+        cityLocationText.setTextFormat(TextFormats.TITLES);
         cityLocationText.width = 800;
         cityLocationText.height = 50;
         addChild(cityLocationText);
         cityLocationText.x = centerX;
 
         cityDescriptionText = new TextField();
-        cityDescriptionText.setTextFormat(format);
+        cityDescriptionText.setTextFormat(TextFormats.SUBTITLES);
         cityDescriptionText.width = 800;
         cityDescriptionText.height = 50;
         addChild(cityDescriptionText);
@@ -108,6 +106,7 @@ class CityLocation extends Sprite {
                 removeChild(cityActivity);
             }
         }
+
     }
 
     public function onCityActivityClicked(e:MouseEvent):Void {

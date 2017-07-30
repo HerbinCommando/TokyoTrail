@@ -5,9 +5,11 @@ import openfl.display.Sprite;
 import openfl.text.TextFormat;
 import openfl.text.TextField;
 
+
 // StoryView is the place we display game text and stuff
 class StoryView extends Sprite {
 
+    public var format:TextFormat;
     public var storyText:TextField;
     public var storyData:Array<Dynamic>;
 

@@ -4,9 +4,9 @@ package com.gamejam.utils;
 //import openfl.display.SimpleButton;
 import openfl.display.Sprite;
 import openfl.events.MouseEvent;
-
 import openfl.text.TextField;
-import openfl.text.TextFormat;
+
+import com.gamejam.utils.TextFormats;
 
 class TextButton extends Sprite {
 
@@ -20,12 +20,8 @@ class TextButton extends Sprite {
         //this.width = w;
         //this.height = h;
 
-        var format:TextFormat = new TextFormat();
-        format.color = 0x808080;
-        format.size = 24;
-
         text = new TextField();
-        text.setTextFormat(format);
+        text.setTextFormat(TextFormats.BUTTONS);
         text.width = w - 20;
         text.height = h - 5;
         text.text = buttonText;

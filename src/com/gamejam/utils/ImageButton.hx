@@ -38,9 +38,9 @@ class ImageButton extends Sprite {
         hitSprite.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
         hitSprite.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
         */
-        this.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
-        this.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
-        this.addEventListener(MouseEvent.MOUSE_OUT, onMouseUp);
+        upState.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+        upState.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+        upState.addEventListener(MouseEvent.MOUSE_OUT, onMouseUp);
 
     }
 

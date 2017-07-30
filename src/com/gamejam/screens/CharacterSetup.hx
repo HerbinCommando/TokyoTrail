@@ -6,12 +6,13 @@ import openfl.display.SimpleButton;
 import openfl.display.Sprite;
 import openfl.events.MouseEvent;
 import openfl.text.TextField;
-import openfl.text.TextFormat;
+//import openfl.text.TextFormat;
 import openfl.Lib;
 
 import com.gamejam.character.Character;
 import com.gamejam.character.StatBar;
 import com.gamejam.utils.TextButton;
+import com.gamejam.utils.TextFormats;
 
 // CharacterSetup is the place we setup the player's character
 class CharacterSetup extends Sprite {
@@ -24,20 +25,21 @@ class CharacterSetup extends Sprite {
 
     public var createdCharacter:Character;
 
-    public function new () {
+    public var characterData:Array<Dynamic>;
+    public var selectedCharacterClassData:Dynamic;
+
+    public function new (characterClassData:Array<Dynamic>) {
 
         super ();
 
         createdCharacter = null;
+        characterData = characterClassData;
+        selectedCharacterClassData = characterData[0];
 
         var centerX:Float = Lib.current.stage.stageWidth / 2;
 
-        var format:TextFormat = new TextFormat();
-        format.color = 0x808080;
-        format.size = 32;
-
         createCharacterText = new TextField();
-        createCharacterText.setTextFormat(format);
+        createCharacterText.setTextFormat(TextFormats.TITLES);
         createCharacterText.width = 800;
         createCharacterText.height = 50;
         createCharacterText.text = "Choose Your Occupation";
@@ -51,12 +53,12 @@ class CharacterSetup extends Sprite {
         createCharacterButton.y = Lib.current.stage.stageHeight - 125;
 
         characterNameText = new TextField();
-        characterNameText.setTextFormat(format);
+        characterNameText.setTextFormat(TextFormats.FORM_PROPMPS);
         characterNameText.width = 800;
         characterNameText.height = 50;
         characterNameText.text = "Enter Name...";
         addChild(characterNameText);
-        characterNameText.y = 400;
+        characterNameText.y = 425;
 
         statBar = new StatBar();
         addChild(statBar);
@@ -68,7 +70,7 @@ class CharacterSetup extends Sprite {
 
     public function onClickCreateCharacter(e:MouseEvent):Void {
 
-        createdCharacter = new Character(characterNameText.text);
+        createdCharacter = new Character(characterNameText.text, selectedCharacterClassData);
 
     }
 

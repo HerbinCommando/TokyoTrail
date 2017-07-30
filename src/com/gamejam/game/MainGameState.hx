@@ -1,15 +1,25 @@
 package com.gamejam.game;
 
+
+import openfl.Lib;
+
 import com.gamejam.character.Character;
+
 
 // MainGameState contains the logic for running the game.
 class MainGameState {
 
-    var character:Character;
+    public var character:Character;
+    public var characterStatusDisplay:CharacterStatusDisplay;
 
-    public function new (activeCharacter:Character) {
+    public function new (activeCharacter:Character, hungerData:Array<Dynamic>, thirstData:Array<Dynamic>) {
 
         character = activeCharacter;
+
+        characterStatusDisplay = new CharacterStatusDisplay(hungerData, thirstData);
+        Lib.current.stage.addChild(characterStatusDisplay);
+        characterStatusDisplay.x = Lib.current.stage.stageWidth - 300;
+        characterStatusDisplay.updateDisplay(activeCharacter);
 
     }
 
@@ -22,6 +32,7 @@ class MainGameState {
     public function doActivity(activityData:Dynamic):Bool {
 
         // TODO: do the activity, adjust the character?
+        characterStatusDisplay.updateDisplay(character);
         return advanceGameTime(activityData.Duration);
 
     }

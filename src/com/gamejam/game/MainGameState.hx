@@ -1,8 +1,10 @@
 package com.gamejam.game;
 
 
+import openfl.events.MouseEvent;
 import openfl.Lib;
 
+import com.gamejam.activities.ActivityAccomplished;
 import com.gamejam.character.Character;
 
 
@@ -11,15 +13,23 @@ class MainGameState {
 
     public var character:Character;
     public var characterStatusDisplay:CharacterStatusDisplay;
+    public var activityAccomplished:ActivityAccomplished;
 
-    public function new (activeCharacter:Character, hungerData:Array<Dynamic>, thirstData:Array<Dynamic>) {
-
-        character = activeCharacter;
+    public function new (hungerData:Array<Dynamic>, thirstData:Array<Dynamic>) {
 
         characterStatusDisplay = new CharacterStatusDisplay(hungerData, thirstData);
-        Lib.current.stage.addChild(characterStatusDisplay);
         characterStatusDisplay.x = Lib.current.stage.stageWidth - 300;
-        characterStatusDisplay.updateDisplay(activeCharacter);
+
+        activityAccomplished = new ActivityAccomplished();
+        activityAccomplished.okBtn.addEventListener(MouseEvent.CLICK, onClickActivityAccomplishedOK);
+
+    }
+
+    public function startNewGame(newCharacter:Character):Void {
+
+        character = newCharacter;
+        characterStatusDisplay.updateDisplay(character);
+        Lib.current.stage.addChild(characterStatusDisplay);
 
     }
 
@@ -32,6 +42,9 @@ class MainGameState {
     public function doActivity(activityData:Dynamic):Bool {
 
         // TODO: do the activity, adjust the character?
+        trace("Player is doing activity " + activityData.Name);
+        activityAccomplished.setupActivityData(activityData);
+        Lib.current.stage.addChild(activityAccomplished);
         characterStatusDisplay.updateDisplay(character);
         return advanceGameTime(activityData.Duration);
 
@@ -49,7 +62,7 @@ class MainGameState {
 
     }
 
-    static var fakeInt:Int = 5;
+    static var fakeInt:Int = 10;
 
     public function checkGameOverConditions():Bool {
 
@@ -57,8 +70,17 @@ class MainGameState {
 
         var isGameOver:Bool = --fakeInt <= 0;
 
+        if (isGameOver) {
+            Lib.current.stage.removeChild(characterStatusDisplay);
+            fakeInt = 10;
+        }
+
         return isGameOver;
 
     }
 
+    public function onClickActivityAccomplishedOK(e:MouseEvent):Void {
+
+        Lib.current.stage.removeChild(activityAccomplished);
+    }
 }

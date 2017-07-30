@@ -16,6 +16,7 @@ class CharacterStatusDisplay extends Sprite {
 
     //public var format:TextFormat;
     public var nameText:TextField;
+    public var classText:TextField;
     public var staminaStatusText:TextField;
     public var hungerStatusText:TextField;
     public var thirstStatusText:TextField;
@@ -33,32 +34,40 @@ class CharacterStatusDisplay extends Sprite {
         nameText.height = 20;
         addChild(nameText);
 
+        classText = new TextField();
+        classText.setTextFormat(TextFormats.NORMAL_TEXT);
+        classText.width = 300;
+        classText.height = 20;
+        addChild(classText);
+        classText.y = 20;
+
         staminaStatusText = new TextField();
         staminaStatusText.setTextFormat(TextFormats.NORMAL_TEXT);
         staminaStatusText.width = 300;
         staminaStatusText.height = 20;
         addChild(staminaStatusText);
-        staminaStatusText.y = 20;
+        staminaStatusText.y = 40;
 
         hungerStatusText = new TextField();
         hungerStatusText.setTextFormat(TextFormats.NORMAL_TEXT);
         hungerStatusText.width = 300;
         hungerStatusText.height = 20;
         addChild(hungerStatusText);
-        hungerStatusText.y = 40;
+        hungerStatusText.y = 60;
 
         thirstStatusText = new TextField();
         thirstStatusText.setTextFormat(TextFormats.NORMAL_TEXT);
         thirstStatusText.width = 300;
         thirstStatusText.height = 20;
         addChild(thirstStatusText);
-        thirstStatusText.y = 60;
+        thirstStatusText.y = 80;
 
     }
 
     public function updateDisplay(char:Character):Void {
 
         nameText.text = char.charName;
+        classText.text = char.className;
 
         for (data in hungerData) {
             if (char.hunger >= data.level) {

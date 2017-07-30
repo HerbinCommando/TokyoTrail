@@ -25,6 +25,8 @@ class GameOver extends Sprite {
 
         gameOverText = new TextField();
         gameOverText.setTextFormat(TextFormats.TITLES);
+        gameOverText.width = 800;
+        gameOverText.height = 50;
         gameOverText.text = "Game Over!";
         addChild(gameOverText);
         gameOverText.x = centerX;

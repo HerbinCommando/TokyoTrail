@@ -119,14 +119,18 @@ class Main extends Sprite {
 
     public function onClickCreateCharacter(e:MouseEvent):Void {
 
-        var activeChar:Character = characterSetupScreen.createdCharacter;
-        mainGameState = new MainGameState(activeChar, hungerLevels, thirstLevels);
+        if (mainGameState == null) {
+            mainGameState = new MainGameState(hungerLevels, thirstLevels);
+        }
+
+        var newChar:Character = characterSetupScreen.createdCharacter;
+        mainGameState.startNewGame(newChar);
 
         if (cityLocationScreen == null) {
             cityLocationScreen = new CityLocation(locations, onGameIsNowOver);
         }
         cityLocationScreen.setupGame(mainGameState);
-        cityLocationScreen.setupLocation(0);
+        cityLocationScreen.setupLocation(locations[0]);
 
         removeChild(characterSetupScreen);
         addChild(cityLocationScreen);

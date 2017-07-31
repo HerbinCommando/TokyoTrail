@@ -4,13 +4,19 @@ package com.gamejam.utils;
 //import openfl.display.SimpleButton;
 import openfl.display.Sprite;
 import openfl.events.MouseEvent;
-
+import openfl.Lib;
 import openfl.text.TextField;
-import openfl.text.TextFormat;
+
+import com.gamejam.utils.TextFormats;
 
 class TextButton extends Sprite {
 
-    var text:TextField;
+    public var upColor:Int = 0x303030;
+    public var downColor:Int = 0x606060;
+
+    public var text:TextField;
+
+    public var cargo:Dynamic;
 
     public function new (buttonText:String, w:Float, h:Float) {
 
@@ -20,12 +26,8 @@ class TextButton extends Sprite {
         //this.width = w;
         //this.height = h;
 
-        var format:TextFormat = new TextFormat();
-        format.color = 0x808080;
-        format.size = 24;
-
         text = new TextField();
-        text.setTextFormat(format);
+        text.setTextFormat(TextFormats.BUTTONS);
         text.width = w - 20;
         text.height = h - 5;
         text.text = buttonText;
@@ -34,7 +36,7 @@ class TextButton extends Sprite {
         trace("ImageButton hitSprite has w,h = " + this.width + "," + this.height);
         trace("ImageButton hitSprite has params w,h = " + w + "," + h);
 
-        graphics.beginFill(0x303030);
+        graphics.beginFill(upColor);
         graphics.drawRoundRect(0, 0, w, h, 25, 25);
         graphics.endFill();
 
@@ -46,7 +48,7 @@ class TextButton extends Sprite {
 
     public function onMouseDown(e:MouseEvent):Void {
 
-        this.graphics.beginFill(0x606060);
+        this.graphics.beginFill(downColor);
         this.graphics.drawRoundRect(0, 0, this.width, this.height, 25, 25);
         this.graphics.endFill();
 
@@ -54,7 +56,7 @@ class TextButton extends Sprite {
 
     public function onMouseUp(e:MouseEvent):Void {
 
-        this.graphics.beginFill(0x303030);
+        this.graphics.beginFill(upColor);
         this.graphics.drawRoundRect(0, 0, this.width, this.height, 25, 25);
         this.graphics.endFill();
 

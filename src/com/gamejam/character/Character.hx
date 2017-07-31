@@ -14,6 +14,8 @@ class Character extends Sprite {
     public var className:String;
     public var stamina:Int;
     public var maxStamina:Int;
+    public var hunger:Int;
+    public var maxHunger:Int;
     public var thirst:Int;
     public var maxThirst:Int;
     public var money:Int;
@@ -46,6 +48,8 @@ class Character extends Sprite {
         className = data.Class;
         maxStamina = data.MaxStamina;
         stamina = maxStamina;
+        maxHunger = data.MaxHunger;
+        hunger = 0;
         maxThirst = data.maxThirst;
         thirst = 0;
         money = data.Money;

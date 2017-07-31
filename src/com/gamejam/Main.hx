@@ -15,7 +15,6 @@ import com.gamejam.game.MainGameState;
 import com.gamejam.screens.CityLocation;
 import com.gamejam.screens.CharacterSetup;
 import com.gamejam.screens.GameOver;
-import com.gamejam.utils.ImageButton;
 import com.gamejam.utils.TextButton;
 
 class Main extends Sprite {
@@ -35,7 +34,7 @@ class Main extends Sprite {
     public var thirstLevels:Array<Dynamic>;
     public var hungerLevels:Array<Dynamic>;
     public var locations:Array<Dynamic>;
-    public var characterTypes:Array<Dynamic>;
+    public var characterTypeData:Array<Dynamic>;
 
 	public function new () {
 
@@ -43,7 +42,6 @@ class Main extends Sprite {
 
 		trace("running");
 
-        Assets.loadText("assets/data/ActivityDescriptions.json", handleActivityDescriptionsJson);
         Assets.loadText("assets/data/Locations.json", handleLocationsJson);
         Assets.loadText("assets/data/HungerLevels.json", handleHungerLevelsJson);
         Assets.loadText("assets/data/ThirstLevels.json", handleThirstLevelsJson);
@@ -69,7 +67,7 @@ class Main extends Sprite {
         trace(s);
         var data:Dynamic = Json.parse(s);
         //trace(data);
-        characterTypes = data.CharacterTypes;
+        characterTypeData = data.CharacterTypes;
 
     }
 
@@ -94,23 +92,15 @@ class Main extends Sprite {
 
         trace(s);
         var data:Dynamic = Json.parse(s);
-        trace(data);
+        //trace(data);
         locations = data.Locations;
-
-    }
-
-    public function handleActivityDescriptionsJson(s:String):Void {
-
-        trace(s);
-        var activityDescriptions:Dynamic = Json.parse(s);
-        //trace("parsed");
 
     }
 
 	public function showCreateCharacterScreen() {
 
         if (characterSetupScreen == null) {
-            characterSetupScreen = new CharacterSetup();
+            characterSetupScreen = new CharacterSetup(characterTypeData);
             characterSetupScreen.createCharacterButton.addEventListener(MouseEvent.CLICK, onClickCreateCharacter);
         }
         addChild(characterSetupScreen);
@@ -119,14 +109,18 @@ class Main extends Sprite {
 
     public function onClickCreateCharacter(e:MouseEvent):Void {
 
-        var activeChar:Character = characterSetupScreen.createdCharacter;
-        mainGameState = new MainGameState(activeChar);
+        if (mainGameState == null) {
+            mainGameState = new MainGameState(hungerLevels, thirstLevels);
+        }
+
+        var newChar:Character = characterSetupScreen.createdCharacter;
+        mainGameState.startNewGame(newChar);
 
         if (cityLocationScreen == null) {
             cityLocationScreen = new CityLocation(locations, onGameIsNowOver);
         }
         cityLocationScreen.setupGame(mainGameState);
-        cityLocationScreen.setupLocation(0);
+        cityLocationScreen.setupLocation(locations[0]);
 
         removeChild(characterSetupScreen);
         addChild(cityLocationScreen);

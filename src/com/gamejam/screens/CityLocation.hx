@@ -4,28 +4,35 @@ package com.gamejam.screens;
 import openfl.display.Bitmap;
 import openfl.display.Sprite;
 import openfl.events.MouseEvent;
-import openfl.text.TextFormat;
 import openfl.text.TextField;
 import openfl.Lib;
 
-import com.gamejam.activities.CityActivity;
+import com.gamejam.activities.ActivitySelection;
+import com.gamejam.game.CharacterStatusDisplay;
 import com.gamejam.game.MainGameState;
+import com.gamejam.locations.LocationSelection;
+import com.gamejam.utils.TextButton;
+import com.gamejam.utils.TextFormats;
+
 
 // A city location is a main location, where the player hangs out at
 class CityLocation extends Sprite {
 
-    public var format:TextFormat;
     public var cityLocationText:TextField;
     public var cityDescriptionText:TextField;
     public var locationData:Array<Dynamic>;
     public var activityData:Array<Dynamic>;
 
     public var cityBg:Bitmap;
-    public var cityActivities:List<CityActivity>;
+    public var activitySelection:ActivitySelection;
+
+    public var changeLocationButton:TextButton;
+    public var locationSelection:LocationSelection;
+    public var isLocationSelectionOpen:Bool;
 
     public var mainGameState:MainGameState;
 
-    private var gameOverHackFunction:Void->Void;
+    private var gameOverHackFn:Void->Void;
 
     public function new (locations:Array<Dynamic>, gameOverHack:Void->Void) {
 
@@ -34,28 +41,33 @@ class CityLocation extends Sprite {
         var centerX:Float = Lib.current.stage.stageWidth / 2;
 
         locationData = locations;
-        gameOverHackFunction = gameOverHack;
-        cityActivities = new List<CityActivity>();
-
-        format = new TextFormat();
-        format.color = 0x808080;
-        format.size = 32;
+        gameOverHackFn = gameOverHack;
 
         cityLocationText = new TextField();
-        cityLocationText.setTextFormat(format);
+        cityLocationText.setTextFormat(TextFormats.TITLES);
         cityLocationText.width = 800;
         cityLocationText.height = 50;
         addChild(cityLocationText);
-        cityLocationText.x = centerX;
+        //cityLocationText.x = centerX;
 
         cityDescriptionText = new TextField();
-        cityDescriptionText.setTextFormat(format);
+        cityDescriptionText.setTextFormat(TextFormats.SUBTITLES);
+        cityDescriptionText.multiline = true;
+        cityDescriptionText.wordWrap = true;
         cityDescriptionText.width = 800;
-        cityDescriptionText.height = 50;
+        cityDescriptionText.height = 100;
         addChild(cityDescriptionText);
-        cityDescriptionText.x = centerX;
+        //cityDescriptionText.x = centerX;
         cityDescriptionText.y = 55;
 
+        changeLocationButton = new TextButton("Change Location", 300, 40);
+        changeLocationButton.addEventListener(MouseEvent.CLICK, onClickChangeLocation);
+        addChild(changeLocationButton);
+        changeLocationButton.x = centerX;
+        changeLocationButton.y = Lib.current.stage.stageHeight - 125;
+
+        locationSelection = new LocationSelection(onNewLocationSelected);
+        isLocationSelectionOpen = false;
     }
 
     public function setupGame(gameState:MainGameState):Void {
@@ -64,9 +76,7 @@ class CityLocation extends Sprite {
 
     }
 
-    public function setupLocation(locationDataIndex:Int):Void {
-
-        var location:Dynamic = locationData[locationDataIndex];
+    public function setupLocation(location:Dynamic):Void {
 
         //trace("setup location");
         //trace(location);
@@ -76,52 +86,53 @@ class CityLocation extends Sprite {
         activityData = location.Activities;
         //trace(activityData);
 
-        setupActivities();
+        setupActivitySelection();
 
     }
 
-    public function setupActivities():Void {
+    public function setupActivitySelection():Void {
 
-        // ASSUMES activityData has been set, probably in setupLocation()
-        var maxX:Int = Lib.current.stage.stageWidth;
-        var maxY:Int = Lib.current.stage.stageHeight;
+        if (activitySelection == null) {
+            activitySelection = new ActivitySelection(onActivitySelected);
+            activitySelection.y = 165;
+        }
+        activitySelection.setupActivityData(activityData);
 
-        // Make sure we have a CityActivity for each Activity in the data
-        while (activityData.length > cityActivities.length) {
-            cityActivities.push(new CityActivity());
+        if (activitySelection.parent == null) {
+            addChild(activitySelection);
         }
 
-        trace("activityData.length = " + activityData.length);
-        trace("cityActivities.length = " + cityActivities.length);
-
-        // Setup all CityActivities, remove unused instances
-        var activityIndex:Int = 0;
-        for (cityActivity in cityActivities) {
-            if (activityIndex < cityActivities.length) {
-                trace("City Activity being added");
-                cityActivity.setupCityActivity(activityData[activityIndex++]);
-                cityActivity.addEventListener(MouseEvent.CLICK, onCityActivityClicked);
-                addChild(cityActivity);
-                cityActivity.x = Math.round(Math.random()*maxX);
-                cityActivity.y = Math.round(Math.random()*maxY);
-            } else {
-                removeChild(cityActivity);
-            }
-        }
     }
 
-    public function onCityActivityClicked(e:MouseEvent):Void {
+    public function onActivitySelected(activityData:Dynamic):Void {
 
-        var activity:CityActivity = cast(e.currentTarget, CityActivity);
+        if (mainGameState.canDoActivity(activityData)) {
 
-        if (mainGameState.canDoActivity(activity.activityData)) {
-
-            var isGameOver:Bool = mainGameState.doActivity(activity.activityData);
+            var isGameOver:Bool = mainGameState.doActivity(activityData);
             if (isGameOver) {
-                gameOverHackFunction();
+                gameOverHackFn();
             }
 
         }
+
+    }
+
+    public function onClickChangeLocation(e:MouseEvent):Void {
+
+        if (!isLocationSelectionOpen) {
+            isLocationSelectionOpen = true;
+            locationSelection.setupLocationData(locationData);
+            addChild(locationSelection);
+        }
+
+    }
+
+    public function onNewLocationSelected(locData:Dynamic):Void {
+
+        isLocationSelectionOpen = false;
+        removeChild(locationSelection);
+
+        setupLocation(locData);
 
     }
 

@@ -179,8 +179,8 @@
           "ResetsThirst"    :false
         }
       ,{
-          "Name"			:"Shop for Retro Games",
-          "Description"	:"Purchase some classic video games from the 80s through the naughties.",
+          "Name"			:"Shop for Gadgets",
+          "Description"	:"Shop for strange high-tech gadgets and retro video games.",
           "EntertainmentPoints"	:20,
           "SMEPoints"			:10,
           "Stamina"		:-1,
@@ -256,7 +256,7 @@
         }
       ,{
           "Name"			:"Visit a Tall Tower",
-          "Description"	:"Ride an elevator to the top of some boring tower with a dubious claim to a world record",
+          "Description"	:"Ride an elevator to the top of some boring tower with a dubious claim to a world record.",
           "EntertainmentPoints"	:5,
           "SMEPoints"			:20,
           "Stamina"		:-2,
@@ -265,6 +265,34 @@
           "CountsAsSleep"	:false,
           "TimesOfDay"		:"Daytime",
           "Category"		:"Tourism",
+          "ResetsHunger"    :false,
+          "ResetsThirst"    :false
+        }
+      ,{
+          "Name"			:"Visit the Fake Statue of Liberty",
+          "Description"	:"The Odaiba area has a replica of the Statue of Liberty, which they call 'The Goddess of Freedom'.  Destroy it!",
+          "EntertainmentPoints"	:10,
+          "SMEPoints"			:20,
+          "Stamina"		:-1,
+          "Cost"			:5,
+          "Duration"		:1,
+          "CountsAsSleep"	:false,
+          "TimesOfDay"		:"Daytime",
+          "Category"		:"Tourism",
+          "ResetsHunger"    :false,
+          "ResetsThirst"    :false
+        }
+      ,{
+          "Name"			:"Shop in Harajuku",
+          "Description"	:"Visit Harajuku and experience the true meaning of low-quality, overpriced fashion!!",
+          "EntertainmentPoints"	:1,
+          "SMEPoints"			:20,
+          "Stamina"		:-1,
+          "Cost"			:15,
+          "Duration"		:1,
+          "CountsAsSleep"	:false,
+          "TimesOfDay"		:"Daytime",
+          "Category"		:"Shopping",
           "ResetsHunger"    :false,
           "ResetsThirst"    :false
         }

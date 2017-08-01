@@ -1018,7 +1018,7 @@ $hxClasses["ApplicationMain"] = ApplicationMain;
 ApplicationMain.__name__ = ["ApplicationMain"];
 ApplicationMain.main = function() {
 	var projectName = "AkibaTrail";
-	var config = { build : "4", company : "Mars Cilla Consulting", file : "AkibaTrail", fps : 60, name : "Tokyo Trail", orientation : "", packageName : "com.gamejam.akibatrail", version : "1.0.0", windows : [{ allowHighDPI : false, alwaysOnTop : false, antialiasing : 0, background : 16777215, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : true, height : 0, hidden : null, maximized : null, minimized : null, parameters : { }, resizable : true, stencilBuffer : true, title : "Tokyo Trail", vsync : false, width : 0, x : null, y : null}]};
+	var config = { build : "10", company : "Mars Cilla Consulting", file : "AkibaTrail", fps : 60, name : "Tokyo Trail", orientation : "", packageName : "com.gamejam.akibatrail", version : "1.0.0", windows : [{ allowHighDPI : false, alwaysOnTop : false, antialiasing : 0, background : 16777215, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : true, height : 0, hidden : null, maximized : null, minimized : null, parameters : { }, resizable : true, stencilBuffer : true, title : "Tokyo Trail", vsync : false, width : 0, x : null, y : null}]};
 	lime_system_System.__registerEntryPoint(projectName,ApplicationMain.create,config);
 };
 ApplicationMain.create = function(config) {
@@ -3366,7 +3366,7 @@ ManifestResources.init = function(config) {
 	var data;
 	var manifest;
 	var library;
-	data = "{\"name\":null,\"assets\":\"aoy4:pathy35:assets%2Fdata%2FCharacterTypes.jsony4:sizei824y4:typey4:TEXTy2:idR1y7:preloadtgoR0y33:assets%2Fdata%2FHungerLevels.jsonR2i759R3R4R5R7R6tgoR0y30:assets%2Fdata%2FLocations.jsonR2i5768R3R4R5R8R6tgoR0y33:assets%2Fdata%2FThirstLevels.jsonR2i674R3R4R5R9R6tgh\",\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
+	data = "{\"name\":null,\"assets\":\"aoy4:pathy35:assets%2Fdata%2FActivities_Raw.jsony4:sizei12247y4:typey4:TEXTy2:idR1y7:preloadtgoR0y35:assets%2Fdata%2FCharacterTypes.jsonR2i824R3R4R5R7R6tgoR0y33:assets%2Fdata%2FHungerLevels.jsonR2i759R3R4R5R8R6tgoR0y30:assets%2Fdata%2FLocations.jsonR2i22547R3R4R5R9R6tgoR0y34:assets%2Fdata%2FStaminaLevels.jsonR2i830R3R4R5R10R6tgoR0y33:assets%2Fdata%2FThirstLevels.jsonR2i674R3R4R5R11R6tgoR0y44:assets%2Fimages%2FBuy%20Lame%20Souvenirs.pngR2i68641R3y5:IMAGER5R12R6tgoR0y52:assets%2Fimages%2FConvenience%20Store%20Beverage.pngR2i47163R3R13R5R14R6tgoR0y49:assets%2Fimages%2FConvenience%20Store%20Snack.pngR2i60105R3R13R5R15R6tgoR0y47:assets%2Fimages%2FEat%20at%20a%20Restaurant.pngR2i43334R3R13R5R16R6tgoR0y39:assets%2Fimages%2FGet%20a%20Massage.pngR2i76521R3R13R5R17R6tgoR0y45:assets%2Fimages%2FGo%20for%20a%20Walk%202.pngR2i51577R3R13R5R18R6tgoR0y41:assets%2Fimages%2FGo%20for%20a%20Walk.pngR2i77499R3R13R5R19R6tgoR0y38:assets%2Fimages%2FHotel%20Vicinity.pngR2i47216R3R13R5R20R6tgoR0y31:assets%2Fimages%2FIkebukuro.pngR2i40093R3R13R5R21R6tgoR0y33:assets%2Fimages%2FMaid%20Cafe.pngR2i74961R3R13R5R22R6tgoR0y34:assets%2Fimages%2FManga%20Cafe.pngR2i55818R3R13R5R23R6tgoR0y45:assets%2Fimages%2FPlay%20Fighting%20Games.pngR2i67067R3R13R5R24R6tgoR0y43:assets%2Fimages%2FPlay%20Games%20Online.pngR2i50451R3R13R5R25R6tgoR0y50:assets%2Fimages%2FPlay%20the%20Claw%20Machines.pngR2i59061R3R13R5R26R6tgoR0y37:assets%2Fimages%2FRide%20a%20Taxi.pngR2i106257R3R13R5R27R6tgoR0y40:assets%2Fimages%2FRide%20the%20Train.pngR2i47500R3R13R5R28R6tgoR0y32:assets%2Fimages%2FShin-Okubo.pngR2i50465R3R13R5R29R6tgoR0y42:assets%2Fimages%2FShop%20for%20Gadgets.pngR2i59684R3R13R5R30R6tgoR0y42:assets%2Fimages%2FShop%20in%20Harajuku.pngR2i59364R3R13R5R31R6tgoR0y54:assets%2Fimages%2FSleep%20in%20a%20Capsule%20Hotel.pngR2i54215R3R13R5R32R6tgoR0y48:assets%2Fimages%2FSleep%20in%20a%20Stairwell.pngR2i51577R3R13R5R33R6tgoR0y47:assets%2Fimages%2FSleep%20in%20Hotel%20Room.pngR2i49740R3R13R5R34R6tgoR0y45:assets%2Fimages%2FSome%20Street%20%282%29.pngR2i55993R3R13R5R35R6tgoR0y39:assets%2Fimages%2FSome%20Street%202.pngR2i52933R3R13R5R36R6tgoR0y35:assets%2Fimages%2FSome%20Street.pngR2i55993R3R13R5R37R6tgoR0y48:assets%2Fimages%2FThe%20Akihabara%20District.pngR2i66281R3R13R5R38R6tgoR0y45:assets%2Fimages%2FThe%20Boring%20District.pngR2i60974R3R13R5R39R6tgoR0y45:assets%2Fimages%2FUse%20a%20Photo%20Booth.pngR2i43907R3R13R5R40R6tgoR0y54:assets%2Fimages%2FVending%20Machine%20Refreshments.pngR2i57173R3R13R5R41R6tgoR0y47:assets%2Fimages%2FVending%20Machine%20Snack.pngR2i59825R3R13R5R42R6tgoR0y38:assets%2Fimages%2FVisit%20a%20Park.pngR2i61122R3R13R5R43R6tgoR0y40:assets%2Fimages%2FVisit%20a%20Shrine.pngR2i59600R3R13R5R44R6tgoR0y46:assets%2Fimages%2FVisit%20a%20Tall%20Tower.pngR2i123415R3R13R5R45R6tgoR0y51:assets%2Fimages%2FVisit%20an%20Amusement%20Park.pngR2i72247R3R13R5R46R6tgoR0y40:assets%2Fimages%2FVisit%20Shin-Okubo.pngR2i50465R3R13R5R47R6tgoR0y64:assets%2Fimages%2FVisit%20the%20Fake%20Statue%20of%20Liberty.pngR2i57042R3R13R5R48R6tgh\",\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
 	manifest = lime_utils_AssetManifest.parse(data,rootPath);
 	library = lime_utils_AssetLibrary.fromManifest(manifest);
 	lime_utils_Assets.registerLibrary("default",library);
@@ -3739,58 +3739,15 @@ var com_gamejam_activities_ActivityAccomplished = function() {
 	this.nameText.setTextFormat(com_gamejam_utils_TextFormats.SUBTITLES);
 	this.nameText.set_width(800);
 	this.nameText.set_height(50);
-	this.addChild(this.nameText);
 	this.descText = new openfl_text_TextField();
 	this.descText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
 	this.descText.set_multiline(true);
 	this.descText.set_wordWrap(true);
 	this.descText.set_width(800);
 	this.descText.set_height(60);
-	this.addChild(this.descText);
 	this.descText.set_y(65);
-	this.entertainmentPointsText = new openfl_text_TextField();
-	this.entertainmentPointsText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
-	this.addChild(this.entertainmentPointsText);
-	this.entertainmentPointsText.set_y(120);
-	this.smePointsText = new openfl_text_TextField();
-	this.smePointsText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
-	this.addChild(this.smePointsText);
-	this.smePointsText.set_y(135);
-	this.staminaText = new openfl_text_TextField();
-	this.staminaText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
-	this.addChild(this.staminaText);
-	this.staminaText.set_y(150);
-	this.costText = new openfl_text_TextField();
-	this.costText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
-	this.addChild(this.costText);
-	this.costText.set_y(165);
-	this.durationText = new openfl_text_TextField();
-	this.durationText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
-	this.addChild(this.durationText);
-	this.durationText.set_y(180);
-	this.countsAsSleepText = new openfl_text_TextField();
-	this.countsAsSleepText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
-	this.addChild(this.countsAsSleepText);
-	this.countsAsSleepText.set_y(195);
-	this.timesOfDayText = new openfl_text_TextField();
-	this.timesOfDayText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
-	this.addChild(this.timesOfDayText);
-	this.timesOfDayText.set_y(210);
-	this.categoryText = new openfl_text_TextField();
-	this.categoryText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
-	this.addChild(this.categoryText);
-	this.categoryText.set_y(225);
-	this.resetsThirstText = new openfl_text_TextField();
-	this.resetsThirstText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
-	this.addChild(this.resetsThirstText);
-	this.resetsThirstText.set_y(240);
-	this.resetsHungerText = new openfl_text_TextField();
-	this.resetsHungerText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
-	this.addChild(this.resetsHungerText);
-	this.resetsHungerText.set_y(255);
 	var centerX = openfl_Lib.current.stage.stageWidth / 2;
 	this.okBtn = new com_gamejam_utils_TextButton("OK",100,40);
-	this.addChild(this.okBtn);
 	this.okBtn.set_x(centerX);
 	this.okBtn.set_y(openfl_Lib.current.stage.stageHeight - 125);
 };
@@ -3800,32 +3757,21 @@ com_gamejam_activities_ActivityAccomplished.__super__ = openfl_display_Sprite;
 com_gamejam_activities_ActivityAccomplished.prototype = $extend(openfl_display_Sprite.prototype,{
 	nameText: null
 	,descText: null
-	,entertainmentPointsText: null
-	,smePointsText: null
-	,staminaText: null
-	,costText: null
-	,durationText: null
-	,countsAsSleepText: null
-	,timesOfDayText: null
-	,categoryText: null
-	,resetsThirstText: null
-	,resetsHungerText: null
 	,activityImg: null
 	,okBtn: null
 	,whiteBg: null
 	,setupActivityData: function(data) {
+		if(this.activityImg != null) {
+			this.removeChild(this.activityImg);
+			this.activityImg = null;
+		}
+		this.activityImg = new openfl_display_Bitmap(openfl_utils_Assets.getBitmapData("assets/images/" + Std.string(data.Name) + ".png"));
+		this.addChild(this.activityImg);
 		this.nameText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.Name));
 		this.descText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.Description));
-		this.entertainmentPointsText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.EntertainmentPoints));
-		this.smePointsText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.SMEPoints));
-		this.staminaText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.Stamina));
-		this.costText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.Cost));
-		this.durationText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.Duration));
-		this.countsAsSleepText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.CountsAsSleep));
-		this.timesOfDayText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.TimesOfDay));
-		this.categoryText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.Category));
-		this.resetsThirstText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.ResetsThirst));
-		this.resetsHungerText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.ResetsHunger));
+		this.addChild(this.nameText);
+		this.addChild(this.descText);
+		this.addChild(this.okBtn);
 	}
 	,__class__: com_gamejam_activities_ActivityAccomplished
 });
@@ -4194,6 +4140,12 @@ com_gamejam_screens_CityLocation.prototype = $extend(openfl_display_Sprite.proto
 		this.mainGameState = gameState;
 	}
 	,setupLocation: function(location) {
+		if(this.cityBg != null) {
+			this.removeChild(this.cityBg);
+			this.cityBg = null;
+		}
+		this.cityBg = new openfl_display_Bitmap(openfl_utils_Assets.getBitmapData("assets/images/" + Std.string(location.Name) + ".png"));
+		this.addChild(this.cityBg);
 		this.cityLocationText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(location.Name));
 		this.cityDescriptionText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(location.Description));
 		this.activityData = location.Activities;
@@ -30325,7 +30277,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 332384;
+	this.version = 736982;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = ["lime","utils","AssetCache"];

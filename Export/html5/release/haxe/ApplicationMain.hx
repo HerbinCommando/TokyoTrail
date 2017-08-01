@@ -24,7 +24,7 @@ import haxe.macro.Expr;
 		
 		var config = {
 			
-			build: "4",
+			build: "10",
 			company: "Mars Cilla Consulting",
 			file: "AkibaTrail",
 			fps: 60,

@@ -1018,7 +1018,7 @@ $hxClasses["ApplicationMain"] = ApplicationMain;
 ApplicationMain.__name__ = ["ApplicationMain"];
 ApplicationMain.main = function() {
 	var projectName = "AkibaTrail";
-	var config = { build : "10", company : "Mars Cilla Consulting", file : "AkibaTrail", fps : 60, name : "Tokyo Trail", orientation : "", packageName : "com.gamejam.akibatrail", version : "1.0.0", windows : [{ allowHighDPI : false, alwaysOnTop : false, antialiasing : 0, background : 16777215, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : true, height : 0, hidden : null, maximized : null, minimized : null, parameters : { }, resizable : true, stencilBuffer : true, title : "Tokyo Trail", vsync : false, width : 0, x : null, y : null}]};
+	var config = { build : "11", company : "Mars Cilla Consulting", file : "AkibaTrail", fps : 60, name : "Tokyo Trail", orientation : "", packageName : "com.gamejam.akibatrail", version : "1.0.0", windows : [{ allowHighDPI : false, alwaysOnTop : false, antialiasing : 0, background : 16777215, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : true, height : 0, hidden : null, maximized : null, minimized : null, parameters : { }, resizable : true, stencilBuffer : true, title : "Tokyo Trail", vsync : false, width : 0, x : null, y : null}]};
 	lime_system_System.__registerEntryPoint(projectName,ApplicationMain.create,config);
 };
 ApplicationMain.create = function(config) {
@@ -3030,22 +3030,22 @@ com_gamejam_Main.prototype = $extend(openfl_display_Sprite.prototype,{
 	,locations: null
 	,characterTypeData: null
 	,handleCharacterTypesJson: function(s) {
-		haxe_Log.trace(s,{ fileName : "Main.hx", lineNumber : 67, className : "com.gamejam.Main", methodName : "handleCharacterTypesJson"});
+		haxe_Log.trace(s,{ fileName : "Main.hx", lineNumber : 56, className : "com.gamejam.Main", methodName : "handleCharacterTypesJson"});
 		var data = JSON.parse(s);
 		this.characterTypeData = data.CharacterTypes;
 	}
 	,handleThirstLevelsJson: function(s) {
-		haxe_Log.trace(s,{ fileName : "Main.hx", lineNumber : 76, className : "com.gamejam.Main", methodName : "handleThirstLevelsJson"});
+		haxe_Log.trace(s,{ fileName : "Main.hx", lineNumber : 65, className : "com.gamejam.Main", methodName : "handleThirstLevelsJson"});
 		var data = JSON.parse(s);
 		this.thirstLevels = data.ThirstLevels;
 	}
 	,handleHungerLevelsJson: function(s) {
-		haxe_Log.trace(s,{ fileName : "Main.hx", lineNumber : 85, className : "com.gamejam.Main", methodName : "handleHungerLevelsJson"});
+		haxe_Log.trace(s,{ fileName : "Main.hx", lineNumber : 74, className : "com.gamejam.Main", methodName : "handleHungerLevelsJson"});
 		var data = JSON.parse(s);
 		this.hungerLevels = data.HungerLevels;
 	}
 	,handleLocationsJson: function(s) {
-		haxe_Log.trace(s,{ fileName : "Main.hx", lineNumber : 93, className : "com.gamejam.Main", methodName : "handleLocationsJson"});
+		haxe_Log.trace(s,{ fileName : "Main.hx", lineNumber : 82, className : "com.gamejam.Main", methodName : "handleLocationsJson"});
 		var data = JSON.parse(s);
 		this.locations = data.Locations;
 	}
@@ -3366,7 +3366,7 @@ ManifestResources.init = function(config) {
 	var data;
 	var manifest;
 	var library;
-	data = "{\"name\":null,\"assets\":\"aoy4:pathy35:assets%2Fdata%2FActivities_Raw.jsony4:sizei12247y4:typey4:TEXTy2:idR1y7:preloadtgoR0y35:assets%2Fdata%2FCharacterTypes.jsonR2i824R3R4R5R7R6tgoR0y33:assets%2Fdata%2FHungerLevels.jsonR2i759R3R4R5R8R6tgoR0y30:assets%2Fdata%2FLocations.jsonR2i22547R3R4R5R9R6tgoR0y34:assets%2Fdata%2FStaminaLevels.jsonR2i830R3R4R5R10R6tgoR0y33:assets%2Fdata%2FThirstLevels.jsonR2i674R3R4R5R11R6tgoR0y44:assets%2Fimages%2FBuy%20Lame%20Souvenirs.pngR2i68641R3y5:IMAGER5R12R6tgoR0y52:assets%2Fimages%2FConvenience%20Store%20Beverage.pngR2i47163R3R13R5R14R6tgoR0y49:assets%2Fimages%2FConvenience%20Store%20Snack.pngR2i60105R3R13R5R15R6tgoR0y47:assets%2Fimages%2FEat%20at%20a%20Restaurant.pngR2i43334R3R13R5R16R6tgoR0y39:assets%2Fimages%2FGet%20a%20Massage.pngR2i76521R3R13R5R17R6tgoR0y45:assets%2Fimages%2FGo%20for%20a%20Walk%202.pngR2i51577R3R13R5R18R6tgoR0y41:assets%2Fimages%2FGo%20for%20a%20Walk.pngR2i77499R3R13R5R19R6tgoR0y38:assets%2Fimages%2FHotel%20Vicinity.pngR2i47216R3R13R5R20R6tgoR0y31:assets%2Fimages%2FIkebukuro.pngR2i40093R3R13R5R21R6tgoR0y33:assets%2Fimages%2FMaid%20Cafe.pngR2i74961R3R13R5R22R6tgoR0y34:assets%2Fimages%2FManga%20Cafe.pngR2i55818R3R13R5R23R6tgoR0y45:assets%2Fimages%2FPlay%20Fighting%20Games.pngR2i67067R3R13R5R24R6tgoR0y43:assets%2Fimages%2FPlay%20Games%20Online.pngR2i50451R3R13R5R25R6tgoR0y50:assets%2Fimages%2FPlay%20the%20Claw%20Machines.pngR2i59061R3R13R5R26R6tgoR0y37:assets%2Fimages%2FRide%20a%20Taxi.pngR2i106257R3R13R5R27R6tgoR0y40:assets%2Fimages%2FRide%20the%20Train.pngR2i47500R3R13R5R28R6tgoR0y32:assets%2Fimages%2FShin-Okubo.pngR2i50465R3R13R5R29R6tgoR0y42:assets%2Fimages%2FShop%20for%20Gadgets.pngR2i59684R3R13R5R30R6tgoR0y42:assets%2Fimages%2FShop%20in%20Harajuku.pngR2i59364R3R13R5R31R6tgoR0y54:assets%2Fimages%2FSleep%20in%20a%20Capsule%20Hotel.pngR2i54215R3R13R5R32R6tgoR0y48:assets%2Fimages%2FSleep%20in%20a%20Stairwell.pngR2i51577R3R13R5R33R6tgoR0y47:assets%2Fimages%2FSleep%20in%20Hotel%20Room.pngR2i49740R3R13R5R34R6tgoR0y45:assets%2Fimages%2FSome%20Street%20%282%29.pngR2i55993R3R13R5R35R6tgoR0y39:assets%2Fimages%2FSome%20Street%202.pngR2i52933R3R13R5R36R6tgoR0y35:assets%2Fimages%2FSome%20Street.pngR2i55993R3R13R5R37R6tgoR0y48:assets%2Fimages%2FThe%20Akihabara%20District.pngR2i66281R3R13R5R38R6tgoR0y45:assets%2Fimages%2FThe%20Boring%20District.pngR2i60974R3R13R5R39R6tgoR0y45:assets%2Fimages%2FUse%20a%20Photo%20Booth.pngR2i43907R3R13R5R40R6tgoR0y54:assets%2Fimages%2FVending%20Machine%20Refreshments.pngR2i57173R3R13R5R41R6tgoR0y47:assets%2Fimages%2FVending%20Machine%20Snack.pngR2i59825R3R13R5R42R6tgoR0y38:assets%2Fimages%2FVisit%20a%20Park.pngR2i61122R3R13R5R43R6tgoR0y40:assets%2Fimages%2FVisit%20a%20Shrine.pngR2i59600R3R13R5R44R6tgoR0y46:assets%2Fimages%2FVisit%20a%20Tall%20Tower.pngR2i123415R3R13R5R45R6tgoR0y51:assets%2Fimages%2FVisit%20an%20Amusement%20Park.pngR2i72247R3R13R5R46R6tgoR0y40:assets%2Fimages%2FVisit%20Shin-Okubo.pngR2i50465R3R13R5R47R6tgoR0y64:assets%2Fimages%2FVisit%20the%20Fake%20Statue%20of%20Liberty.pngR2i57042R3R13R5R48R6tgh\",\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
+	data = "{\"name\":null,\"assets\":\"aoy4:pathy35:assets%2Fdata%2FCharacterTypes.jsony4:sizei824y4:typey4:TEXTy2:idR1y7:preloadtgoR0y33:assets%2Fdata%2FHungerLevels.jsonR2i759R3R4R5R7R6tgoR0y30:assets%2Fdata%2FLocations.jsonR2i22547R3R4R5R8R6tgoR0y34:assets%2Fdata%2FStaminaLevels.jsonR2i830R3R4R5R9R6tgoR0y33:assets%2Fdata%2FThirstLevels.jsonR2i674R3R4R5R10R6tgoR0y44:assets%2Fimages%2FBuy%20Lame%20Souvenirs.pngR2i68641R3y5:IMAGER5R11R6tgoR0y52:assets%2Fimages%2FConvenience%20Store%20Beverage.pngR2i47163R3R12R5R13R6tgoR0y49:assets%2Fimages%2FConvenience%20Store%20Snack.pngR2i60105R3R12R5R14R6tgoR0y47:assets%2Fimages%2FEat%20at%20a%20Restaurant.pngR2i43334R3R12R5R15R6tgoR0y39:assets%2Fimages%2FGet%20a%20Massage.pngR2i76521R3R12R5R16R6tgoR0y45:assets%2Fimages%2FGo%20for%20a%20Walk%202.pngR2i51577R3R12R5R17R6tgoR0y41:assets%2Fimages%2FGo%20for%20a%20Walk.pngR2i77499R3R12R5R18R6tgoR0y38:assets%2Fimages%2FHotel%20Vicinity.pngR2i47216R3R12R5R19R6tgoR0y31:assets%2Fimages%2FIkebukuro.pngR2i40093R3R12R5R20R6tgoR0y33:assets%2Fimages%2FMaid%20Cafe.pngR2i74961R3R12R5R21R6tgoR0y34:assets%2Fimages%2FManga%20Cafe.pngR2i55818R3R12R5R22R6tgoR0y45:assets%2Fimages%2FPlay%20Fighting%20Games.pngR2i67067R3R12R5R23R6tgoR0y43:assets%2Fimages%2FPlay%20Games%20Online.pngR2i50451R3R12R5R24R6tgoR0y50:assets%2Fimages%2FPlay%20the%20Claw%20Machines.pngR2i59061R3R12R5R25R6tgoR0y37:assets%2Fimages%2FRide%20a%20Taxi.pngR2i106257R3R12R5R26R6tgoR0y40:assets%2Fimages%2FRide%20the%20Train.pngR2i47500R3R12R5R27R6tgoR0y32:assets%2Fimages%2FShin-Okubo.pngR2i50465R3R12R5R28R6tgoR0y42:assets%2Fimages%2FShop%20for%20Gadgets.pngR2i59684R3R12R5R29R6tgoR0y42:assets%2Fimages%2FShop%20in%20Harajuku.pngR2i59364R3R12R5R30R6tgoR0y54:assets%2Fimages%2FSleep%20in%20a%20Capsule%20Hotel.pngR2i54215R3R12R5R31R6tgoR0y48:assets%2Fimages%2FSleep%20in%20a%20Stairwell.pngR2i51577R3R12R5R32R6tgoR0y47:assets%2Fimages%2FSleep%20in%20Hotel%20Room.pngR2i49740R3R12R5R33R6tgoR0y45:assets%2Fimages%2FSome%20Street%20%282%29.pngR2i55993R3R12R5R34R6tgoR0y39:assets%2Fimages%2FSome%20Street%202.pngR2i52933R3R12R5R35R6tgoR0y35:assets%2Fimages%2FSome%20Street.pngR2i55993R3R12R5R36R6tgoR0y48:assets%2Fimages%2FThe%20Akihabara%20District.pngR2i66281R3R12R5R37R6tgoR0y45:assets%2Fimages%2FThe%20Boring%20District.pngR2i60974R3R12R5R38R6tgoR0y45:assets%2Fimages%2FUse%20a%20Photo%20Booth.pngR2i43907R3R12R5R39R6tgoR0y54:assets%2Fimages%2FVending%20Machine%20Refreshments.pngR2i57173R3R12R5R40R6tgoR0y47:assets%2Fimages%2FVending%20Machine%20Snack.pngR2i59825R3R12R5R41R6tgoR0y38:assets%2Fimages%2FVisit%20a%20Park.pngR2i61122R3R12R5R42R6tgoR0y40:assets%2Fimages%2FVisit%20a%20Shrine.pngR2i59600R3R12R5R43R6tgoR0y46:assets%2Fimages%2FVisit%20a%20Tall%20Tower.pngR2i123415R3R12R5R44R6tgoR0y51:assets%2Fimages%2FVisit%20an%20Amusement%20Park.pngR2i72247R3R12R5R45R6tgoR0y40:assets%2Fimages%2FVisit%20Shin-Okubo.pngR2i50465R3R12R5R46R6tgoR0y64:assets%2Fimages%2FVisit%20the%20Fake%20Statue%20of%20Liberty.pngR2i57042R3R12R5R47R6tgh\",\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
 	manifest = lime_utils_AssetManifest.parse(data,rootPath);
 	library = lime_utils_AssetLibrary.fromManifest(manifest);
 	lime_utils_Assets.registerLibrary("default",library);
@@ -3736,11 +3736,11 @@ var com_gamejam_activities_ActivityAccomplished = function() {
 	this.whiteBg.get_graphics().endFill();
 	this.addChild(this.whiteBg);
 	this.nameText = new openfl_text_TextField();
-	this.nameText.setTextFormat(com_gamejam_utils_TextFormats.SUBTITLES);
+	this.nameText.setTextFormat(com_gamejam_utils_TextFormats.WHITE_SUBTITLES);
 	this.nameText.set_width(800);
 	this.nameText.set_height(50);
 	this.descText = new openfl_text_TextField();
-	this.descText.setTextFormat(com_gamejam_utils_TextFormats.NORMAL_TEXT);
+	this.descText.setTextFormat(com_gamejam_utils_TextFormats.WHITE_NORMAL_TEXT);
 	this.descText.set_multiline(true);
 	this.descText.set_wordWrap(true);
 	this.descText.set_width(800);
@@ -3748,8 +3748,7 @@ var com_gamejam_activities_ActivityAccomplished = function() {
 	this.descText.set_y(65);
 	var centerX = openfl_Lib.current.stage.stageWidth / 2;
 	this.okBtn = new com_gamejam_utils_TextButton("OK",100,40);
-	this.okBtn.set_x(centerX);
-	this.okBtn.set_y(openfl_Lib.current.stage.stageHeight - 125);
+	this.okBtn.set_x(openfl_Lib.current.stage.stageWidth - 400);
 };
 $hxClasses["com.gamejam.activities.ActivityAccomplished"] = com_gamejam_activities_ActivityAccomplished;
 com_gamejam_activities_ActivityAccomplished.__name__ = ["com","gamejam","activities","ActivityAccomplished"];
@@ -3808,6 +3807,7 @@ com_gamejam_activities_ActivitySelection.prototype = $extend(openfl_display_Spri
 			btn1.addEventListener("click",$bind(this,this.onClickActivity));
 			this.addChild(btn1);
 			btn1.set_y(this.availableActivities.length * 55);
+			haxe_Log.trace("setupActivityData length == " + this.availableActivities.length,{ fileName : "ActivitySelection.hx", lineNumber : 68, className : "com.gamejam.activities.ActivitySelection", methodName : "setupActivityData"});
 			this.availableActivities.push(btn1);
 		}
 	}
@@ -4101,23 +4101,19 @@ var com_gamejam_screens_CityLocation = function(locations,gameOverHack) {
 	this.locationData = locations;
 	this.gameOverHackFn = gameOverHack;
 	this.cityLocationText = new openfl_text_TextField();
-	this.cityLocationText.setTextFormat(com_gamejam_utils_TextFormats.TITLES);
+	this.cityLocationText.setTextFormat(com_gamejam_utils_TextFormats.WHITE_TITLES);
 	this.cityLocationText.set_width(800);
 	this.cityLocationText.set_height(50);
-	this.addChild(this.cityLocationText);
 	this.cityDescriptionText = new openfl_text_TextField();
-	this.cityDescriptionText.setTextFormat(com_gamejam_utils_TextFormats.SUBTITLES);
+	this.cityDescriptionText.setTextFormat(com_gamejam_utils_TextFormats.WHITE_SUBTITLES);
 	this.cityDescriptionText.set_multiline(true);
 	this.cityDescriptionText.set_wordWrap(true);
 	this.cityDescriptionText.set_width(800);
 	this.cityDescriptionText.set_height(100);
-	this.addChild(this.cityDescriptionText);
 	this.cityDescriptionText.set_y(55);
 	this.changeLocationButton = new com_gamejam_utils_TextButton("Change Location",300,40);
 	this.changeLocationButton.addEventListener("click",$bind(this,this.onClickChangeLocation));
-	this.addChild(this.changeLocationButton);
-	this.changeLocationButton.set_x(centerX);
-	this.changeLocationButton.set_y(openfl_Lib.current.stage.stageHeight - 125);
+	this.changeLocationButton.set_x(openfl_Lib.current.stage.stageWidth - 600);
 	this.locationSelection = new com_gamejam_locations_LocationSelection($bind(this,this.onNewLocationSelected));
 	this.isLocationSelectionOpen = false;
 };
@@ -4146,6 +4142,9 @@ com_gamejam_screens_CityLocation.prototype = $extend(openfl_display_Sprite.proto
 		}
 		this.cityBg = new openfl_display_Bitmap(openfl_utils_Assets.getBitmapData("assets/images/" + Std.string(location.Name) + ".png"));
 		this.addChild(this.cityBg);
+		this.addChild(this.cityLocationText);
+		this.addChild(this.cityDescriptionText);
+		this.addChild(this.changeLocationButton);
 		this.cityLocationText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(location.Name));
 		this.cityDescriptionText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(location.Description));
 		this.activityData = location.Activities;
@@ -4157,9 +4156,7 @@ com_gamejam_screens_CityLocation.prototype = $extend(openfl_display_Sprite.proto
 			this.activitySelection.set_y(165);
 		}
 		this.activitySelection.setupActivityData(this.activityData);
-		if(this.activitySelection.parent == null) {
-			this.addChild(this.activitySelection);
-		}
+		this.addChild(this.activitySelection);
 	}
 	,onActivitySelected: function(activityData) {
 		if(this.mainGameState.canDoActivity(activityData)) {
@@ -4194,8 +4191,7 @@ var com_gamejam_screens_GameOver = function() {
 	this.addChild(this.gameOverText);
 	this.restartButton = new com_gamejam_utils_TextButton("Start a New Game",300,40);
 	this.addChild(this.restartButton);
-	this.restartButton.set_x(centerX);
-	this.restartButton.set_y(openfl_Lib.current.stage.stageHeight - 125);
+	this.restartButton.set_x(openfl_Lib.current.stage.stageWidth - 600);
 };
 $hxClasses["com.gamejam.screens.GameOver"] = com_gamejam_screens_GameOver;
 com_gamejam_screens_GameOver.__name__ = ["com","gamejam","screens","GameOver"];
@@ -30277,7 +30273,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 736982;
+	this.version = 280591;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = ["lime","utils","AssetCache"];
@@ -68645,12 +68641,15 @@ openfl_display_DisplayObject.__broadcastEvents = new haxe_ds_StringMap();
 openfl_display_DisplayObject.__instanceCount = 0;
 com_gamejam_game_MainGameState.fakeInt = 10;
 com_gamejam_utils_TextFormats.TITLES = new openfl_text_TextFormat("courier.ttf",32,526344);
+com_gamejam_utils_TextFormats.WHITE_TITLES = new openfl_text_TextFormat("courier.ttf",32,16777215);
 com_gamejam_utils_TextFormats.SUBTITLES = new openfl_text_TextFormat("courier.ttf",24,526344);
+com_gamejam_utils_TextFormats.WHITE_SUBTITLES = new openfl_text_TextFormat("courier.ttf",24,16777215);
 com_gamejam_utils_TextFormats.BUTTONS = new openfl_text_TextFormat("courier.ttf",24,14606046);
 com_gamejam_utils_TextFormats.FORM_PROPMPS = new openfl_text_TextFormat("courier.ttf",26,592137);
 com_gamejam_utils_TextFormats.FORM_TEXT = new openfl_text_TextFormat("courier.ttf",26,394758);
 com_gamejam_utils_TextFormats.LARGE_TEXT = new openfl_text_TextFormat("arial.ttf",18,394758);
 com_gamejam_utils_TextFormats.NORMAL_TEXT = new openfl_text_TextFormat("arial.ttf",16,394758);
+com_gamejam_utils_TextFormats.WHITE_NORMAL_TEXT = new openfl_text_TextFormat("arial.ttf",16,16777215);
 com_gamejam_utils_TextFormats.SMALL_TEXT = new openfl_text_TextFormat("arial.ttf",12,394758);
 haxe_Serializer.USE_CACHE = false;
 haxe_Serializer.USE_ENUM_INDEX = false;

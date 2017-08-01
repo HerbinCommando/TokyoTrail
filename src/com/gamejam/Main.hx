@@ -47,17 +47,6 @@ class Main extends Sprite {
         Assets.loadText("assets/data/ThirstLevels.json", handleThirstLevelsJson);
         Assets.loadText("assets/data/CharacterTypes.json", handleCharacterTypesJson);
 
-        //var bitmap = new Bitmap (Assets.getBitmapData ("images/bald_bull_headshot.jpeg"));
-        //addChild(bitmap);
-        //bitmap.y = 100;
-        //bald_bull_headshot_inverted.gif
-
-        //var myImageButton:ImageButton = new ImageButton("images/bald_bull_headshot.jpeg", "images/bald_bull_headshot_inverted.jpeg");
-        //addChild(myImageButton);
-
-        //var myTextButton:TextButton = new TextButton("Start...", 100, 40);
-        //addChild(myTextButton);
-
         showCreateCharacterScreen();
 
 	}

@@ -32,8 +32,7 @@ class GameOver extends Sprite {
 
         restartButton = new TextButton("Start a New Game", 300, 40);
         addChild(restartButton);
-        restartButton.x = centerX;
-        restartButton.y = Lib.current.stage.stageHeight - 125;
+        restartButton.x = Lib.current.stage.stageWidth - 600;
 
     }
 

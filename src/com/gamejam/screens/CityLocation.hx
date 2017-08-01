@@ -45,27 +45,25 @@ class CityLocation extends Sprite {
         gameOverHackFn = gameOverHack;
 
         cityLocationText = new TextField();
-        cityLocationText.setTextFormat(TextFormats.TITLES);
+        cityLocationText.setTextFormat(TextFormats.WHITE_TITLES);
         cityLocationText.width = 800;
         cityLocationText.height = 50;
-        addChild(cityLocationText);
+        //addChild(cityLocationText);
         //cityLocationText.x = centerX;
 
         cityDescriptionText = new TextField();
-        cityDescriptionText.setTextFormat(TextFormats.SUBTITLES);
+        cityDescriptionText.setTextFormat(TextFormats.WHITE_SUBTITLES);
         cityDescriptionText.multiline = true;
         cityDescriptionText.wordWrap = true;
         cityDescriptionText.width = 800;
         cityDescriptionText.height = 100;
-        addChild(cityDescriptionText);
-        //cityDescriptionText.x = centerX;
+        //addChild(cityDescriptionText);
         cityDescriptionText.y = 55;
 
         changeLocationButton = new TextButton("Change Location", 300, 40);
         changeLocationButton.addEventListener(MouseEvent.CLICK, onClickChangeLocation);
-        addChild(changeLocationButton);
-        changeLocationButton.x = centerX;
-        changeLocationButton.y = Lib.current.stage.stageHeight - 125;
+        //addChild(changeLocationButton);
+        changeLocationButton.x = Lib.current.stage.stageWidth - 600;
 
         locationSelection = new LocationSelection(onNewLocationSelected);
         isLocationSelectionOpen = false;
@@ -89,6 +87,10 @@ class CityLocation extends Sprite {
         cityBg = new Bitmap (Assets.getBitmapData ("assets/images/" + location.Name + ".png"));
         addChild(cityBg);
 
+        addChild(cityLocationText);
+        addChild(cityDescriptionText);
+        addChild(changeLocationButton);
+
         cityLocationText.text = location.Name;
         cityDescriptionText.text = location.Description;
         activityData = location.Activities;
@@ -106,9 +108,7 @@ class CityLocation extends Sprite {
         }
         activitySelection.setupActivityData(activityData);
 
-        if (activitySelection.parent == null) {
-            addChild(activitySelection);
-        }
+        addChild(activitySelection);
 
     }
 

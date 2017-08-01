@@ -48,13 +48,13 @@ class ActivityAccomplished extends Sprite {
         addChild(whiteBg);
 
         nameText = new TextField();
-        nameText.setTextFormat(TextFormats.SUBTITLES);
+        nameText.setTextFormat(TextFormats.WHITE_SUBTITLES);
         nameText.width = 800;
         nameText.height = 50;
         //addChild(nameText);
 
         descText = new TextField();
-        descText.setTextFormat(TextFormats.NORMAL_TEXT);
+        descText.setTextFormat(TextFormats.WHITE_NORMAL_TEXT);
         descText.multiline = true;
         descText.wordWrap = true;
         descText.width = 800;
@@ -118,8 +118,7 @@ class ActivityAccomplished extends Sprite {
 
         okBtn = new TextButton("OK", 100, 40);
         //okBtn.addEventListener(MouseEvent.CLICK, onClickOKBtn);
-        okBtn.x = centerX;
-        okBtn.y = Lib.current.stage.stageHeight - 125;
+        okBtn.x = Lib.current.stage.stageWidth - 400;
 
     }
 

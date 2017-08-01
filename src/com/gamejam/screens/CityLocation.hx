@@ -1,6 +1,7 @@
 package com.gamejam.screens;
 
 
+import openfl.Assets;
 import openfl.display.Bitmap;
 import openfl.display.Sprite;
 import openfl.events.MouseEvent;
@@ -80,6 +81,13 @@ class CityLocation extends Sprite {
 
         //trace("setup location");
         //trace(location);
+
+        if (cityBg != null) {
+            removeChild(cityBg);
+            cityBg = null;
+        }
+        cityBg = new Bitmap (Assets.getBitmapData ("assets/images/" + location.Name + ".png"));
+        addChild(cityBg);
 
         cityLocationText.text = location.Name;
         cityDescriptionText.text = location.Description;

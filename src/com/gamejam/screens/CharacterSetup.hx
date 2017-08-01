@@ -33,15 +33,6 @@ class CharacterSetup extends Sprite {
 
         super ();
 
-        /*
-        var imgPath:String = "assets/activity_icons/default_activity_icon.png";
-        var downImgPath:String = "assets/activity_icons/default_activity_icon_down.png";
-        var buttonState:Bitmap = new Bitmap (Assets.getBitmapData (imgPath));
-        var downState:Bitmap = new Bitmap (Assets.getBitmapData (downImgPath));
-        cycleCharLeft = new SimpleButton(buttonState,buttonState,downState,buttonState);
-        addChild(cycleCharLeft);
-        */
-
         createdCharacter = null;
         characterData = characterClassData;
         selectedCharacterClassData = characterData[0];

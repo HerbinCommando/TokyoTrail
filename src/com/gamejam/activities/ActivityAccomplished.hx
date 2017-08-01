@@ -16,6 +16,7 @@ class ActivityAccomplished extends Sprite {
 
     public var nameText:TextField;
     public var descText:TextField;
+    /*
     public var entertainmentPointsText:TextField;
     public var smePointsText:TextField;
     public var staminaText:TextField;
@@ -26,6 +27,7 @@ class ActivityAccomplished extends Sprite {
     public var categoryText:TextField;
     public var resetsThirstText:TextField;
     public var resetsHungerText:TextField;
+    */
 
     public var activityImg:Bitmap;
 
@@ -49,7 +51,7 @@ class ActivityAccomplished extends Sprite {
         nameText.setTextFormat(TextFormats.SUBTITLES);
         nameText.width = 800;
         nameText.height = 50;
-        addChild(nameText);
+        //addChild(nameText);
 
         descText = new TextField();
         descText.setTextFormat(TextFormats.NORMAL_TEXT);
@@ -57,9 +59,10 @@ class ActivityAccomplished extends Sprite {
         descText.wordWrap = true;
         descText.width = 800;
         descText.height = 60;
-        addChild(descText);
+        //addChild(descText);
         descText.y = 65;
 
+        /*
         entertainmentPointsText = new TextField();
         entertainmentPointsText.setTextFormat(TextFormats.NORMAL_TEXT);
         addChild(entertainmentPointsText);
@@ -109,12 +112,12 @@ class ActivityAccomplished extends Sprite {
         resetsHungerText.setTextFormat(TextFormats.NORMAL_TEXT);
         addChild(resetsHungerText);
         resetsHungerText.y = 255;
+        */
 
         var centerX:Float = Lib.current.stage.stageWidth / 2;
 
         okBtn = new TextButton("OK", 100, 40);
         //okBtn.addEventListener(MouseEvent.CLICK, onClickOKBtn);
-        addChild(okBtn);
         okBtn.x = centerX;
         okBtn.y = Lib.current.stage.stageHeight - 125;
 
@@ -122,12 +125,21 @@ class ActivityAccomplished extends Sprite {
 
     public function setupActivityData(data:Dynamic):Void {
 
-        //activityImg = new Bitmap (Assets.getBitmapData (data.Filename));
-        //activityImg.x = (Lib.current.stage.stageWidth - activityImg.width)/2;
-        //activityImg.y = -150 - activityImg.height;
+        if (activityImg != null) {
+            removeChild(activityImg);
+            activityImg = null;
+        }
+        activityImg = new Bitmap (Assets.getBitmapData ("assets/images/" + data.Name + ".png"));
+        addChild(activityImg);
 
         nameText.text = data.Name;
         descText.text = data.Description;
+
+        addChild(nameText);
+        addChild(descText);
+        addChild(okBtn);
+
+        /*
         entertainmentPointsText.text = data.EntertainmentPoints;
         smePointsText.text = data.SMEPoints;
         staminaText.text = data.Stamina;
@@ -138,6 +150,7 @@ class ActivityAccomplished extends Sprite {
         categoryText.text = data.Category;
         resetsThirstText.text = data.ResetsThirst;
         resetsHungerText.text = data.ResetsHunger;
+        */
 
     }
 

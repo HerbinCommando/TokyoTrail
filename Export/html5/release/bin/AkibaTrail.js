@@ -1018,7 +1018,7 @@ $hxClasses["ApplicationMain"] = ApplicationMain;
 ApplicationMain.__name__ = ["ApplicationMain"];
 ApplicationMain.main = function() {
 	var projectName = "AkibaTrail";
-	var config = { build : "11", company : "Mars Cilla Consulting", file : "AkibaTrail", fps : 60, name : "Tokyo Trail", orientation : "", packageName : "com.gamejam.akibatrail", version : "1.0.0", windows : [{ allowHighDPI : false, alwaysOnTop : false, antialiasing : 0, background : 16777215, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : true, height : 0, hidden : null, maximized : null, minimized : null, parameters : { }, resizable : true, stencilBuffer : true, title : "Tokyo Trail", vsync : false, width : 0, x : null, y : null}]};
+	var config = { build : "12", company : "Mars Cilla Consulting", file : "AkibaTrail", fps : 60, name : "Tokyo Trail", orientation : "", packageName : "com.gamejam.akibatrail", version : "1.0.0", windows : [{ allowHighDPI : false, alwaysOnTop : false, antialiasing : 0, background : 16777215, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : true, height : 0, hidden : null, maximized : null, minimized : null, parameters : { }, resizable : true, stencilBuffer : true, title : "Tokyo Trail", vsync : false, width : 0, x : null, y : null}]};
 	lime_system_System.__registerEntryPoint(projectName,ApplicationMain.create,config);
 };
 ApplicationMain.create = function(config) {
@@ -3008,12 +3008,13 @@ openfl_display_Sprite.prototype = $extend(openfl_display_DisplayObjectContainer.
 });
 var com_gamejam_Main = function() {
 	openfl_display_Sprite.call(this);
-	haxe_Log.trace("running",{ fileName : "Main.hx", lineNumber : 43, className : "com.gamejam.Main", methodName : "new"});
+	haxe_Log.trace("running",{ fileName : "Main.hx", lineNumber : 44, className : "com.gamejam.Main", methodName : "new"});
 	openfl_utils_Assets.loadText("assets/data/Locations.json",$bind(this,this.handleLocationsJson));
 	openfl_utils_Assets.loadText("assets/data/HungerLevels.json",$bind(this,this.handleHungerLevelsJson));
 	openfl_utils_Assets.loadText("assets/data/ThirstLevels.json",$bind(this,this.handleThirstLevelsJson));
 	openfl_utils_Assets.loadText("assets/data/CharacterTypes.json",$bind(this,this.handleCharacterTypesJson));
-	this.showCreateCharacterScreen();
+	var tempTitleScreen = new com_gamejam_screens_Title();
+	this.addChild(tempTitleScreen);
 };
 $hxClasses["com.gamejam.Main"] = com_gamejam_Main;
 com_gamejam_Main.__name__ = ["com","gamejam","Main"];
@@ -3030,22 +3031,22 @@ com_gamejam_Main.prototype = $extend(openfl_display_Sprite.prototype,{
 	,locations: null
 	,characterTypeData: null
 	,handleCharacterTypesJson: function(s) {
-		haxe_Log.trace(s,{ fileName : "Main.hx", lineNumber : 56, className : "com.gamejam.Main", methodName : "handleCharacterTypesJson"});
+		haxe_Log.trace(s,{ fileName : "Main.hx", lineNumber : 59, className : "com.gamejam.Main", methodName : "handleCharacterTypesJson"});
 		var data = JSON.parse(s);
 		this.characterTypeData = data.CharacterTypes;
 	}
 	,handleThirstLevelsJson: function(s) {
-		haxe_Log.trace(s,{ fileName : "Main.hx", lineNumber : 65, className : "com.gamejam.Main", methodName : "handleThirstLevelsJson"});
+		haxe_Log.trace(s,{ fileName : "Main.hx", lineNumber : 68, className : "com.gamejam.Main", methodName : "handleThirstLevelsJson"});
 		var data = JSON.parse(s);
 		this.thirstLevels = data.ThirstLevels;
 	}
 	,handleHungerLevelsJson: function(s) {
-		haxe_Log.trace(s,{ fileName : "Main.hx", lineNumber : 74, className : "com.gamejam.Main", methodName : "handleHungerLevelsJson"});
+		haxe_Log.trace(s,{ fileName : "Main.hx", lineNumber : 77, className : "com.gamejam.Main", methodName : "handleHungerLevelsJson"});
 		var data = JSON.parse(s);
 		this.hungerLevels = data.HungerLevels;
 	}
 	,handleLocationsJson: function(s) {
-		haxe_Log.trace(s,{ fileName : "Main.hx", lineNumber : 82, className : "com.gamejam.Main", methodName : "handleLocationsJson"});
+		haxe_Log.trace(s,{ fileName : "Main.hx", lineNumber : 85, className : "com.gamejam.Main", methodName : "handleLocationsJson"});
 		var data = JSON.parse(s);
 		this.locations = data.Locations;
 	}
@@ -3363,10 +3364,11 @@ ManifestResources.init = function(config) {
 		rootPath = "";
 	}
 	lime_utils_Assets.defaultRootPath = rootPath;
+	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$assets_$font_$vt323_$regular_$ttf);
 	var data;
 	var manifest;
 	var library;
-	data = "{\"name\":null,\"assets\":\"aoy4:pathy35:assets%2Fdata%2FCharacterTypes.jsony4:sizei824y4:typey4:TEXTy2:idR1y7:preloadtgoR0y33:assets%2Fdata%2FHungerLevels.jsonR2i759R3R4R5R7R6tgoR0y30:assets%2Fdata%2FLocations.jsonR2i22547R3R4R5R8R6tgoR0y34:assets%2Fdata%2FStaminaLevels.jsonR2i830R3R4R5R9R6tgoR0y33:assets%2Fdata%2FThirstLevels.jsonR2i674R3R4R5R10R6tgoR0y44:assets%2Fimages%2FBuy%20Lame%20Souvenirs.pngR2i68641R3y5:IMAGER5R11R6tgoR0y52:assets%2Fimages%2FConvenience%20Store%20Beverage.pngR2i47163R3R12R5R13R6tgoR0y49:assets%2Fimages%2FConvenience%20Store%20Snack.pngR2i60105R3R12R5R14R6tgoR0y47:assets%2Fimages%2FEat%20at%20a%20Restaurant.pngR2i43334R3R12R5R15R6tgoR0y39:assets%2Fimages%2FGet%20a%20Massage.pngR2i76521R3R12R5R16R6tgoR0y45:assets%2Fimages%2FGo%20for%20a%20Walk%202.pngR2i51577R3R12R5R17R6tgoR0y41:assets%2Fimages%2FGo%20for%20a%20Walk.pngR2i77499R3R12R5R18R6tgoR0y38:assets%2Fimages%2FHotel%20Vicinity.pngR2i47216R3R12R5R19R6tgoR0y31:assets%2Fimages%2FIkebukuro.pngR2i40093R3R12R5R20R6tgoR0y33:assets%2Fimages%2FMaid%20Cafe.pngR2i74961R3R12R5R21R6tgoR0y34:assets%2Fimages%2FManga%20Cafe.pngR2i55818R3R12R5R22R6tgoR0y45:assets%2Fimages%2FPlay%20Fighting%20Games.pngR2i67067R3R12R5R23R6tgoR0y43:assets%2Fimages%2FPlay%20Games%20Online.pngR2i50451R3R12R5R24R6tgoR0y50:assets%2Fimages%2FPlay%20the%20Claw%20Machines.pngR2i59061R3R12R5R25R6tgoR0y37:assets%2Fimages%2FRide%20a%20Taxi.pngR2i106257R3R12R5R26R6tgoR0y40:assets%2Fimages%2FRide%20the%20Train.pngR2i47500R3R12R5R27R6tgoR0y32:assets%2Fimages%2FShin-Okubo.pngR2i50465R3R12R5R28R6tgoR0y42:assets%2Fimages%2FShop%20for%20Gadgets.pngR2i59684R3R12R5R29R6tgoR0y42:assets%2Fimages%2FShop%20in%20Harajuku.pngR2i59364R3R12R5R30R6tgoR0y54:assets%2Fimages%2FSleep%20in%20a%20Capsule%20Hotel.pngR2i54215R3R12R5R31R6tgoR0y48:assets%2Fimages%2FSleep%20in%20a%20Stairwell.pngR2i51577R3R12R5R32R6tgoR0y47:assets%2Fimages%2FSleep%20in%20Hotel%20Room.pngR2i49740R3R12R5R33R6tgoR0y45:assets%2Fimages%2FSome%20Street%20%282%29.pngR2i55993R3R12R5R34R6tgoR0y39:assets%2Fimages%2FSome%20Street%202.pngR2i52933R3R12R5R35R6tgoR0y35:assets%2Fimages%2FSome%20Street.pngR2i55993R3R12R5R36R6tgoR0y48:assets%2Fimages%2FThe%20Akihabara%20District.pngR2i66281R3R12R5R37R6tgoR0y45:assets%2Fimages%2FThe%20Boring%20District.pngR2i60974R3R12R5R38R6tgoR0y45:assets%2Fimages%2FUse%20a%20Photo%20Booth.pngR2i43907R3R12R5R39R6tgoR0y54:assets%2Fimages%2FVending%20Machine%20Refreshments.pngR2i57173R3R12R5R40R6tgoR0y47:assets%2Fimages%2FVending%20Machine%20Snack.pngR2i59825R3R12R5R41R6tgoR0y38:assets%2Fimages%2FVisit%20a%20Park.pngR2i61122R3R12R5R42R6tgoR0y40:assets%2Fimages%2FVisit%20a%20Shrine.pngR2i59600R3R12R5R43R6tgoR0y46:assets%2Fimages%2FVisit%20a%20Tall%20Tower.pngR2i123415R3R12R5R44R6tgoR0y51:assets%2Fimages%2FVisit%20an%20Amusement%20Park.pngR2i72247R3R12R5R45R6tgoR0y40:assets%2Fimages%2FVisit%20Shin-Okubo.pngR2i50465R3R12R5R46R6tgoR0y64:assets%2Fimages%2FVisit%20the%20Fake%20Statue%20of%20Liberty.pngR2i57042R3R12R5R47R6tgh\",\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
+	data = "{\"name\":null,\"assets\":\"aoy4:pathy35:assets%2Fdata%2FCharacterTypes.jsony4:sizei824y4:typey4:TEXTy2:idR1y7:preloadtgoR0y33:assets%2Fdata%2FHungerLevels.jsonR2i759R3R4R5R7R6tgoR0y30:assets%2Fdata%2FLocations.jsonR2i22547R3R4R5R8R6tgoR0y34:assets%2Fdata%2FStaminaLevels.jsonR2i830R3R4R5R9R6tgoR0y33:assets%2Fdata%2FThirstLevels.jsonR2i674R3R4R5R10R6tgoR2i153116R3y4:FONTy9:classNamey38:__ASSET__assets_font_vt323_regular_ttfR5y33:assets%2Ffont%2FVT323-Regular.ttfR6tgoR0y27:assets%2Ffont%2FVT323.woff2R2i7020R3y6:BINARYR5R15R6tgoR0y44:assets%2Fimages%2FBuy%20Lame%20Souvenirs.pngR2i68641R3y5:IMAGER5R17R6tgoR0y52:assets%2Fimages%2FConvenience%20Store%20Beverage.pngR2i47163R3R18R5R19R6tgoR0y49:assets%2Fimages%2FConvenience%20Store%20Snack.pngR2i60105R3R18R5R20R6tgoR0y47:assets%2Fimages%2FEat%20at%20a%20Restaurant.pngR2i43334R3R18R5R21R6tgoR0y39:assets%2Fimages%2FGet%20a%20Massage.pngR2i76521R3R18R5R22R6tgoR0y45:assets%2Fimages%2FGo%20for%20a%20Walk%202.pngR2i51577R3R18R5R23R6tgoR0y41:assets%2Fimages%2FGo%20for%20a%20Walk.pngR2i77499R3R18R5R24R6tgoR0y38:assets%2Fimages%2FHotel%20Vicinity.pngR2i47216R3R18R5R25R6tgoR0y31:assets%2Fimages%2FIkebukuro.pngR2i40093R3R18R5R26R6tgoR0y33:assets%2Fimages%2FMaid%20Cafe.pngR2i74961R3R18R5R27R6tgoR0y34:assets%2Fimages%2FManga%20Cafe.pngR2i55818R3R18R5R28R6tgoR0y45:assets%2Fimages%2FPlay%20Fighting%20Games.pngR2i67067R3R18R5R29R6tgoR0y43:assets%2Fimages%2FPlay%20Games%20Online.pngR2i50451R3R18R5R30R6tgoR0y50:assets%2Fimages%2FPlay%20the%20Claw%20Machines.pngR2i59061R3R18R5R31R6tgoR0y37:assets%2Fimages%2FRide%20a%20Taxi.pngR2i106257R3R18R5R32R6tgoR0y40:assets%2Fimages%2FRide%20the%20Train.pngR2i47500R3R18R5R33R6tgoR0y32:assets%2Fimages%2FShin-Okubo.pngR2i50465R3R18R5R34R6tgoR0y42:assets%2Fimages%2FShop%20for%20Gadgets.pngR2i59684R3R18R5R35R6tgoR0y42:assets%2Fimages%2FShop%20in%20Harajuku.pngR2i59364R3R18R5R36R6tgoR0y54:assets%2Fimages%2FSleep%20in%20a%20Capsule%20Hotel.pngR2i54215R3R18R5R37R6tgoR0y48:assets%2Fimages%2FSleep%20in%20a%20Stairwell.pngR2i51577R3R18R5R38R6tgoR0y47:assets%2Fimages%2FSleep%20in%20Hotel%20Room.pngR2i49740R3R18R5R39R6tgoR0y45:assets%2Fimages%2FSome%20Street%20%282%29.pngR2i55993R3R18R5R40R6tgoR0y39:assets%2Fimages%2FSome%20Street%202.pngR2i52933R3R18R5R41R6tgoR0y35:assets%2Fimages%2FSome%20Street.pngR2i55993R3R18R5R42R6tgoR0y48:assets%2Fimages%2FThe%20Akihabara%20District.pngR2i66281R3R18R5R43R6tgoR0y45:assets%2Fimages%2FThe%20Boring%20District.pngR2i60974R3R18R5R44R6tgoR0y45:assets%2Fimages%2FUse%20a%20Photo%20Booth.pngR2i43907R3R18R5R45R6tgoR0y54:assets%2Fimages%2FVending%20Machine%20Refreshments.pngR2i57173R3R18R5R46R6tgoR0y47:assets%2Fimages%2FVending%20Machine%20Snack.pngR2i59825R3R18R5R47R6tgoR0y38:assets%2Fimages%2FVisit%20a%20Park.pngR2i61122R3R18R5R48R6tgoR0y40:assets%2Fimages%2FVisit%20a%20Shrine.pngR2i59600R3R18R5R49R6tgoR0y46:assets%2Fimages%2FVisit%20a%20Tall%20Tower.pngR2i123415R3R18R5R50R6tgoR0y51:assets%2Fimages%2FVisit%20an%20Amusement%20Park.pngR2i72247R3R18R5R51R6tgoR0y40:assets%2Fimages%2FVisit%20Shin-Okubo.pngR2i50465R3R18R5R52R6tgoR0y64:assets%2Fimages%2FVisit%20the%20Fake%20Statue%20of%20Liberty.pngR2i57042R3R18R5R53R6tgh\",\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
 	manifest = lime_utils_AssetManifest.parse(data,rootPath);
 	library = lime_utils_AssetLibrary.fromManifest(manifest);
 	lime_utils_Assets.registerLibrary("default",library);
@@ -3377,6 +3379,238 @@ ManifestResources.init = function(config) {
 		ManifestResources.preloadLibraryNames.push("default");
 	}
 };
+var lime_text_Font = function(name) {
+	if(name != null) {
+		this.name = name;
+	}
+	if(this.__fontPath != null) {
+		this.__fromFile(this.__fontPath);
+	}
+};
+$hxClasses["lime.text.Font"] = lime_text_Font;
+lime_text_Font.__name__ = ["lime","text","Font"];
+lime_text_Font.fromBytes = function(bytes) {
+	if(bytes == null) {
+		return null;
+	}
+	var font = new lime_text_Font();
+	font.__fromBytes(bytes);
+	return font;
+};
+lime_text_Font.fromFile = function(path) {
+	if(path == null) {
+		return null;
+	}
+	var font = new lime_text_Font();
+	font.__fromFile(path);
+	return font;
+};
+lime_text_Font.loadFromBytes = function(bytes) {
+	return lime_app_Future.withValue(lime_text_Font.fromBytes(bytes));
+};
+lime_text_Font.loadFromFile = function(path) {
+	var request = new lime_net__$HTTPRequest_$lime_$text_$Font();
+	return request.load(path).then(function(font) {
+		if(font != null) {
+			return lime_app_Future.withValue(font);
+		} else {
+			return lime_app_Future.withError("");
+		}
+	});
+};
+lime_text_Font.loadFromName = function(path) {
+	var font = new lime_text_Font();
+	return font.__loadFromName(path);
+};
+lime_text_Font.__makeLoaderNode = function(fontFamily) {
+	var node = window.document.createElement("span");
+	node.innerHTML = "giItT1WQy@!-/#";
+	var style = node.style;
+	style.position = "absolute";
+	style.left = "-10000px";
+	style.top = "-10000px";
+	style.fontSize = "300px";
+	style.fontFamily = fontFamily;
+	style.fontVariant = "normal";
+	style.fontStyle = "normal";
+	style.fontWeight = "normal";
+	style.letterSpacing = "0";
+	window.document.body.appendChild(node);
+	return node;
+};
+lime_text_Font.prototype = {
+	ascender: null
+	,descender: null
+	,height: null
+	,name: null
+	,numGlyphs: null
+	,src: null
+	,underlinePosition: null
+	,underlineThickness: null
+	,unitsPerEM: null
+	,__fontPath: null
+	,decompose: function() {
+		return null;
+	}
+	,getGlyph: function(character) {
+		return -1;
+	}
+	,getGlyphs: function(characters) {
+		if(characters == null) {
+			characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^`'\"/\\&*()[]{}<>|:;_-+=?,. ";
+		}
+		return null;
+	}
+	,getGlyphMetrics: function(glyph) {
+		return null;
+	}
+	,renderGlyph: function(glyph,fontSize) {
+		return null;
+	}
+	,renderGlyphs: function(glyphs,fontSize) {
+		return null;
+	}
+	,__fromBytes: function(bytes) {
+		this.__fontPath = null;
+	}
+	,__fromFile: function(path) {
+		this.__fontPath = path;
+	}
+	,__loadFromName: function(name) {
+		var _gthis = this;
+		var promise = new lime_app_Promise();
+		this.name = name;
+		var font = name;
+		var ua = window.navigator.userAgent.toLowerCase();
+		if(!(ua.indexOf(" safari/") >= 0 && ua.indexOf(" chrome/") < 0) && (window.document.fonts && ($_=window.document.fonts,$bind($_,$_.load)))) {
+			window.document.fonts.load("1em '" + font + "'").then(function(_) {
+				promise.complete(_gthis);
+			});
+		} else {
+			var node1 = lime_text_Font.__makeLoaderNode("sans-serif");
+			var node2 = lime_text_Font.__makeLoaderNode("serif");
+			var width1 = node1.offsetWidth;
+			var width2 = node2.offsetWidth;
+			node1.style.fontFamily = "'" + name + "', sans-serif";
+			node2.style.fontFamily = "'" + name + "', serif";
+			var interval = null;
+			var found = false;
+			var checkFont = function() {
+				if(node1.offsetWidth != width1 || node2.offsetWidth != width2) {
+					if(!found) {
+						found = true;
+						return false;
+					}
+					if(interval != null) {
+						window.clearInterval(interval);
+					}
+					node1.parentNode.removeChild(node1);
+					node2.parentNode.removeChild(node2);
+					node1 = null;
+					node2 = null;
+					promise.complete(_gthis);
+					return true;
+				}
+				return false;
+			};
+			if(!checkFont()) {
+				interval = window.setInterval(checkFont,50);
+			}
+		}
+		return promise.future;
+	}
+	,__setSize: function(size) {
+	}
+	,get_ascender: function() {
+		return 0;
+	}
+	,get_descender: function() {
+		return 0;
+	}
+	,get_height: function() {
+		return 0;
+	}
+	,get_numGlyphs: function() {
+		return 0;
+	}
+	,get_underlinePosition: function() {
+		return 0;
+	}
+	,get_underlineThickness: function() {
+		return 0;
+	}
+	,get_unitsPerEM: function() {
+		return 0;
+	}
+	,__class__: lime_text_Font
+};
+var _$_$ASSET_$_$assets_$font_$vt323_$regular_$ttf = $hx_exports["__ASSET__assets_font_vt323_regular_ttf"] = function() {
+	this.name = "VT323 Regular";
+	lime_text_Font.call(this);
+};
+$hxClasses["__ASSET__assets_font_vt323_regular_ttf"] = _$_$ASSET_$_$assets_$font_$vt323_$regular_$ttf;
+_$_$ASSET_$_$assets_$font_$vt323_$regular_$ttf.__name__ = ["__ASSET__assets_font_vt323_regular_ttf"];
+_$_$ASSET_$_$assets_$font_$vt323_$regular_$ttf.__super__ = lime_text_Font;
+_$_$ASSET_$_$assets_$font_$vt323_$regular_$ttf.prototype = $extend(lime_text_Font.prototype,{
+	__class__: _$_$ASSET_$_$assets_$font_$vt323_$regular_$ttf
+});
+var openfl_text_Font = function(name) {
+	lime_text_Font.call(this,name);
+};
+$hxClasses["openfl.text.Font"] = openfl_text_Font;
+openfl_text_Font.__name__ = ["openfl","text","Font"];
+openfl_text_Font.enumerateFonts = function(enumerateDeviceFonts) {
+	if(enumerateDeviceFonts == null) {
+		enumerateDeviceFonts = false;
+	}
+	return openfl_text_Font.__registeredFonts;
+};
+openfl_text_Font.fromBytes = function(bytes) {
+	var font = new openfl_text_Font();
+	font.__fromBytes(openfl_utils__$ByteArray_ByteArray_$Impl_$.toBytes(bytes));
+	return font;
+};
+openfl_text_Font.fromFile = function(path) {
+	var font = new openfl_text_Font();
+	font.__fromFile(path);
+	return font;
+};
+openfl_text_Font.registerFont = function(font) {
+	var instance = js_Boot.__cast(Type.createInstance(font,[]) , openfl_text_Font);
+	if(instance != null) {
+		openfl_text_Font.__registeredFonts.push(instance);
+	}
+};
+openfl_text_Font.__fromLimeFont = function(value) {
+	var font = new openfl_text_Font();
+	font.name = value.name;
+	font.src = value.src;
+	return font;
+};
+openfl_text_Font.__super__ = lime_text_Font;
+openfl_text_Font.prototype = $extend(lime_text_Font.prototype,{
+	fontStyle: null
+	,fontType: null
+	,get_fontName: function() {
+		return this.name;
+	}
+	,set_fontName: function(value) {
+		return this.name = value;
+	}
+	,__class__: openfl_text_Font
+});
+var _$_$ASSET_$_$OPENFL_$_$assets_$font_$vt323_$regular_$ttf = $hx_exports["__ASSET__OPENFL__assets_font_vt323_regular_ttf"] = function() {
+	var font = new _$_$ASSET_$_$assets_$font_$vt323_$regular_$ttf();
+	this.src = font.src;
+	this.name = font.name;
+	openfl_text_Font.call(this);
+};
+$hxClasses["__ASSET__OPENFL__assets_font_vt323_regular_ttf"] = _$_$ASSET_$_$OPENFL_$_$assets_$font_$vt323_$regular_$ttf;
+_$_$ASSET_$_$OPENFL_$_$assets_$font_$vt323_$regular_$ttf.__name__ = ["__ASSET__OPENFL__assets_font_vt323_regular_ttf"];
+_$_$ASSET_$_$OPENFL_$_$assets_$font_$vt323_$regular_$ttf.__super__ = openfl_text_Font;
+_$_$ASSET_$_$OPENFL_$_$assets_$font_$vt323_$regular_$ttf.prototype = $extend(openfl_text_Font.prototype,{
+	__class__: _$_$ASSET_$_$OPENFL_$_$assets_$font_$vt323_$regular_$ttf
+});
 Math.__name__ = ["Math"];
 var Reflect = function() { };
 $hxClasses["Reflect"] = Reflect;
@@ -4200,6 +4434,51 @@ com_gamejam_screens_GameOver.prototype = $extend(openfl_display_Sprite.prototype
 	gameOverText: null
 	,restartButton: null
 	,__class__: com_gamejam_screens_GameOver
+});
+var com_gamejam_screens_Title = function() {
+	openfl_display_Sprite.call(this);
+	this.screenBg = new openfl_display_Bitmap(openfl_utils_Assets.getBitmapData("assets/images/Shin-Okubo.png"));
+	this.addChild(this.screenBg);
+	this.titleBg = new openfl_display_Sprite();
+	this.titleBg.get_graphics().beginFill(0);
+	this.titleBg.get_graphics().drawRect(0,0,600,80);
+	this.titleBg.get_graphics().endFill();
+	this.addChild(this.titleBg);
+	this.titleBg.set_x(240.);
+	this.titleBg.set_y(185);
+	this.title = new openfl_text_TextField();
+	this.title.setTextFormat(com_gamejam_utils_TextFormats.WHITE_TITLES);
+	this.title.set_text("The Tokyo Trail");
+	this.title.set_width(600);
+	this.title.set_height(80);
+	this.title.set_autoSize(0);
+	this.titleBg.addChild(this.title);
+	this.descBg = new openfl_display_Sprite();
+	this.descBg.get_graphics().beginFill(0);
+	this.descBg.get_graphics().drawRect(0,0,775,200);
+	this.descBg.get_graphics().endFill();
+	this.addChild(this.descBg);
+	this.descBg.set_x(152.5);
+	this.descBg.set_y(450);
+	this.desc = new openfl_text_TextField();
+	this.desc.setTextFormat(com_gamejam_utils_TextFormats.WHITE_SUBTITLES);
+	this.desc.set_text("In the year 20XX, travelers to Tokyo struggled with hunger, thirst, \nboredom, and the ever-pressing need to make an impace on their social \nmedia feeds.\n\nWill you brave the Tokyo Trail?\n\nNEW GAME");
+	this.desc.set_width(760);
+	this.desc.set_height(200);
+	this.desc.set_autoSize(0);
+	this.descBg.addChild(this.desc);
+};
+$hxClasses["com.gamejam.screens.Title"] = com_gamejam_screens_Title;
+com_gamejam_screens_Title.__name__ = ["com","gamejam","screens","Title"];
+com_gamejam_screens_Title.__super__ = openfl_display_Sprite;
+com_gamejam_screens_Title.prototype = $extend(openfl_display_Sprite.prototype,{
+	screenBg: null
+	,titleBg: null
+	,descBg: null
+	,title: null
+	,desc: null
+	,newGame: null
+	,__class__: com_gamejam_screens_Title
 });
 var com_gamejam_utils_TextButton = function(buttonText,w,h) {
 	this.downColor = 6316128;
@@ -26701,171 +26980,6 @@ lime_system__$ThreadPool_ThreadPoolMessage.prototype = {
 	,type: null
 	,__class__: lime_system__$ThreadPool_ThreadPoolMessage
 };
-var lime_text_Font = function(name) {
-	if(name != null) {
-		this.name = name;
-	}
-	if(this.__fontPath != null) {
-		this.__fromFile(this.__fontPath);
-	}
-};
-$hxClasses["lime.text.Font"] = lime_text_Font;
-lime_text_Font.__name__ = ["lime","text","Font"];
-lime_text_Font.fromBytes = function(bytes) {
-	if(bytes == null) {
-		return null;
-	}
-	var font = new lime_text_Font();
-	font.__fromBytes(bytes);
-	return font;
-};
-lime_text_Font.fromFile = function(path) {
-	if(path == null) {
-		return null;
-	}
-	var font = new lime_text_Font();
-	font.__fromFile(path);
-	return font;
-};
-lime_text_Font.loadFromBytes = function(bytes) {
-	return lime_app_Future.withValue(lime_text_Font.fromBytes(bytes));
-};
-lime_text_Font.loadFromFile = function(path) {
-	var request = new lime_net__$HTTPRequest_$lime_$text_$Font();
-	return request.load(path).then(function(font) {
-		if(font != null) {
-			return lime_app_Future.withValue(font);
-		} else {
-			return lime_app_Future.withError("");
-		}
-	});
-};
-lime_text_Font.loadFromName = function(path) {
-	var font = new lime_text_Font();
-	return font.__loadFromName(path);
-};
-lime_text_Font.__makeLoaderNode = function(fontFamily) {
-	var node = window.document.createElement("span");
-	node.innerHTML = "giItT1WQy@!-/#";
-	var style = node.style;
-	style.position = "absolute";
-	style.left = "-10000px";
-	style.top = "-10000px";
-	style.fontSize = "300px";
-	style.fontFamily = fontFamily;
-	style.fontVariant = "normal";
-	style.fontStyle = "normal";
-	style.fontWeight = "normal";
-	style.letterSpacing = "0";
-	window.document.body.appendChild(node);
-	return node;
-};
-lime_text_Font.prototype = {
-	ascender: null
-	,descender: null
-	,height: null
-	,name: null
-	,numGlyphs: null
-	,src: null
-	,underlinePosition: null
-	,underlineThickness: null
-	,unitsPerEM: null
-	,__fontPath: null
-	,decompose: function() {
-		return null;
-	}
-	,getGlyph: function(character) {
-		return -1;
-	}
-	,getGlyphs: function(characters) {
-		if(characters == null) {
-			characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^`'\"/\\&*()[]{}<>|:;_-+=?,. ";
-		}
-		return null;
-	}
-	,getGlyphMetrics: function(glyph) {
-		return null;
-	}
-	,renderGlyph: function(glyph,fontSize) {
-		return null;
-	}
-	,renderGlyphs: function(glyphs,fontSize) {
-		return null;
-	}
-	,__fromBytes: function(bytes) {
-		this.__fontPath = null;
-	}
-	,__fromFile: function(path) {
-		this.__fontPath = path;
-	}
-	,__loadFromName: function(name) {
-		var _gthis = this;
-		var promise = new lime_app_Promise();
-		this.name = name;
-		var font = name;
-		var ua = window.navigator.userAgent.toLowerCase();
-		if(!(ua.indexOf(" safari/") >= 0 && ua.indexOf(" chrome/") < 0) && (window.document.fonts && ($_=window.document.fonts,$bind($_,$_.load)))) {
-			window.document.fonts.load("1em '" + font + "'").then(function(_) {
-				promise.complete(_gthis);
-			});
-		} else {
-			var node1 = lime_text_Font.__makeLoaderNode("sans-serif");
-			var node2 = lime_text_Font.__makeLoaderNode("serif");
-			var width1 = node1.offsetWidth;
-			var width2 = node2.offsetWidth;
-			node1.style.fontFamily = "'" + name + "', sans-serif";
-			node2.style.fontFamily = "'" + name + "', serif";
-			var interval = null;
-			var found = false;
-			var checkFont = function() {
-				if(node1.offsetWidth != width1 || node2.offsetWidth != width2) {
-					if(!found) {
-						found = true;
-						return false;
-					}
-					if(interval != null) {
-						window.clearInterval(interval);
-					}
-					node1.parentNode.removeChild(node1);
-					node2.parentNode.removeChild(node2);
-					node1 = null;
-					node2 = null;
-					promise.complete(_gthis);
-					return true;
-				}
-				return false;
-			};
-			if(!checkFont()) {
-				interval = window.setInterval(checkFont,50);
-			}
-		}
-		return promise.future;
-	}
-	,__setSize: function(size) {
-	}
-	,get_ascender: function() {
-		return 0;
-	}
-	,get_descender: function() {
-		return 0;
-	}
-	,get_height: function() {
-		return 0;
-	}
-	,get_numGlyphs: function() {
-		return 0;
-	}
-	,get_underlinePosition: function() {
-		return 0;
-	}
-	,get_underlineThickness: function() {
-		return 0;
-	}
-	,get_unitsPerEM: function() {
-		return 0;
-	}
-	,__class__: lime_text_Font
-};
 var lime_text__$Glyph_Glyph_$Impl_$ = {};
 $hxClasses["lime.text._Glyph.Glyph_Impl_"] = lime_text__$Glyph_Glyph_$Impl_$;
 lime_text__$Glyph_Glyph_$Impl_$.__name__ = ["lime","text","_Glyph","Glyph_Impl_"];
@@ -30273,7 +30387,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 280591;
+	this.version = 5789;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = ["lime","utils","AssetCache"];
@@ -64557,51 +64671,6 @@ openfl_text__$AntiAliasType_AntiAliasType_$Impl_$.toString = function(value) {
 		return null;
 	}
 };
-var openfl_text_Font = function(name) {
-	lime_text_Font.call(this,name);
-};
-$hxClasses["openfl.text.Font"] = openfl_text_Font;
-openfl_text_Font.__name__ = ["openfl","text","Font"];
-openfl_text_Font.enumerateFonts = function(enumerateDeviceFonts) {
-	if(enumerateDeviceFonts == null) {
-		enumerateDeviceFonts = false;
-	}
-	return openfl_text_Font.__registeredFonts;
-};
-openfl_text_Font.fromBytes = function(bytes) {
-	var font = new openfl_text_Font();
-	font.__fromBytes(openfl_utils__$ByteArray_ByteArray_$Impl_$.toBytes(bytes));
-	return font;
-};
-openfl_text_Font.fromFile = function(path) {
-	var font = new openfl_text_Font();
-	font.__fromFile(path);
-	return font;
-};
-openfl_text_Font.registerFont = function(font) {
-	var instance = js_Boot.__cast(Type.createInstance(font,[]) , openfl_text_Font);
-	if(instance != null) {
-		openfl_text_Font.__registeredFonts.push(instance);
-	}
-};
-openfl_text_Font.__fromLimeFont = function(value) {
-	var font = new openfl_text_Font();
-	font.name = value.name;
-	font.src = value.src;
-	return font;
-};
-openfl_text_Font.__super__ = lime_text_Font;
-openfl_text_Font.prototype = $extend(lime_text_Font.prototype,{
-	fontStyle: null
-	,fontType: null
-	,get_fontName: function() {
-		return this.name;
-	}
-	,set_fontName: function(value) {
-		return this.name = value;
-	}
-	,__class__: openfl_text_Font
-});
 var openfl_text__$FontStyle_FontStyle_$Impl_$ = {};
 $hxClasses["openfl.text._FontStyle.FontStyle_Impl_"] = openfl_text__$FontStyle_FontStyle_$Impl_$;
 openfl_text__$FontStyle_FontStyle_$Impl_$.__name__ = ["openfl","text","_FontStyle","FontStyle_Impl_"];
@@ -68639,18 +68708,20 @@ if(console.log == null) {
 lime_utils_Log.throwErrors = true;
 openfl_display_DisplayObject.__broadcastEvents = new haxe_ds_StringMap();
 openfl_display_DisplayObject.__instanceCount = 0;
+openfl_text_Font.__registeredFonts = [];
 com_gamejam_game_MainGameState.fakeInt = 10;
-com_gamejam_utils_TextFormats.TITLES = new openfl_text_TextFormat("courier.ttf",32,526344);
-com_gamejam_utils_TextFormats.WHITE_TITLES = new openfl_text_TextFormat("courier.ttf",32,16777215);
-com_gamejam_utils_TextFormats.SUBTITLES = new openfl_text_TextFormat("courier.ttf",24,526344);
-com_gamejam_utils_TextFormats.WHITE_SUBTITLES = new openfl_text_TextFormat("courier.ttf",24,16777215);
-com_gamejam_utils_TextFormats.BUTTONS = new openfl_text_TextFormat("courier.ttf",24,14606046);
-com_gamejam_utils_TextFormats.FORM_PROPMPS = new openfl_text_TextFormat("courier.ttf",26,592137);
-com_gamejam_utils_TextFormats.FORM_TEXT = new openfl_text_TextFormat("courier.ttf",26,394758);
-com_gamejam_utils_TextFormats.LARGE_TEXT = new openfl_text_TextFormat("arial.ttf",18,394758);
-com_gamejam_utils_TextFormats.NORMAL_TEXT = new openfl_text_TextFormat("arial.ttf",16,394758);
-com_gamejam_utils_TextFormats.WHITE_NORMAL_TEXT = new openfl_text_TextFormat("arial.ttf",16,16777215);
-com_gamejam_utils_TextFormats.SMALL_TEXT = new openfl_text_TextFormat("arial.ttf",12,394758);
+com_gamejam_utils_TextFormats.TITLES = new openfl_text_TextFormat("VT323 Regular",32,526344);
+com_gamejam_utils_TextFormats.WHITE_TITLES = new openfl_text_TextFormat("VT323 Regular",32,16777215);
+com_gamejam_utils_TextFormats.SUBTITLES = new openfl_text_TextFormat("VT323 Regular",24,526344);
+com_gamejam_utils_TextFormats.WHITE_SUBTITLES = new openfl_text_TextFormat("VT323 Regular",24,16777215);
+com_gamejam_utils_TextFormats.BUTTONS = new openfl_text_TextFormat("VT323 Regular",24,14606046);
+com_gamejam_utils_TextFormats.WHITE_BUTTONS = new openfl_text_TextFormat("VT323 Regular",28,16777215);
+com_gamejam_utils_TextFormats.FORM_PROPMPS = new openfl_text_TextFormat("VT323 Regular",26,592137);
+com_gamejam_utils_TextFormats.FORM_TEXT = new openfl_text_TextFormat("VT323 Regular",26,394758);
+com_gamejam_utils_TextFormats.LARGE_TEXT = new openfl_text_TextFormat("VT323 Regular",18,394758);
+com_gamejam_utils_TextFormats.NORMAL_TEXT = new openfl_text_TextFormat("VT323 Regular",16,394758);
+com_gamejam_utils_TextFormats.WHITE_NORMAL_TEXT = new openfl_text_TextFormat("VT323 Regular",16,16777215);
+com_gamejam_utils_TextFormats.SMALL_TEXT = new openfl_text_TextFormat("VT323 Regular",12,394758);
 haxe_Serializer.USE_CACHE = false;
 haxe_Serializer.USE_ENUM_INDEX = false;
 haxe_Serializer.BASE64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:";
@@ -70331,7 +70402,6 @@ openfl_system_ApplicationDomain.currentDomain = new openfl_system_ApplicationDom
 openfl_system_SecurityDomain.currentDomain = new openfl_system_SecurityDomain();
 openfl_text__$AntiAliasType_AntiAliasType_$Impl_$.ADVANCED = 0;
 openfl_text__$AntiAliasType_AntiAliasType_$Impl_$.NORMAL = 1;
-openfl_text_Font.__registeredFonts = [];
 openfl_text__$FontStyle_FontStyle_$Impl_$.BOLD = 0;
 openfl_text__$FontStyle_FontStyle_$Impl_$.BOLD_ITALIC = 1;
 openfl_text__$FontStyle_FontStyle_$Impl_$.ITALIC = 2;

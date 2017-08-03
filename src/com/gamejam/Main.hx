@@ -15,6 +15,7 @@ import com.gamejam.game.MainGameState;
 import com.gamejam.screens.CityLocation;
 import com.gamejam.screens.CharacterSetup;
 import com.gamejam.screens.GameOver;
+import com.gamejam.screens.Title;
 import com.gamejam.utils.TextButton;
 
 class Main extends Sprite {
@@ -48,6 +49,8 @@ class Main extends Sprite {
         Assets.loadText("assets/data/CharacterTypes.json", handleCharacterTypesJson);
 
         showCreateCharacterScreen();
+        //var tempTitleScreen:Sprite = new Title();
+        //addChild(tempTitleScreen);
 
 	}
 

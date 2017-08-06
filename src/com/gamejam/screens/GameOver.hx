@@ -4,7 +4,7 @@ package com.gamejam.screens;
 import openfl.display.SimpleButton;
 import openfl.display.Sprite;
 import openfl.text.TextField;
-//import openfl.text.TextFormat;
+import openfl.text.TextFieldAutoSize;
 import openfl.Lib;
 
 import com.gamejam.utils.TextButton;
@@ -21,18 +21,17 @@ class GameOver extends Sprite {
 
         super ();
 
-        //var centerX:Float = Lib.current.stage.stageWidth / 2;
-
         gameOverText = new TextField();
-        gameOverText.setTextFormat(TextFormats.WHITE_TITLES);
+        gameOverText.setTextFormat(TextFormats.SIZE_32);
         gameOverText.width = 800;
         gameOverText.height = 50;
-        gameOverText.text = "Game Over!";
+        gameOverText.text = "You have exhausted yourself to death!";
+        gameOverText.autoSize = TextFieldAutoSize.CENTER;
         addChild(gameOverText);
         gameOverText.x = (Lib.current.stage.stageWidth - gameOverText.width)/2;
         gameOverText.y = 20;
 
-        restartButton = new TextButton("New Game (Click anywhere...)", 300, 40);
+        restartButton = new TextButton("Your next adventure awaits (Click anywhere...)", 300, 40);
         addChild(restartButton);
         restartButton.x = Lib.current.stage.stageWidth - 320;
         restartButton.y = Lib.current.stage.stageHeight - 60;

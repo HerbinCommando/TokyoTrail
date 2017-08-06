@@ -23,12 +23,10 @@ class CharacterSetup extends Sprite {
     public var characterNameText:TextField;
     public var createCharacterText:TextField;
     public var createCharacterButton:TextButton;
-    //public var characterImage:Bitmap;
 
     public var didSetupCharacter:Bool;
     public var createdCharacter:Character;
 
-    public var characterData:Array<Dynamic>;
     public var characterClassButtons:Array<TextButton>;
     public var selectedCharacterClassData:Dynamic;
 
@@ -36,44 +34,35 @@ class CharacterSetup extends Sprite {
 
         super ();
 
-        createdCharacter = null;
-        characterClassButtons = new Array<TextButton>();
-
-        characterData = characterClassData;
-
-        //var centerX:Float = Lib.current.stage.stageWidth / 2;
-
         stageBg = new Sprite();
-        stageBg.graphics.beginFill(0xFFFFFF);
+        stageBg.graphics.beginFill(0x000000);
         stageBg.graphics.drawRect(0,0,Lib.current.stage.stageWidth,Lib.current.stage.stageHeight);
         stageBg.graphics.endFill();
         addChild(stageBg);
 
-        var numClasses:Int = 0;
-        for (charData in characterData) {
+        characterClassButtons = new Array<TextButton>();
+        for (charData in characterClassData) {
             var characterClassBtn:TextButton = new TextButton(charData.Class, 300, 40);
-            characterClassButtons.push(characterClassBtn);
             characterClassBtn.addEventListener(MouseEvent.CLICK, onClickCharacterClass);
             characterClassBtn.cargo = charData;
             addChild(characterClassBtn);
-            characterClassBtn.y = 185 + numClasses++ * 55;
+            characterClassBtn.y = 185 + characterClassButtons.length * 55;
+            characterClassButtons.push(characterClassBtn);
         }
 
-        selectedCharacterClassData = characterData[0];
+        selectedCharacterClassData = characterClassData[0];
         characterClassButtons[0].setSelected(true);
 
         createCharacterText = new TextField();
-        createCharacterText.setTextFormat(TextFormats.TITLES);
+        createCharacterText.setTextFormat(TextFormats.SIZE_32);
         createCharacterText.width = 800;
         createCharacterText.height = 50;
-        createCharacterText.text = "Choose Your Occupation";
+        createCharacterText.text = "What is your name and occupation?";
         addChild(createCharacterText);
-        //createCharacterText.x = centerX;
 
-        createCharacterButton = new TextButton("Begin Your Journey", 300, 40);
+        createCharacterButton = new TextButton("Embark", 300, 40);
         createCharacterButton.addEventListener(MouseEvent.CLICK, onClickCreateCharacter);
         addChild(createCharacterButton);
-        //createCharacterButton.x = centerX;
         createCharacterButton.x = Lib.current.stage.stageWidth - 320;
         createCharacterButton.y = Lib.current.stage.stageHeight - 60;
 
@@ -81,9 +70,10 @@ class CharacterSetup extends Sprite {
         characterNameText.setTextFormat(TextFormats.FORM_PROPMPS);
         characterNameText.width = 400;
         characterNameText.height = 50;
-        characterNameText.text = "Enter Name...";
+        characterNameText.text = "Your Name...";
         characterNameText.multiline = false;
         characterNameText.type = TextFieldType.INPUT;
+        characterNameText.borderColor = 0xFFFFFF;
         characterNameText.border = true;
         characterNameText.addEventListener(MouseEvent.CLICK, function(e:MouseEvent){ characterNameText.setSelection(0,characterNameText.text.length); });
         characterNameText.addEventListener(TextEvent.TEXT_INPUT, function(e:TextEvent){ didSetupCharacter = true; });

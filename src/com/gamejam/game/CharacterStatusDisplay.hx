@@ -2,12 +2,12 @@ package com.gamejam.game;
 
 
 import openfl.display.Sprite;
-//import openfl.text.TextFormat;
 import openfl.text.TextField;
 import openfl.text.TextFieldAutoSize;
 
 import com.gamejam.character.Character;
 import com.gamejam.utils.TextFormats;
+
 
 // CharacterStatusDisplay shows the character's status and gameplay information
 class CharacterStatusDisplay extends Sprite {
@@ -15,7 +15,6 @@ class CharacterStatusDisplay extends Sprite {
     public var hungerData:Array<Dynamic>;
     public var thirstData:Array<Dynamic>;
 
-    //public var format:TextFormat;
     public var dialogBg:Sprite;
     public var nameText:TextField;
     public var classText:TextField;
@@ -33,19 +32,19 @@ class CharacterStatusDisplay extends Sprite {
 
         dialogBg = new Sprite();
         dialogBg.graphics.beginFill(0x000000);
-        dialogBg.graphics.drawRect(0, 0, 80, 100);
+        dialogBg.graphics.drawRect(0, 0, 180, 100);
         dialogBg.graphics.endFill();
         addChild(dialogBg);
 
         nameText = new TextField();
-        nameText.setTextFormat(TextFormats.WHITE_NORMAL_TEXT);
+        nameText.setTextFormat(TextFormats.SIZE_16);
         nameText.width = 300;
         nameText.height = 20;
         nameText.selectable = false;
         dialogBg.addChild(nameText);
 
         classText = new TextField();
-        classText.setTextFormat(TextFormats.WHITE_NORMAL_TEXT);
+        classText.setTextFormat(TextFormats.SIZE_16);
         classText.width = 80;
         classText.height = 20;
         classText.autoSize = TextFieldAutoSize.LEFT;
@@ -54,7 +53,7 @@ class CharacterStatusDisplay extends Sprite {
         classText.y = 20;
 
         staminaStatusText = new TextField();
-        staminaStatusText.setTextFormat(TextFormats.WHITE_NORMAL_TEXT);
+        staminaStatusText.setTextFormat(TextFormats.SIZE_16);
         staminaStatusText.width = 40;
         staminaStatusText.height = 20;
         staminaStatusText.autoSize = TextFieldAutoSize.LEFT;
@@ -64,7 +63,7 @@ class CharacterStatusDisplay extends Sprite {
         staminaStatusText.y = 40;
 
         staminaAmountText = new TextField();
-        staminaAmountText.setTextFormat(TextFormats.WHITE_NORMAL_TEXT);
+        staminaAmountText.setTextFormat(TextFormats.SIZE_16);
         staminaAmountText.width = 40;
         staminaAmountText.height = 20;
         staminaAmountText.autoSize = TextFieldAutoSize.RIGHT;
@@ -74,7 +73,7 @@ class CharacterStatusDisplay extends Sprite {
         staminaAmountText.y = 40;
 
         hungerStatusText = new TextField();
-        hungerStatusText.setTextFormat(TextFormats.WHITE_NORMAL_TEXT);
+        hungerStatusText.setTextFormat(TextFormats.SIZE_16);
         hungerStatusText.width = 80;
         hungerStatusText.height = 20;
         hungerStatusText.autoSize = TextFieldAutoSize.LEFT;
@@ -83,7 +82,7 @@ class CharacterStatusDisplay extends Sprite {
         hungerStatusText.y = 60;
 
         thirstStatusText = new TextField();
-        thirstStatusText.setTextFormat(TextFormats.WHITE_NORMAL_TEXT);
+        thirstStatusText.setTextFormat(TextFormats.SIZE_16);
         thirstStatusText.width = 80;
         thirstStatusText.height = 20;
         thirstStatusText.autoSize = TextFieldAutoSize.LEFT;
@@ -115,6 +114,5 @@ class CharacterStatusDisplay extends Sprite {
         staminaAmountText.text = char.stamina;
 
     }
-
 
 }

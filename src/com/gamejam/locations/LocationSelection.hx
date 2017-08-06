@@ -1,12 +1,13 @@
 package com.gamejam.locations;
 
 
-//import openfl.Assets;
-//import openfl.display.Bitmap;
+import openfl.Assets;
+import openfl.display.Bitmap;
 import openfl.display.Sprite;
 import openfl.events.MouseEvent;
 import openfl.Lib;
 import openfl.text.TextField;
+import openfl.text.TextFieldAutoSize;
 
 import com.gamejam.utils.TextButton;
 import com.gamejam.utils.TextFormats;
@@ -20,28 +21,9 @@ class LocationSelection extends Sprite {
     public var locations:Array<Dynamic>;
 
     public var stageBg:Sprite;
+    public var imageBg:Bitmap;
+    public var textBg:Sprite;
     public var titleText:TextField;
-
-    /*
-    public var nameText:TextField;
-    public var descText:TextField;
-    public var entertainmentPointsText:TextField;
-    public var smePointsText:TextField;
-    public var staminaText:TextField;
-    public var costText:TextField;
-    public var durationText:TextField;
-    public var countsAsSleepText:TextField;
-    public var timesOfDayText:TextField;
-    public var categoryText:TextField;
-    public var resetsThirstText:TextField;
-    public var resetsHungerText:TextField;
-
-    public var activityImg:Bitmap;
-
-    public var okBtn:TextButton;
-
-    //public var activityData:Dynamic;
-    */
 
     public function new (locationSelectedFn:Dynamic->Void) {
 
@@ -53,14 +35,25 @@ class LocationSelection extends Sprite {
         stageBg.graphics.endFill();
         addChild(stageBg);
 
-        var centerX:Float = Lib.current.stage.stageWidth / 2;
+        imageBg = new Bitmap (Assets.getBitmapData ("assets/images/SubwayMap.png"));
+        addChild(imageBg);
+        imageBg.x = (Lib.current.stage.stageWidth - imageBg.width) / 2;
+
+        textBg = new Sprite();
+        textBg.graphics.beginFill(0x000000);
+        textBg.graphics.drawRect(0, 0, 500, 150);
+        textBg.graphics.endFill();
+        addChild(textBg);
+        textBg.x = 20;
+        textBg.y = 20;
+
         titleText = new TextField();
-        titleText.setTextFormat(TextFormats.TITLES);
-        titleText.width = 800;
+        titleText.setTextFormat(TextFormats.SIZE_32);
+        titleText.width = 500;
         titleText.height = 50;
-        titleText.text = "Choose A New Location";
-        addChild(titleText);
-        //titleText.x = centerX;
+        titleText.text = "Where to next?";
+        titleText.autoSize = TextFieldAutoSize.CENTER;
+        textBg.addChild(titleText);
 
         onLocationSelectedFn = locationSelectedFn;
         availableLocations = new Array<TextButton>();
@@ -83,7 +76,8 @@ class LocationSelection extends Sprite {
             btn.addEventListener(MouseEvent.CLICK, onClickLocation);
             btn.cargo = location;
             addChild(btn);
-            btn.y = 165 + availableLocations.length * 55;
+            btn.x = 20;
+            btn.y = 185 + availableLocations.length * 55;
             availableLocations.push(btn);
         }
 

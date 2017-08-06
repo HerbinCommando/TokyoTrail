@@ -1018,7 +1018,7 @@ $hxClasses["ApplicationMain"] = ApplicationMain;
 ApplicationMain.__name__ = ["ApplicationMain"];
 ApplicationMain.main = function() {
 	var projectName = "AkibaTrail";
-	var config = { build : "13", company : "Mars Cilla Consulting", file : "AkibaTrail", fps : 60, name : "Tokyo Trail", orientation : "", packageName : "com.gamejam.akibatrail", version : "1.0.0", windows : [{ allowHighDPI : false, alwaysOnTop : false, antialiasing : 0, background : 16777215, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : true, height : 0, hidden : null, maximized : null, minimized : null, parameters : { }, resizable : true, stencilBuffer : true, title : "Tokyo Trail", vsync : false, width : 0, x : null, y : null}]};
+	var config = { build : "14", company : "Mars Cilla Consulting", file : "AkibaTrail", fps : 60, name : "Tokyo Trail", orientation : "", packageName : "com.gamejam.akibatrail", version : "1.0.0", windows : [{ allowHighDPI : false, alwaysOnTop : false, antialiasing : 0, background : 16777215, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : true, height : 0, hidden : null, maximized : null, minimized : null, parameters : { }, resizable : true, stencilBuffer : true, title : "Tokyo Trail", vsync : false, width : 0, x : null, y : null}]};
 	lime_system_System.__registerEntryPoint(projectName,ApplicationMain.create,config);
 };
 ApplicationMain.create = function(config) {
@@ -3377,7 +3377,7 @@ ManifestResources.init = function(config) {
 	var data;
 	var manifest;
 	var library;
-	data = "{\"name\":null,\"assets\":\"aoy4:pathy35:assets%2Fdata%2FCharacterTypes.jsony4:sizei824y4:typey4:TEXTy2:idR1y7:preloadtgoR0y33:assets%2Fdata%2FHungerLevels.jsonR2i759R3R4R5R7R6tgoR0y30:assets%2Fdata%2FLocations.jsonR2i22547R3R4R5R8R6tgoR0y34:assets%2Fdata%2FStaminaLevels.jsonR2i830R3R4R5R9R6tgoR0y33:assets%2Fdata%2FThirstLevels.jsonR2i674R3R4R5R10R6tgoR2i153116R3y4:FONTy9:classNamey38:__ASSET__assets_font_vt323_regular_ttfR5y33:assets%2Ffont%2FVT323-Regular.ttfR6tgoR0y27:assets%2Ffont%2FVT323.woff2R2i7020R3y6:BINARYR5R15R6tgoR0y44:assets%2Fimages%2FBuy%20Lame%20Souvenirs.pngR2i68641R3y5:IMAGER5R17R6tgoR0y52:assets%2Fimages%2FConvenience%20Store%20Beverage.pngR2i47163R3R18R5R19R6tgoR0y49:assets%2Fimages%2FConvenience%20Store%20Snack.pngR2i60105R3R18R5R20R6tgoR0y47:assets%2Fimages%2FEat%20at%20a%20Restaurant.pngR2i43334R3R18R5R21R6tgoR0y39:assets%2Fimages%2FGet%20a%20Massage.pngR2i76521R3R18R5R22R6tgoR0y45:assets%2Fimages%2FGo%20for%20a%20Walk%202.pngR2i51577R3R18R5R23R6tgoR0y41:assets%2Fimages%2FGo%20for%20a%20Walk.pngR2i77499R3R18R5R24R6tgoR0y38:assets%2Fimages%2FHotel%20Vicinity.pngR2i47216R3R18R5R25R6tgoR0y31:assets%2Fimages%2FIkebukuro.pngR2i40093R3R18R5R26R6tgoR0y33:assets%2Fimages%2FMaid%20Cafe.pngR2i74961R3R18R5R27R6tgoR0y34:assets%2Fimages%2FManga%20Cafe.pngR2i55818R3R18R5R28R6tgoR0y45:assets%2Fimages%2FPlay%20Fighting%20Games.pngR2i67067R3R18R5R29R6tgoR0y43:assets%2Fimages%2FPlay%20Games%20Online.pngR2i50451R3R18R5R30R6tgoR0y50:assets%2Fimages%2FPlay%20the%20Claw%20Machines.pngR2i59061R3R18R5R31R6tgoR0y37:assets%2Fimages%2FRide%20a%20Taxi.pngR2i106257R3R18R5R32R6tgoR0y40:assets%2Fimages%2FRide%20the%20Train.pngR2i47500R3R18R5R33R6tgoR0y32:assets%2Fimages%2FShin-Okubo.pngR2i50465R3R18R5R34R6tgoR0y42:assets%2Fimages%2FShop%20for%20Gadgets.pngR2i59684R3R18R5R35R6tgoR0y42:assets%2Fimages%2FShop%20in%20Harajuku.pngR2i59364R3R18R5R36R6tgoR0y54:assets%2Fimages%2FSleep%20in%20a%20Capsule%20Hotel.pngR2i54215R3R18R5R37R6tgoR0y48:assets%2Fimages%2FSleep%20in%20a%20Stairwell.pngR2i51577R3R18R5R38R6tgoR0y47:assets%2Fimages%2FSleep%20in%20Hotel%20Room.pngR2i49740R3R18R5R39R6tgoR0y45:assets%2Fimages%2FSome%20Street%20%282%29.pngR2i55993R3R18R5R40R6tgoR0y39:assets%2Fimages%2FSome%20Street%202.pngR2i52933R3R18R5R41R6tgoR0y35:assets%2Fimages%2FSome%20Street.pngR2i55993R3R18R5R42R6tgoR0y48:assets%2Fimages%2FThe%20Akihabara%20District.pngR2i66281R3R18R5R43R6tgoR0y45:assets%2Fimages%2FThe%20Boring%20District.pngR2i60974R3R18R5R44R6tgoR0y45:assets%2Fimages%2FUse%20a%20Photo%20Booth.pngR2i43907R3R18R5R45R6tgoR0y54:assets%2Fimages%2FVending%20Machine%20Refreshments.pngR2i57173R3R18R5R46R6tgoR0y47:assets%2Fimages%2FVending%20Machine%20Snack.pngR2i59825R3R18R5R47R6tgoR0y38:assets%2Fimages%2FVisit%20a%20Park.pngR2i61122R3R18R5R48R6tgoR0y40:assets%2Fimages%2FVisit%20a%20Shrine.pngR2i59600R3R18R5R49R6tgoR0y46:assets%2Fimages%2FVisit%20a%20Tall%20Tower.pngR2i123415R3R18R5R50R6tgoR0y51:assets%2Fimages%2FVisit%20an%20Amusement%20Park.pngR2i72247R3R18R5R51R6tgoR0y40:assets%2Fimages%2FVisit%20Shin-Okubo.pngR2i50465R3R18R5R52R6tgoR0y64:assets%2Fimages%2FVisit%20the%20Fake%20Statue%20of%20Liberty.pngR2i57042R3R18R5R53R6tgh\",\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
+	data = "{\"name\":null,\"assets\":\"aoy4:pathy35:assets%2Fdata%2FCharacterTypes.jsony4:sizei824y4:typey4:TEXTy2:idR1y7:preloadtgoR0y33:assets%2Fdata%2FHungerLevels.jsonR2i759R3R4R5R7R6tgoR0y30:assets%2Fdata%2FLocations.jsonR2i22547R3R4R5R8R6tgoR0y34:assets%2Fdata%2FStaminaLevels.jsonR2i830R3R4R5R9R6tgoR0y33:assets%2Fdata%2FThirstLevels.jsonR2i674R3R4R5R10R6tgoR2i153116R3y4:FONTy9:classNamey38:__ASSET__assets_font_vt323_regular_ttfR5y33:assets%2Ffont%2FVT323-Regular.ttfR6tgoR0y27:assets%2Ffont%2FVT323.woff2R2i7020R3y6:BINARYR5R15R6tgoR0y44:assets%2Fimages%2FBuy%20Lame%20Souvenirs.pngR2i68641R3y5:IMAGER5R17R6tgoR0y52:assets%2Fimages%2FConvenience%20Store%20Beverage.pngR2i47163R3R18R5R19R6tgoR0y49:assets%2Fimages%2FConvenience%20Store%20Snack.pngR2i60105R3R18R5R20R6tgoR0y47:assets%2Fimages%2FEat%20at%20a%20Restaurant.pngR2i43334R3R18R5R21R6tgoR0y39:assets%2Fimages%2FGet%20a%20Massage.pngR2i76521R3R18R5R22R6tgoR0y45:assets%2Fimages%2FGo%20for%20a%20Walk%202.pngR2i51577R3R18R5R23R6tgoR0y41:assets%2Fimages%2FGo%20for%20a%20Walk.pngR2i77499R3R18R5R24R6tgoR0y38:assets%2Fimages%2FHotel%20Vicinity.pngR2i47216R3R18R5R25R6tgoR0y31:assets%2Fimages%2FIkebukuro.pngR2i40093R3R18R5R26R6tgoR0y33:assets%2Fimages%2FMaid%20Cafe.pngR2i74961R3R18R5R27R6tgoR0y34:assets%2Fimages%2FManga%20Cafe.pngR2i55818R3R18R5R28R6tgoR0y45:assets%2Fimages%2FPlay%20Fighting%20Games.pngR2i67067R3R18R5R29R6tgoR0y43:assets%2Fimages%2FPlay%20Games%20Online.pngR2i50451R3R18R5R30R6tgoR0y50:assets%2Fimages%2FPlay%20the%20Claw%20Machines.pngR2i59061R3R18R5R31R6tgoR0y37:assets%2Fimages%2FRide%20a%20Taxi.pngR2i106257R3R18R5R32R6tgoR0y40:assets%2Fimages%2FRide%20the%20Train.pngR2i47500R3R18R5R33R6tgoR0y32:assets%2Fimages%2FShin-Okubo.pngR2i50465R3R18R5R34R6tgoR0y42:assets%2Fimages%2FShop%20for%20Gadgets.pngR2i59684R3R18R5R35R6tgoR0y42:assets%2Fimages%2FShop%20in%20Harajuku.pngR2i59364R3R18R5R36R6tgoR0y54:assets%2Fimages%2FSleep%20in%20a%20Capsule%20Hotel.pngR2i54215R3R18R5R37R6tgoR0y48:assets%2Fimages%2FSleep%20in%20a%20Stairwell.pngR2i51577R3R18R5R38R6tgoR0y47:assets%2Fimages%2FSleep%20in%20Hotel%20Room.pngR2i49740R3R18R5R39R6tgoR0y45:assets%2Fimages%2FSome%20Street%20%282%29.pngR2i55993R3R18R5R40R6tgoR0y39:assets%2Fimages%2FSome%20Street%202.pngR2i52933R3R18R5R41R6tgoR0y35:assets%2Fimages%2FSome%20Street.pngR2i55993R3R18R5R42R6tgoR0y31:assets%2Fimages%2FSubwayMap.pngR2i516917R3R18R5R43R6tgoR0y48:assets%2Fimages%2FThe%20Akihabara%20District.pngR2i66281R3R18R5R44R6tgoR0y45:assets%2Fimages%2FThe%20Boring%20District.pngR2i60974R3R18R5R45R6tgoR0y45:assets%2Fimages%2FUse%20a%20Photo%20Booth.pngR2i43907R3R18R5R46R6tgoR0y54:assets%2Fimages%2FVending%20Machine%20Refreshments.pngR2i57173R3R18R5R47R6tgoR0y47:assets%2Fimages%2FVending%20Machine%20Snack.pngR2i59825R3R18R5R48R6tgoR0y38:assets%2Fimages%2FVisit%20a%20Park.pngR2i61122R3R18R5R49R6tgoR0y40:assets%2Fimages%2FVisit%20a%20Shrine.pngR2i59600R3R18R5R50R6tgoR0y46:assets%2Fimages%2FVisit%20a%20Tall%20Tower.pngR2i123415R3R18R5R51R6tgoR0y51:assets%2Fimages%2FVisit%20an%20Amusement%20Park.pngR2i72247R3R18R5R52R6tgoR0y40:assets%2Fimages%2FVisit%20Shin-Okubo.pngR2i50465R3R18R5R53R6tgoR0y64:assets%2Fimages%2FVisit%20the%20Fake%20Statue%20of%20Liberty.pngR2i57042R3R18R5R54R6tgh\",\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
 	manifest = lime_utils_AssetManifest.parse(data,rootPath);
 	library = lime_utils_AssetLibrary.fromManifest(manifest);
 	lime_utils_Assets.registerLibrary("default",library);
@@ -3987,13 +3987,13 @@ var com_gamejam_activities_ActivityAccomplished = function() {
 	this.textBg.set_x(20);
 	this.textBg.set_y(20);
 	this.nameText = new openfl_text_TextField();
-	this.nameText.setTextFormat(com_gamejam_utils_TextFormats.WHITE_TITLES);
+	this.nameText.setTextFormat(com_gamejam_utils_TextFormats.SIZE_32);
 	this.nameText.set_width(500);
 	this.nameText.set_height(50);
 	this.nameText.set_autoSize(0);
 	this.textBg.addChild(this.nameText);
 	this.descText = new openfl_text_TextField();
-	this.descText.setTextFormat(com_gamejam_utils_TextFormats.WHITE_SUBTITLES);
+	this.descText.setTextFormat(com_gamejam_utils_TextFormats.SIZE_24);
 	this.descText.set_multiline(true);
 	this.descText.set_wordWrap(true);
 	this.descText.set_width(500);
@@ -4001,8 +4001,7 @@ var com_gamejam_activities_ActivityAccomplished = function() {
 	this.descText.set_autoSize(0);
 	this.textBg.addChild(this.descText);
 	this.descText.set_y(65);
-	var centerX = openfl_Lib.current.stage.stageWidth / 2;
-	this.okBtn = new com_gamejam_utils_TextButton("OK (Click anywhere...)",300,40);
+	this.okBtn = new com_gamejam_utils_TextButton("That was fun (Click anywhere...)",300,40);
 	this.okBtn.set_x(openfl_Lib.current.stage.stageWidth - 320);
 	this.okBtn.set_y(openfl_Lib.current.stage.stageHeight - 60);
 };
@@ -4010,12 +4009,12 @@ $hxClasses["com.gamejam.activities.ActivityAccomplished"] = com_gamejam_activiti
 com_gamejam_activities_ActivityAccomplished.__name__ = ["com","gamejam","activities","ActivityAccomplished"];
 com_gamejam_activities_ActivityAccomplished.__super__ = openfl_display_Sprite;
 com_gamejam_activities_ActivityAccomplished.prototype = $extend(openfl_display_Sprite.prototype,{
-	textBg: null
+	stageBg: null
+	,textBg: null
 	,nameText: null
 	,descText: null
 	,activityImg: null
 	,okBtn: null
-	,stageBg: null
 	,setupActivityData: function(data) {
 		if(this.activityImg != null) {
 			this.removeChild(this.activityImg);
@@ -4026,6 +4025,7 @@ com_gamejam_activities_ActivityAccomplished.prototype = $extend(openfl_display_S
 		this.activityImg.set_x((openfl_Lib.current.stage.stageWidth - this.activityImg.get_width()) / 2);
 		this.nameText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.Name));
 		this.descText.set_text(lime_text__$UTF8String_UTF8String_$Impl_$.fromDynamic(data.Description));
+		this.textBg.get_graphics().clear();
 		this.textBg.get_graphics().beginFill(0);
 		this.textBg.get_graphics().drawRect(0,0,500,100 + Math.ceil(this.descText.get_height()));
 		this.textBg.get_graphics().endFill();
@@ -4118,17 +4118,17 @@ var com_gamejam_game_CharacterStatusDisplay = function(hungerLevelData,thirstLev
 	this.thirstData = thirstLevelData;
 	this.dialogBg = new openfl_display_Sprite();
 	this.dialogBg.get_graphics().beginFill(0);
-	this.dialogBg.get_graphics().drawRect(0,0,80,100);
+	this.dialogBg.get_graphics().drawRect(0,0,180,100);
 	this.dialogBg.get_graphics().endFill();
 	this.addChild(this.dialogBg);
 	this.nameText = new openfl_text_TextField();
-	this.nameText.setTextFormat(com_gamejam_utils_TextFormats.WHITE_NORMAL_TEXT);
+	this.nameText.setTextFormat(com_gamejam_utils_TextFormats.SIZE_16);
 	this.nameText.set_width(300);
 	this.nameText.set_height(20);
 	this.nameText.set_selectable(false);
 	this.dialogBg.addChild(this.nameText);
 	this.classText = new openfl_text_TextField();
-	this.classText.setTextFormat(com_gamejam_utils_TextFormats.WHITE_NORMAL_TEXT);
+	this.classText.setTextFormat(com_gamejam_utils_TextFormats.SIZE_16);
 	this.classText.set_width(80);
 	this.classText.set_height(20);
 	this.classText.set_autoSize(1);
@@ -4136,7 +4136,7 @@ var com_gamejam_game_CharacterStatusDisplay = function(hungerLevelData,thirstLev
 	this.dialogBg.addChild(this.classText);
 	this.classText.set_y(20);
 	this.staminaStatusText = new openfl_text_TextField();
-	this.staminaStatusText.setTextFormat(com_gamejam_utils_TextFormats.WHITE_NORMAL_TEXT);
+	this.staminaStatusText.setTextFormat(com_gamejam_utils_TextFormats.SIZE_16);
 	this.staminaStatusText.set_width(40);
 	this.staminaStatusText.set_height(20);
 	this.staminaStatusText.set_autoSize(1);
@@ -4145,7 +4145,7 @@ var com_gamejam_game_CharacterStatusDisplay = function(hungerLevelData,thirstLev
 	this.dialogBg.addChild(this.staminaStatusText);
 	this.staminaStatusText.set_y(40);
 	this.staminaAmountText = new openfl_text_TextField();
-	this.staminaAmountText.setTextFormat(com_gamejam_utils_TextFormats.WHITE_NORMAL_TEXT);
+	this.staminaAmountText.setTextFormat(com_gamejam_utils_TextFormats.SIZE_16);
 	this.staminaAmountText.set_width(40);
 	this.staminaAmountText.set_height(20);
 	this.staminaAmountText.set_autoSize(3);
@@ -4154,7 +4154,7 @@ var com_gamejam_game_CharacterStatusDisplay = function(hungerLevelData,thirstLev
 	this.staminaAmountText.set_x(40);
 	this.staminaAmountText.set_y(40);
 	this.hungerStatusText = new openfl_text_TextField();
-	this.hungerStatusText.setTextFormat(com_gamejam_utils_TextFormats.WHITE_NORMAL_TEXT);
+	this.hungerStatusText.setTextFormat(com_gamejam_utils_TextFormats.SIZE_16);
 	this.hungerStatusText.set_width(80);
 	this.hungerStatusText.set_height(20);
 	this.hungerStatusText.set_autoSize(1);
@@ -4162,7 +4162,7 @@ var com_gamejam_game_CharacterStatusDisplay = function(hungerLevelData,thirstLev
 	this.dialogBg.addChild(this.hungerStatusText);
 	this.hungerStatusText.set_y(60);
 	this.thirstStatusText = new openfl_text_TextField();
-	this.thirstStatusText.setTextFormat(com_gamejam_utils_TextFormats.WHITE_NORMAL_TEXT);
+	this.thirstStatusText.setTextFormat(com_gamejam_utils_TextFormats.SIZE_16);
 	this.thirstStatusText.set_width(80);
 	this.thirstStatusText.set_height(20);
 	this.thirstStatusText.set_autoSize(1);
@@ -4212,7 +4212,7 @@ com_gamejam_game_CharacterStatusDisplay.prototype = $extend(openfl_display_Sprit
 });
 var com_gamejam_game_MainGameState = function(hungerData,thirstData) {
 	this.characterStatusDisplay = new com_gamejam_game_CharacterStatusDisplay(hungerData,thirstData);
-	this.characterStatusDisplay.set_x(openfl_Lib.current.stage.stageWidth - 320);
+	this.characterStatusDisplay.set_x(openfl_Lib.current.stage.stageWidth - 270);
 	this.characterStatusDisplay.set_y(20);
 	this.activityAccomplished = new com_gamejam_activities_ActivityAccomplished();
 	this.activityAccomplished.addEventListener("click",$bind(this,this.onClickActivityAccomplishedOK));
@@ -4233,7 +4233,7 @@ com_gamejam_game_MainGameState.prototype = {
 		return true;
 	}
 	,doActivity: function(activityData) {
-		haxe_Log.trace("Player is doing activity " + Std.string(activityData.Name),{ fileName : "MainGameState.hx", lineNumber : 48, className : "com.gamejam.game.MainGameState", methodName : "doActivity"});
+		haxe_Log.trace("Player is doing activity " + Std.string(activityData.Name),{ fileName : "MainGameState.hx", lineNumber : 47, className : "com.gamejam.game.MainGameState", methodName : "doActivity"});
 		this.activityAccomplished.setupActivityData(activityData);
 		openfl_Lib.current.stage.addChild(this.activityAccomplished);
 		openfl_Lib.current.stage.addChild(this.characterStatusDisplay);
@@ -4241,13 +4241,13 @@ com_gamejam_game_MainGameState.prototype = {
 		return this.advanceGameTime(activityData.Duration);
 	}
 	,advanceGameTime: function(hours) {
-		haxe_Log.trace("advancing game time by " + hours + " hours.",{ fileName : "MainGameState.hx", lineNumber : 59, className : "com.gamejam.game.MainGameState", methodName : "advanceGameTime"});
+		haxe_Log.trace("advancing game time by " + hours + " hours.",{ fileName : "MainGameState.hx", lineNumber : 58, className : "com.gamejam.game.MainGameState", methodName : "advanceGameTime"});
 		var isGameOver = false;
 		isGameOver = this.checkGameOverConditions();
 		return isGameOver;
 	}
 	,checkGameOverConditions: function() {
-		haxe_Log.trace("checking FAKE, MADE UP game over conditions fakeInt == " + com_gamejam_game_MainGameState.fakeInt,{ fileName : "MainGameState.hx", lineNumber : 73, className : "com.gamejam.game.MainGameState", methodName : "checkGameOverConditions"});
+		haxe_Log.trace("checking FAKE, MADE UP game over conditions fakeInt == " + com_gamejam_game_MainGameState.fakeInt,{ fileName : "MainGameState.hx", lineNumber : 72, className : "com.gamejam.game.MainGameState", methodName : "checkGameOverConditions"});
 		var isGameOver = --com_gamejam_game_MainGameState.fakeInt <= 0;
 		if(isGameOver) {
 			openfl_Lib.current.stage.removeChild(this.characterStatusDisplay);
@@ -4267,13 +4267,23 @@ var com_gamejam_locations_LocationSelection = function(locationSelectedFn) {
 	this.stageBg.get_graphics().drawRect(0,0,openfl_Lib.current.stage.stageWidth,openfl_Lib.current.stage.stageHeight);
 	this.stageBg.get_graphics().endFill();
 	this.addChild(this.stageBg);
-	var centerX = openfl_Lib.current.stage.stageWidth / 2;
+	this.imageBg = new openfl_display_Bitmap(openfl_utils_Assets.getBitmapData("assets/images/SubwayMap.png"));
+	this.addChild(this.imageBg);
+	this.imageBg.set_x((openfl_Lib.current.stage.stageWidth - this.imageBg.get_width()) / 2);
+	this.textBg = new openfl_display_Sprite();
+	this.textBg.get_graphics().beginFill(0);
+	this.textBg.get_graphics().drawRect(0,0,500,150);
+	this.textBg.get_graphics().endFill();
+	this.addChild(this.textBg);
+	this.textBg.set_x(20);
+	this.textBg.set_y(20);
 	this.titleText = new openfl_text_TextField();
-	this.titleText.setTextFormat(com_gamejam_utils_TextFormats.TITLES);
-	this.titleText.set_width(800);
+	this.titleText.setTextFormat(com_gamejam_utils_TextFormats.SIZE_32);
+	this.titleText.set_width(500);
 	this.titleText.set_height(50);
-	this.titleText.set_text("Choose A New Location");
-	this.addChild(this.titleText);
+	this.titleText.set_text("Where are we going to next?");
+	this.titleText.set_autoSize(0);
+	this.textBg.addChild(this.titleText);
 	this.onLocationSelectedFn = locationSelectedFn;
 	this.availableLocations = [];
 };
@@ -4285,6 +4295,8 @@ com_gamejam_locations_LocationSelection.prototype = $extend(openfl_display_Sprit
 	,availableLocations: null
 	,locations: null
 	,stageBg: null
+	,imageBg: null
+	,textBg: null
 	,titleText: null
 	,setupLocationData: function(data) {
 		this.locations = data;
@@ -4306,7 +4318,8 @@ com_gamejam_locations_LocationSelection.prototype = $extend(openfl_display_Sprit
 			btn1.addEventListener("click",$bind(this,this.onClickLocation));
 			btn1.cargo = location;
 			this.addChild(btn1);
-			btn1.set_y(165 + this.availableLocations.length * 55);
+			btn1.set_x(20);
+			btn1.set_y(185 + this.availableLocations.length * 55);
 			this.availableLocations.push(btn1);
 		}
 	}
@@ -4320,36 +4333,32 @@ com_gamejam_locations_LocationSelection.prototype = $extend(openfl_display_Sprit
 var com_gamejam_screens_CharacterSetup = function(characterClassData) {
 	var _gthis = this;
 	openfl_display_Sprite.call(this);
-	this.createdCharacter = null;
-	this.characterClassButtons = [];
-	this.characterData = characterClassData;
 	this.stageBg = new openfl_display_Sprite();
-	this.stageBg.get_graphics().beginFill(16777215);
+	this.stageBg.get_graphics().beginFill(0);
 	this.stageBg.get_graphics().drawRect(0,0,openfl_Lib.current.stage.stageWidth,openfl_Lib.current.stage.stageHeight);
 	this.stageBg.get_graphics().endFill();
 	this.addChild(this.stageBg);
-	var numClasses = 0;
+	this.characterClassButtons = [];
 	var _g = 0;
-	var _g1 = this.characterData;
-	while(_g < _g1.length) {
-		var charData = _g1[_g];
+	while(_g < characterClassData.length) {
+		var charData = characterClassData[_g];
 		++_g;
 		var characterClassBtn = new com_gamejam_utils_TextButton(charData.Class,300,40);
-		this.characterClassButtons.push(characterClassBtn);
 		characterClassBtn.addEventListener("click",$bind(this,this.onClickCharacterClass));
 		characterClassBtn.cargo = charData;
 		this.addChild(characterClassBtn);
-		characterClassBtn.set_y(185 + numClasses++ * 55);
+		characterClassBtn.set_y(185 + this.characterClassButtons.length * 55);
+		this.characterClassButtons.push(characterClassBtn);
 	}
-	this.selectedCharacterClassData = this.characterData[0];
+	this.selectedCharacterClassData = characterClassData[0];
 	this.characterClassButtons[0].setSelected(true);
 	this.createCharacterText = new openfl_text_TextField();
-	this.createCharacterText.setTextFormat(com_gamejam_utils_TextFormats.TITLES);
+	this.createCharacterText.setTextFormat(com_gamejam_utils_TextFormats.SIZE_32);
 	this.createCharacterText.set_width(800);
 	this.createCharacterText.set_height(50);
-	this.createCharacterText.set_text("Choose Your Occupation");
+	this.createCharacterText.set_text("What is your name and occupation?");
 	this.addChild(this.createCharacterText);
-	this.createCharacterButton = new com_gamejam_utils_TextButton("Begin Your Journey",300,40);
+	this.createCharacterButton = new com_gamejam_utils_TextButton("Embark",300,40);
 	this.createCharacterButton.addEventListener("click",$bind(this,this.onClickCreateCharacter));
 	this.addChild(this.createCharacterButton);
 	this.createCharacterButton.set_x(openfl_Lib.current.stage.stageWidth - 320);
@@ -4358,9 +4367,10 @@ var com_gamejam_screens_CharacterSetup = function(characterClassData) {
 	this.characterNameText.setTextFormat(com_gamejam_utils_TextFormats.FORM_PROPMPS);
 	this.characterNameText.set_width(400);
 	this.characterNameText.set_height(50);
-	this.characterNameText.set_text("Enter Name...");
+	this.characterNameText.set_text("Your Name...");
 	this.characterNameText.set_multiline(false);
 	this.characterNameText.set_type(1);
+	this.characterNameText.set_borderColor(16777215);
 	this.characterNameText.set_border(true);
 	this.characterNameText.addEventListener("click",function(e) {
 		_gthis.characterNameText.setSelection(0,lime_text__$UTF8String_UTF8String_$Impl_$.get_length(_gthis.characterNameText.get_text()));
@@ -4381,7 +4391,6 @@ com_gamejam_screens_CharacterSetup.prototype = $extend(openfl_display_Sprite.pro
 	,createCharacterButton: null
 	,didSetupCharacter: null
 	,createdCharacter: null
-	,characterData: null
 	,characterClassButtons: null
 	,selectedCharacterClassData: null
 	,onClickCharacterClass: function(e) {
@@ -4404,7 +4413,6 @@ com_gamejam_screens_CharacterSetup.prototype = $extend(openfl_display_Sprite.pro
 var com_gamejam_screens_CityLocation = function(locations,gameOverHack) {
 	this.maxActivitySelectionYPos = 185;
 	openfl_display_Sprite.call(this);
-	var centerX = openfl_Lib.current.stage.stageWidth / 2;
 	this.locationData = locations;
 	this.gameOverHackFn = gameOverHack;
 	this.stageBg = new openfl_display_Sprite();
@@ -4419,13 +4427,13 @@ var com_gamejam_screens_CityLocation = function(locations,gameOverHack) {
 	this.textBg.set_x(20);
 	this.textBg.set_y(20);
 	this.cityLocationText = new openfl_text_TextField();
-	this.cityLocationText.setTextFormat(com_gamejam_utils_TextFormats.WHITE_TITLES);
+	this.cityLocationText.setTextFormat(com_gamejam_utils_TextFormats.SIZE_32);
 	this.cityLocationText.set_width(500);
 	this.cityLocationText.set_height(50);
 	this.cityLocationText.set_autoSize(0);
 	this.textBg.addChild(this.cityLocationText);
 	this.cityDescriptionText = new openfl_text_TextField();
-	this.cityDescriptionText.setTextFormat(com_gamejam_utils_TextFormats.WHITE_SUBTITLES);
+	this.cityDescriptionText.setTextFormat(com_gamejam_utils_TextFormats.SIZE_24);
 	this.cityDescriptionText.set_multiline(true);
 	this.cityDescriptionText.set_wordWrap(true);
 	this.cityDescriptionText.set_width(500);
@@ -4433,7 +4441,7 @@ var com_gamejam_screens_CityLocation = function(locations,gameOverHack) {
 	this.cityDescriptionText.set_autoSize(0);
 	this.textBg.addChild(this.cityDescriptionText);
 	this.cityDescriptionText.set_y(65);
-	this.changeLocationButton = new com_gamejam_utils_TextButton("Change Location",300,40);
+	this.changeLocationButton = new com_gamejam_utils_TextButton("Travel somewhere else",300,40);
 	this.changeLocationButton.addEventListener("click",$bind(this,this.onClickChangeLocation));
 	this.changeLocationButton.set_x(openfl_Lib.current.stage.stageWidth - 320);
 	this.changeLocationButton.set_y(openfl_Lib.current.stage.stageHeight - 60);
@@ -4519,21 +4527,20 @@ com_gamejam_screens_CityLocation.prototype = $extend(openfl_display_Sprite.proto
 			}
 		}
 	}
-	,onMouseDown: function(e) {
-	}
 	,__class__: com_gamejam_screens_CityLocation
 });
 var com_gamejam_screens_GameOver = function() {
 	openfl_display_Sprite.call(this);
 	this.gameOverText = new openfl_text_TextField();
-	this.gameOverText.setTextFormat(com_gamejam_utils_TextFormats.WHITE_TITLES);
+	this.gameOverText.setTextFormat(com_gamejam_utils_TextFormats.SIZE_32);
 	this.gameOverText.set_width(800);
 	this.gameOverText.set_height(50);
-	this.gameOverText.set_text("Game Over!");
+	this.gameOverText.set_text("You have exhausted yourself to death!");
+	this.gameOverText.set_autoSize(0);
 	this.addChild(this.gameOverText);
 	this.gameOverText.set_x((openfl_Lib.current.stage.stageWidth - this.gameOverText.get_width()) / 2);
 	this.gameOverText.set_y(20);
-	this.restartButton = new com_gamejam_utils_TextButton("Start a New Game",300,40);
+	this.restartButton = new com_gamejam_utils_TextButton("Your next adventure awaits (Click anywhere...)",300,40);
 	this.addChild(this.restartButton);
 	this.restartButton.set_x(openfl_Lib.current.stage.stageWidth - 320);
 	this.restartButton.set_y(openfl_Lib.current.stage.stageHeight - 60);
@@ -4558,7 +4565,7 @@ var com_gamejam_screens_Title = function() {
 	this.titleBg.set_x(240.);
 	this.titleBg.set_y(185);
 	this.title = new openfl_text_TextField();
-	this.title.setTextFormat(com_gamejam_utils_TextFormats.WHITE_TITLES);
+	this.title.setTextFormat(com_gamejam_utils_TextFormats.SIZE_46);
 	this.title.set_text("The Tokyo Trail");
 	this.title.set_width(600);
 	this.title.set_height(80);
@@ -4572,14 +4579,14 @@ var com_gamejam_screens_Title = function() {
 	this.descBg.set_x(152.5);
 	this.descBg.set_y(450);
 	this.desc = new openfl_text_TextField();
-	this.desc.setTextFormat(com_gamejam_utils_TextFormats.WHITE_SUBTITLES);
+	this.desc.setTextFormat(com_gamejam_utils_TextFormats.SIZE_24);
 	this.desc.set_text("In the year 20XX, travelers to Tokyo struggled with hunger, thirst, \nboredom, and the ever-pressing need to make an impace on their social \nmedia feeds.\n\nWill you brave the Tokyo Trail?");
 	this.desc.set_width(760);
 	this.desc.set_height(200);
 	this.desc.set_autoSize(0);
 	this.descBg.addChild(this.desc);
 	this.newGame = new openfl_text_TextField();
-	this.newGame.setTextFormat(com_gamejam_utils_TextFormats.WHITE_SUBTITLES);
+	this.newGame.setTextFormat(com_gamejam_utils_TextFormats.SIZE_24);
 	this.newGame.set_text("NEW GAME (Click anywhere...)");
 	this.newGame.set_width(760);
 	this.newGame.set_height(40);
@@ -4606,13 +4613,13 @@ var com_gamejam_utils_TextButton = function(buttonText,w,h) {
 	openfl_display_Sprite.call(this);
 	this.mouseChildren = true;
 	this.buttonMode = true;
+	this.isSelected = false;
 	this.text = new openfl_text_TextField();
 	this.text.setTextFormat(com_gamejam_utils_TextFormats.BUTTONS);
 	this.text.set_width(w - 20);
 	this.text.set_height(h - 5);
 	this.text.set_text(buttonText);
 	this.addChild(this.text);
-	this.isSelected = false;
 	this.get_graphics().beginFill(this.upColor);
 	this.get_graphics().drawRoundRect(0,0,w,h,25,25);
 	this.get_graphics().endFill();
@@ -30515,7 +30522,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 222918;
+	this.version = 944590;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = ["lime","utils","AssetCache"];
@@ -68838,18 +68845,12 @@ openfl_display_DisplayObject.__broadcastEvents = new haxe_ds_StringMap();
 openfl_display_DisplayObject.__instanceCount = 0;
 openfl_text_Font.__registeredFonts = [];
 com_gamejam_game_MainGameState.fakeInt = 10;
-com_gamejam_utils_TextFormats.TITLES = new openfl_text_TextFormat("VT323 Regular",32,526344);
-com_gamejam_utils_TextFormats.WHITE_TITLES = new openfl_text_TextFormat("VT323 Regular",32,16777215);
-com_gamejam_utils_TextFormats.SUBTITLES = new openfl_text_TextFormat("VT323 Regular",24,526344);
-com_gamejam_utils_TextFormats.WHITE_SUBTITLES = new openfl_text_TextFormat("VT323 Regular",24,16777215);
+com_gamejam_utils_TextFormats.SIZE_46 = new openfl_text_TextFormat("VT323 Regular",46,16777215);
+com_gamejam_utils_TextFormats.SIZE_32 = new openfl_text_TextFormat("VT323 Regular",32,16777215);
+com_gamejam_utils_TextFormats.SIZE_24 = new openfl_text_TextFormat("VT323 Regular",24,16777215);
+com_gamejam_utils_TextFormats.SIZE_16 = new openfl_text_TextFormat("VT323 Regular",16,16777215);
 com_gamejam_utils_TextFormats.BUTTONS = new openfl_text_TextFormat("VT323 Regular",24,14606046);
-com_gamejam_utils_TextFormats.WHITE_BUTTONS = new openfl_text_TextFormat("VT323 Regular",28,16777215);
-com_gamejam_utils_TextFormats.FORM_PROPMPS = new openfl_text_TextFormat("VT323 Regular",26,592137);
-com_gamejam_utils_TextFormats.FORM_TEXT = new openfl_text_TextFormat("VT323 Regular",26,394758);
-com_gamejam_utils_TextFormats.LARGE_TEXT = new openfl_text_TextFormat("VT323 Regular",18,394758);
-com_gamejam_utils_TextFormats.NORMAL_TEXT = new openfl_text_TextFormat("VT323 Regular",16,394758);
-com_gamejam_utils_TextFormats.WHITE_NORMAL_TEXT = new openfl_text_TextFormat("VT323 Regular",16,16777215);
-com_gamejam_utils_TextFormats.SMALL_TEXT = new openfl_text_TextFormat("VT323 Regular",12,394758);
+com_gamejam_utils_TextFormats.FORM_PROPMPS = new openfl_text_TextFormat("VT323 Regular",26,16777215);
 haxe_Serializer.USE_CACHE = false;
 haxe_Serializer.USE_ENUM_INDEX = false;
 haxe_Serializer.BASE64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:";

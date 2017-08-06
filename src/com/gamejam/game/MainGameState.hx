@@ -18,11 +18,10 @@ class MainGameState {
     public function new (hungerData:Array<Dynamic>, thirstData:Array<Dynamic>) {
 
         characterStatusDisplay = new CharacterStatusDisplay(hungerData, thirstData);
-        characterStatusDisplay.x = Lib.current.stage.stageWidth - 320;
+        characterStatusDisplay.x = Lib.current.stage.stageWidth - 270;
         characterStatusDisplay.y = 20;
 
         activityAccomplished = new ActivityAccomplished();
-        //activityAccomplished.whiteBg.addEventListener(MouseEvent.CLICK, onClickActivityAccomplishedOK);
         activityAccomplished.addEventListener(MouseEvent.CLICK, onClickActivityAccomplishedOK);
         activityAccomplished.okBtn.addEventListener(MouseEvent.CLICK, onClickActivityAccomplishedOK);
 

@@ -1,13 +1,13 @@
 package com.gamejam.utils;
 
 
-//import openfl.display.SimpleButton;
 import openfl.display.Sprite;
 import openfl.events.MouseEvent;
 import openfl.Lib;
 import openfl.text.TextField;
 
 import com.gamejam.utils.TextFormats;
+
 
 class TextButton extends Sprite {
 
@@ -25,8 +25,7 @@ class TextButton extends Sprite {
         super();
         this.mouseChildren = true;
         this.buttonMode = true;
-        //this.width = w;
-        //this.height = h;
+        isSelected = false;
 
         text = new TextField();
         text.setTextFormat(TextFormats.BUTTONS);
@@ -34,11 +33,6 @@ class TextButton extends Sprite {
         text.height = h - 5;
         text.text = buttonText;
         addChild(text);
-
-        //trace("ImageButton hitSprite has w,h = " + this.width + "," + this.height);
-        //trace("ImageButton hitSprite has params w,h = " + w + "," + h);
-
-        isSelected = false;
 
         graphics.beginFill(upColor);
         graphics.drawRoundRect(0, 0, w, h, 25, 25);
@@ -75,35 +69,5 @@ class TextButton extends Sprite {
         this.graphics.endFill();
 
     }
-}
-
-// TextButton is a button with some text
-// FIXME this button doesnt work on html5
-    /*
-class TextButton extends SimpleButton {
-
-    var bg:Sprite;
-    var text:TextField;
-
-    public function new (buttonText:String, w:Float, h:Float) {
-
-        var format:TextFormat = new TextFormat();
-        format.color = 0x808080;
-        format.size = 48;
-
-        text = new TextField();
-        text.setTextFormat(format);
-        text.width = w - 20;
-        text.height = h - 20;
-        text.text = buttonText;
-
-        bg = new Sprite();
-        bg.width = w;
-        bg.height = h;
-        bg.addChild(text);
-        super (bg, bg, bg, bg);
-    }
-
 
 }
-    */

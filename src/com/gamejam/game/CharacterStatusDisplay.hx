@@ -4,20 +4,23 @@ package com.gamejam.game;
 import openfl.display.Sprite;
 //import openfl.text.TextFormat;
 import openfl.text.TextField;
+import openfl.text.TextFieldAutoSize;
 
 import com.gamejam.character.Character;
 import com.gamejam.utils.TextFormats;
 
-// CharacterStatusDisplay shows the character's general gameplay information
+// CharacterStatusDisplay shows the character's status and gameplay information
 class CharacterStatusDisplay extends Sprite {
 
     public var hungerData:Array<Dynamic>;
     public var thirstData:Array<Dynamic>;
 
     //public var format:TextFormat;
+    public var dialogBg:Sprite;
     public var nameText:TextField;
     public var classText:TextField;
     public var staminaStatusText:TextField;
+    public var staminaAmountText:TextField;
     public var hungerStatusText:TextField;
     public var thirstStatusText:TextField;
 
@@ -28,38 +31,64 @@ class CharacterStatusDisplay extends Sprite {
         hungerData = hungerLevelData;
         thirstData = thirstLevelData;
 
+        dialogBg = new Sprite();
+        dialogBg.graphics.beginFill(0x000000);
+        dialogBg.graphics.drawRect(0, 0, 80, 100);
+        dialogBg.graphics.endFill();
+        addChild(dialogBg);
+
         nameText = new TextField();
-        nameText.setTextFormat(TextFormats.NORMAL_TEXT);
+        nameText.setTextFormat(TextFormats.WHITE_NORMAL_TEXT);
         nameText.width = 300;
         nameText.height = 20;
-        addChild(nameText);
+        nameText.selectable = false;
+        dialogBg.addChild(nameText);
 
         classText = new TextField();
-        classText.setTextFormat(TextFormats.NORMAL_TEXT);
-        classText.width = 300;
+        classText.setTextFormat(TextFormats.WHITE_NORMAL_TEXT);
+        classText.width = 80;
         classText.height = 20;
-        addChild(classText);
+        classText.autoSize = TextFieldAutoSize.LEFT;
+        classText.selectable = false;
+        dialogBg.addChild(classText);
         classText.y = 20;
 
         staminaStatusText = new TextField();
-        staminaStatusText.setTextFormat(TextFormats.NORMAL_TEXT);
-        staminaStatusText.width = 300;
+        staminaStatusText.setTextFormat(TextFormats.WHITE_NORMAL_TEXT);
+        staminaStatusText.width = 40;
         staminaStatusText.height = 20;
-        addChild(staminaStatusText);
+        staminaStatusText.autoSize = TextFieldAutoSize.LEFT;
+        staminaStatusText.text = "Stamina :";
+        staminaStatusText.selectable = false;
+        dialogBg.addChild(staminaStatusText);
         staminaStatusText.y = 40;
 
+        staminaAmountText = new TextField();
+        staminaAmountText.setTextFormat(TextFormats.WHITE_NORMAL_TEXT);
+        staminaAmountText.width = 40;
+        staminaAmountText.height = 20;
+        staminaAmountText.autoSize = TextFieldAutoSize.RIGHT;
+        staminaAmountText.selectable = false;
+        dialogBg.addChild(staminaAmountText);
+        staminaAmountText.x = 40;
+        staminaAmountText.y = 40;
+
         hungerStatusText = new TextField();
-        hungerStatusText.setTextFormat(TextFormats.NORMAL_TEXT);
-        hungerStatusText.width = 300;
+        hungerStatusText.setTextFormat(TextFormats.WHITE_NORMAL_TEXT);
+        hungerStatusText.width = 80;
         hungerStatusText.height = 20;
-        addChild(hungerStatusText);
+        hungerStatusText.autoSize = TextFieldAutoSize.LEFT;
+        hungerStatusText.selectable = false;
+        dialogBg.addChild(hungerStatusText);
         hungerStatusText.y = 60;
 
         thirstStatusText = new TextField();
-        thirstStatusText.setTextFormat(TextFormats.NORMAL_TEXT);
-        thirstStatusText.width = 300;
+        thirstStatusText.setTextFormat(TextFormats.WHITE_NORMAL_TEXT);
+        thirstStatusText.width = 80;
         thirstStatusText.height = 20;
-        addChild(thirstStatusText);
+        thirstStatusText.autoSize = TextFieldAutoSize.LEFT;
+        thirstStatusText.selectable = false;
+        dialogBg.addChild(thirstStatusText);
         thirstStatusText.y = 80;
 
     }
@@ -83,7 +112,7 @@ class CharacterStatusDisplay extends Sprite {
             }
         }
 
-        staminaStatusText.text = char.stamina;
+        staminaAmountText.text = char.stamina;
 
     }
 

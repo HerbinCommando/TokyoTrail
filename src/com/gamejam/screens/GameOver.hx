@@ -11,7 +11,7 @@ import com.gamejam.utils.TextButton;
 import com.gamejam.utils.TextFormats;
 
 
-// GameOver is the place players end up when they die
+// GameOver is the place players end up when the game is over
 class GameOver extends Sprite {
 
     public var gameOverText:TextField;
@@ -21,18 +21,21 @@ class GameOver extends Sprite {
 
         super ();
 
-        var centerX:Float = Lib.current.stage.stageWidth / 2;
+        //var centerX:Float = Lib.current.stage.stageWidth / 2;
 
         gameOverText = new TextField();
-        gameOverText.setTextFormat(TextFormats.TITLES);
+        gameOverText.setTextFormat(TextFormats.WHITE_TITLES);
         gameOverText.width = 800;
         gameOverText.height = 50;
         gameOverText.text = "Game Over!";
         addChild(gameOverText);
+        gameOverText.x = (Lib.current.stage.stageWidth - gameOverText.width)/2;
+        gameOverText.y = 20;
 
-        restartButton = new TextButton("Start a New Game", 300, 40);
+        restartButton = new TextButton("New Game (Click anywhere...)", 300, 40);
         addChild(restartButton);
-        restartButton.x = Lib.current.stage.stageWidth - 600;
+        restartButton.x = Lib.current.stage.stageWidth - 320;
+        restartButton.y = Lib.current.stage.stageHeight - 60;
 
     }
 

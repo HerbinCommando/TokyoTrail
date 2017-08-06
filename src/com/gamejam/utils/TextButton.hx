@@ -13,10 +13,12 @@ class TextButton extends Sprite {
 
     public var upColor:Int = 0x303030;
     public var downColor:Int = 0x606060;
+    public var selectedColor:Int = 0x03AA03;
 
     public var text:TextField;
 
     public var cargo:Dynamic;
+    public var isSelected:Bool;
 
     public function new (buttonText:String, w:Float, h:Float) {
 
@@ -33,8 +35,10 @@ class TextButton extends Sprite {
         text.text = buttonText;
         addChild(text);
 
-        trace("ImageButton hitSprite has w,h = " + this.width + "," + this.height);
-        trace("ImageButton hitSprite has params w,h = " + w + "," + h);
+        //trace("ImageButton hitSprite has w,h = " + this.width + "," + this.height);
+        //trace("ImageButton hitSprite has params w,h = " + w + "," + h);
+
+        isSelected = false;
 
         graphics.beginFill(upColor);
         graphics.drawRoundRect(0, 0, w, h, 25, 25);
@@ -56,12 +60,21 @@ class TextButton extends Sprite {
 
     public function onMouseUp(e:MouseEvent):Void {
 
-        this.graphics.beginFill(upColor);
+        var fillColor:Int = isSelected ? selectedColor : upColor;
+        this.graphics.beginFill(fillColor);
         this.graphics.drawRoundRect(0, 0, this.width, this.height, 25, 25);
         this.graphics.endFill();
 
     }
 
+    public function setSelected(selected:Bool):Void {
+
+        var fillColor:Int = (isSelected = selected) ? selectedColor : upColor;
+        this.graphics.beginFill(fillColor);
+        this.graphics.drawRoundRect(0, 0, this.width, this.height, 25, 25);
+        this.graphics.endFill();
+
+    }
 }
 
 // TextButton is a button with some text

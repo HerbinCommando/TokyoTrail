@@ -6,6 +6,7 @@ import openfl.display.Bitmap;
 import openfl.display.Sprite;
 import openfl.Lib;
 import openfl.text.TextField;
+import openfl.text.TextFieldAutoSize;
 
 import com.gamejam.utils.TextButton;
 import com.gamejam.utils.TextFormats;
@@ -14,6 +15,7 @@ import com.gamejam.utils.TextFormats;
 // ActivityAccomplished displays all the information when a player does a location's activity
 class ActivityAccomplished extends Sprite {
 
+    public var textBg:Sprite;
     public var nameText:TextField;
     public var descText:TextField;
     /*
@@ -33,7 +35,7 @@ class ActivityAccomplished extends Sprite {
 
     public var okBtn:TextButton;
 
-    public var whiteBg:Sprite;
+    public var stageBg:Sprite;
 
     //public var activityData:Dynamic;
 
@@ -41,24 +43,38 @@ class ActivityAccomplished extends Sprite {
 
         super ();
 
-        whiteBg = new Sprite();
-        whiteBg.graphics.beginFill(0xFFFFFF);
-        whiteBg.graphics.drawRect(0,0,Lib.current.stage.stageWidth,Lib.current.stage.stageHeight);
-        whiteBg.graphics.endFill();
-        addChild(whiteBg);
+        stageBg = new Sprite();
+        stageBg.graphics.beginFill(0x000000);
+        stageBg.graphics.drawRect(0,0,Lib.current.stage.stageWidth,Lib.current.stage.stageHeight);
+        stageBg.graphics.endFill();
+        addChild(stageBg);
+
+        textBg = new Sprite();
+        textBg.graphics.beginFill(0x000000);
+        textBg.graphics.drawRect(0, 0, 500, 150);
+        textBg.graphics.endFill();
+        textBg.mouseEnabled = false;
+        textBg.mouseChildren = false;
+        //addChild(textBg);
+        textBg.x = 20;
+        textBg.y = 20;
 
         nameText = new TextField();
-        nameText.setTextFormat(TextFormats.WHITE_SUBTITLES);
-        nameText.width = 800;
+        nameText.setTextFormat(TextFormats.WHITE_TITLES);
+        nameText.width = 500;
         nameText.height = 50;
+        nameText.autoSize = TextFieldAutoSize.CENTER;
+        textBg.addChild(nameText);
         //addChild(nameText);
 
         descText = new TextField();
-        descText.setTextFormat(TextFormats.WHITE_NORMAL_TEXT);
+        descText.setTextFormat(TextFormats.WHITE_SUBTITLES);
         descText.multiline = true;
         descText.wordWrap = true;
-        descText.width = 800;
-        descText.height = 60;
+        descText.width = 500;
+        descText.height = 100;
+        descText.autoSize = TextFieldAutoSize.CENTER;
+        textBg.addChild(descText);
         //addChild(descText);
         descText.y = 65;
 
@@ -116,9 +132,10 @@ class ActivityAccomplished extends Sprite {
 
         var centerX:Float = Lib.current.stage.stageWidth / 2;
 
-        okBtn = new TextButton("OK", 100, 40);
+        okBtn = new TextButton("OK (Click anywhere...)", 300, 40);
         //okBtn.addEventListener(MouseEvent.CLICK, onClickOKBtn);
-        okBtn.x = Lib.current.stage.stageWidth - 400;
+        okBtn.x = Lib.current.stage.stageWidth - 320;
+        okBtn.y = Lib.current.stage.stageHeight - 60;
 
     }
 
@@ -130,12 +147,20 @@ class ActivityAccomplished extends Sprite {
         }
         activityImg = new Bitmap (Assets.getBitmapData ("assets/images/" + data.Name + ".png"));
         addChild(activityImg);
+        activityImg.x = (Lib.current.stage.stageWidth - activityImg.width)/2;
 
         nameText.text = data.Name;
         descText.text = data.Description;
 
-        addChild(nameText);
-        addChild(descText);
+        //trace("desc height = " + descText.height);
+        textBg.graphics.beginFill(0x000000);
+        textBg.graphics.drawRect(0, 0, 500, 100 + Math.ceil(descText.height));
+        textBg.graphics.endFill();
+
+        //addChild(nameText);
+        //addChild(descText);
+        addChild(textBg);
+        //textBg.x = activityImg.x + 20;
         addChild(okBtn);
 
         /*

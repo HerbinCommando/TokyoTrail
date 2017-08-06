@@ -6,6 +6,7 @@ import openfl.display.Bitmap;
 import openfl.display.Sprite;
 import openfl.events.MouseEvent;
 import openfl.text.TextField;
+import openfl.text.TextFieldAutoSize;
 import openfl.Lib;
 
 import com.gamejam.activities.ActivitySelection;
@@ -19,12 +20,15 @@ import com.gamejam.utils.TextFormats;
 // A city location is a main location, where the player hangs out at
 class CityLocation extends Sprite {
 
+    public var stageBg:Sprite;
+    public var textBg:Sprite;
     public var cityLocationText:TextField;
     public var cityDescriptionText:TextField;
     public var locationData:Array<Dynamic>;
     public var activityData:Array<Dynamic>;
 
     public var cityBg:Bitmap;
+    public var maxActivitySelectionYPos:Int = 185;
     public var activitySelection:ActivitySelection;
 
     public var changeLocationButton:TextButton;
@@ -32,6 +36,7 @@ class CityLocation extends Sprite {
     public var isLocationSelectionOpen:Bool;
 
     public var mainGameState:MainGameState;
+
 
     private var gameOverHackFn:Void->Void;
 
@@ -44,10 +49,26 @@ class CityLocation extends Sprite {
         locationData = locations;
         gameOverHackFn = gameOverHack;
 
+        stageBg = new Sprite();
+        stageBg.graphics.beginFill(0x000000);
+        stageBg.graphics.drawRect(0, 0, Lib.current.stage.stageWidth, Lib.current.stage.stageHeight);
+        stageBg.graphics.endFill();
+        addChild(stageBg);
+
+        textBg = new Sprite();
+        textBg.graphics.beginFill(0x000000);
+        textBg.graphics.drawRect(0, 0, 500, 150);
+        textBg.graphics.endFill();
+        //addChild(textBg);
+        textBg.x = 20;
+        textBg.y = 20;
+
         cityLocationText = new TextField();
         cityLocationText.setTextFormat(TextFormats.WHITE_TITLES);
-        cityLocationText.width = 800;
+        cityLocationText.width = 500;
         cityLocationText.height = 50;
+        cityLocationText.autoSize = TextFieldAutoSize.CENTER;
+        textBg.addChild(cityLocationText);
         //addChild(cityLocationText);
         //cityLocationText.x = centerX;
 
@@ -55,18 +76,24 @@ class CityLocation extends Sprite {
         cityDescriptionText.setTextFormat(TextFormats.WHITE_SUBTITLES);
         cityDescriptionText.multiline = true;
         cityDescriptionText.wordWrap = true;
-        cityDescriptionText.width = 800;
+        cityDescriptionText.width = 500;
         cityDescriptionText.height = 100;
+        cityDescriptionText.autoSize = TextFieldAutoSize.CENTER;
+        textBg.addChild(cityDescriptionText);
         //addChild(cityDescriptionText);
-        cityDescriptionText.y = 55;
+        cityDescriptionText.y = 65;
 
         changeLocationButton = new TextButton("Change Location", 300, 40);
         changeLocationButton.addEventListener(MouseEvent.CLICK, onClickChangeLocation);
         //addChild(changeLocationButton);
-        changeLocationButton.x = Lib.current.stage.stageWidth - 600;
+        changeLocationButton.x = Lib.current.stage.stageWidth - 320;
+        changeLocationButton.y = Lib.current.stage.stageHeight - 60;
 
         locationSelection = new LocationSelection(onNewLocationSelected);
         isLocationSelectionOpen = false;
+
+        //this.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
+        this.addEventListener(MouseEvent.MOUSE_WHEEL, onScrollMouseWheel);
     }
 
     public function setupGame(gameState:MainGameState):Void {
@@ -81,14 +108,19 @@ class CityLocation extends Sprite {
         //trace(location);
 
         if (cityBg != null) {
+            //cityBg.removeEventListener(MouseEvent.MOUSE_WHEEL, onScrollMouseWheel);
+            //cityBg.removeEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
             removeChild(cityBg);
             cityBg = null;
         }
         cityBg = new Bitmap (Assets.getBitmapData ("assets/images/" + location.Name + ".png"));
+        //cityBg.addEventListener(MouseEvent.MOUSE_WHEEL, onScrollMouseWheel);
+        //cityBg.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
         addChild(cityBg);
+        cityBg.x = (Lib.current.stage.stageWidth - cityBg.width)/2;
 
-        addChild(cityLocationText);
-        addChild(cityDescriptionText);
+        //addChild(cityLocationText);
+        //addChild(cityDescriptionText);
         addChild(changeLocationButton);
 
         cityLocationText.text = location.Name;
@@ -97,18 +129,20 @@ class CityLocation extends Sprite {
         //trace(activityData);
 
         setupActivitySelection();
-
+        addChild(textBg);
     }
 
     public function setupActivitySelection():Void {
 
         if (activitySelection == null) {
             activitySelection = new ActivitySelection(onActivitySelected);
-            activitySelection.y = 165;
+            activitySelection.x = 20;
+            activitySelection.y = maxActivitySelectionYPos;
         }
         activitySelection.setupActivityData(activityData);
 
         addChild(activitySelection);
+        //activitySelection.x = cityBg.x + 20;
 
     }
 
@@ -144,4 +178,32 @@ class CityLocation extends Sprite {
 
     }
 
+    public function onScrollMouseWheel(e:MouseEvent):Void {
+
+        //trace(e);
+
+        // If the activitySelection element is large enough to drop off the bottom of the screen, calculate the bottom extreme position
+        if (maxActivitySelectionYPos + activitySelection.height + 20 > Lib.current.stage.stageHeight) {
+            activitySelection.y += e.delta;
+
+            var minActivitySelectionYPos:Int = Math.ceil(Lib.current.stage.stageHeight - (/*maxActivitySelectionYPos +*/ activitySelection.height + 20));
+
+            if (activitySelection.y > maxActivitySelectionYPos) activitySelection.y = maxActivitySelectionYPos;
+
+            //trace("min pos = " + minActivitySelectionYPos);
+            if (activitySelection.y < minActivitySelectionYPos) activitySelection.y = minActivitySelectionYPos;
+
+        }
+
+        //activitySelection.y < maxActivitySelectionYPos)
+        //trace("activity height = " + activitySelection.height);
+        //trace("stage height = " + Lib.current.stage.stageHeight);
+
+    }
+
+    public function onMouseDown(e:MouseEvent):Void {
+
+        //trace(e);
+
+    }
 }

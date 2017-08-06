@@ -65,7 +65,7 @@ class ActivitySelection extends Sprite {
             btn.addEventListener(MouseEvent.CLICK, onClickActivity);
             addChild(btn);
             btn.y = availableActivities.length * 55;
-            trace("setupActivityData length == " + availableActivities.length);
+            //trace("setupActivityData length == " + availableActivities.length);
             availableActivities.push(btn);
         }
     }

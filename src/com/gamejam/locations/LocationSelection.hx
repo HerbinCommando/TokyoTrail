@@ -19,7 +19,7 @@ class LocationSelection extends Sprite {
     public var availableLocations:Array<TextButton>;
     public var locations:Array<Dynamic>;
 
-    public var whiteBg:Sprite;
+    public var stageBg:Sprite;
     public var titleText:TextField;
 
     /*
@@ -47,11 +47,11 @@ class LocationSelection extends Sprite {
 
         super ();
 
-        whiteBg = new Sprite();
-        whiteBg.graphics.beginFill(0xFFFFFF);
-        whiteBg.graphics.drawRect(0,0,Lib.current.stage.stageWidth,Lib.current.stage.stageHeight);
-        whiteBg.graphics.endFill();
-        addChild(whiteBg);
+        stageBg = new Sprite();
+        stageBg.graphics.beginFill(0x000000);
+        stageBg.graphics.drawRect(0,0,Lib.current.stage.stageWidth,Lib.current.stage.stageHeight);
+        stageBg.graphics.endFill();
+        addChild(stageBg);
 
         var centerX:Float = Lib.current.stage.stageWidth / 2;
         titleText = new TextField();

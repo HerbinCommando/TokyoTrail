@@ -61,11 +61,20 @@ class Title extends Sprite {
 
         desc = new TextField();
         desc.setTextFormat(TextFormats.WHITE_SUBTITLES);
-        desc.text = "In the year 20XX, travelers to Tokyo struggled with hunger, thirst, \nboredom, and the ever-pressing need to make an impace on their social \nmedia feeds.\n\nWill you brave the Tokyo Trail?\n\nNEW GAME";
+        desc.text = "In the year 20XX, travelers to Tokyo struggled with hunger, thirst, \nboredom, and the ever-pressing need to make an impace on their social \nmedia feeds.\n\nWill you brave the Tokyo Trail?";
         desc.width = 760;
         desc.height = 200;
         desc.autoSize = TextFieldAutoSize.CENTER;
         descBg.addChild(desc);
+
+        newGame = new TextField();
+        newGame.setTextFormat(TextFormats.WHITE_SUBTITLES);
+        newGame.text = "NEW GAME (Click anywhere...)";
+        newGame.width = 760;
+        newGame.height = 40;
+        newGame.autoSize = TextFieldAutoSize.CENTER;
+        descBg.addChild(newGame);
+        newGame.y = 200 - 45;
 
         /*
         this.addEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);

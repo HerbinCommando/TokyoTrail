@@ -11,7 +11,7 @@ import openfl.text.TextField;
 import openfl.text.TextFieldType;
 import openfl.Lib;
 
-import com.gamejam.character.Character;
+import com.gamejam.game.Character;
 import com.gamejam.utils.TextButton;
 import com.gamejam.utils.TextFormats;
 

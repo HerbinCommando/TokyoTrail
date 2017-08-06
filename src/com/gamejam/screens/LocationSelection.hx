@@ -1,4 +1,4 @@
-package com.gamejam.locations;
+package com.gamejam.screens;
 
 
 import openfl.Assets;

@@ -1,4 +1,4 @@
-package com.gamejam.character;
+package com.gamejam.game;
 
 
 import openfl.display.Bitmap;

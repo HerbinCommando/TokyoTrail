@@ -11,7 +11,7 @@ import openfl.display.Sprite;
 import openfl.events.MouseEvent;
 import openfl.Lib;
 
-import com.gamejam.character.Character;
+import com.gamejam.game.Character;
 import com.gamejam.game.MainGameState;
 import com.gamejam.screens.CityLocation;
 import com.gamejam.screens.CharacterSetup;

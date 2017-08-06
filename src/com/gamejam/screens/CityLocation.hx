@@ -12,7 +12,7 @@ import openfl.Lib;
 import com.gamejam.activities.ActivitySelection;
 import com.gamejam.game.CharacterStatusDisplay;
 import com.gamejam.game.MainGameState;
-import com.gamejam.locations.LocationSelection;
+import com.gamejam.screens.LocationSelection;
 import com.gamejam.utils.TextButton;
 import com.gamejam.utils.TextFormats;
 
@@ -32,7 +32,7 @@ class CityLocation extends Sprite {
     public var activitySelection:ActivitySelection;
 
     public var changeLocationButton:TextButton;
-    public var locationSelection:LocationSelection;
+    public var locationSelectionScreen:LocationSelection;
     public var isLocationSelectionOpen:Bool;
 
     public var mainGameState:MainGameState;
@@ -81,7 +81,7 @@ class CityLocation extends Sprite {
         changeLocationButton.x = Lib.current.stage.stageWidth - 320;
         changeLocationButton.y = Lib.current.stage.stageHeight - 60;
 
-        locationSelection = new LocationSelection(onNewLocationSelected);
+        locationSelectionScreen = new LocationSelection(onNewLocationSelected);
         isLocationSelectionOpen = false;
 
         this.addEventListener(MouseEvent.MOUSE_WHEEL, onScrollMouseWheel);
@@ -145,8 +145,8 @@ class CityLocation extends Sprite {
 
         if (!isLocationSelectionOpen) {
             isLocationSelectionOpen = true;
-            locationSelection.setupLocationData(locationData);
-            addChild(locationSelection);
+            locationSelectionScreen.setupLocationData(locationData);
+            addChild(locationSelectionScreen);
         }
 
     }
@@ -154,7 +154,7 @@ class CityLocation extends Sprite {
     public function onNewLocationSelected(locData:Dynamic):Void {
 
         isLocationSelectionOpen = false;
-        removeChild(locationSelection);
+        removeChild(locationSelectionScreen);
 
         setupLocation(locData);
 

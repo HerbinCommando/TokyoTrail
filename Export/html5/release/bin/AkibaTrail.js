@@ -1018,7 +1018,7 @@ $hxClasses["ApplicationMain"] = ApplicationMain;
 ApplicationMain.__name__ = ["ApplicationMain"];
 ApplicationMain.main = function() {
 	var projectName = "AkibaTrail";
-	var config = { build : "14", company : "Mars Cilla Consulting", file : "AkibaTrail", fps : 60, name : "Tokyo Trail", orientation : "", packageName : "com.gamejam.akibatrail", version : "1.0.0", windows : [{ allowHighDPI : false, alwaysOnTop : false, antialiasing : 0, background : 16777215, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : true, height : 0, hidden : null, maximized : null, minimized : null, parameters : { }, resizable : true, stencilBuffer : true, title : "Tokyo Trail", vsync : false, width : 0, x : null, y : null}]};
+	var config = { build : "15", company : "Mars Cilla Consulting", file : "AkibaTrail", fps : 60, name : "Tokyo Trail", orientation : "", packageName : "com.gamejam.akibatrail", version : "1.0.0", windows : [{ allowHighDPI : false, alwaysOnTop : false, antialiasing : 0, background : 16777215, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : true, height : 0, hidden : null, maximized : null, minimized : null, parameters : { }, resizable : true, stencilBuffer : true, title : "Tokyo Trail", vsync : false, width : 0, x : null, y : null}]};
 	lime_system_System.__registerEntryPoint(projectName,ApplicationMain.create,config);
 };
 ApplicationMain.create = function(config) {
@@ -4077,7 +4077,7 @@ com_gamejam_activities_ActivitySelection.prototype = $extend(openfl_display_Spri
 	}
 	,__class__: com_gamejam_activities_ActivitySelection
 });
-var com_gamejam_character_Character = function(characterName,data) {
+var com_gamejam_game_Character = function(characterName,data) {
 	openfl_display_Sprite.call(this);
 	this.charName = characterName;
 	this.className = data.Class;
@@ -4092,10 +4092,10 @@ var com_gamejam_character_Character = function(characterName,data) {
 	this.entertainmentPoints = 0;
 	this.socialMediaEngagement = 0;
 };
-$hxClasses["com.gamejam.character.Character"] = com_gamejam_character_Character;
-com_gamejam_character_Character.__name__ = ["com","gamejam","character","Character"];
-com_gamejam_character_Character.__super__ = openfl_display_Sprite;
-com_gamejam_character_Character.prototype = $extend(openfl_display_Sprite.prototype,{
+$hxClasses["com.gamejam.game.Character"] = com_gamejam_game_Character;
+com_gamejam_game_Character.__name__ = ["com","gamejam","game","Character"];
+com_gamejam_game_Character.__super__ = openfl_display_Sprite;
+com_gamejam_game_Character.prototype = $extend(openfl_display_Sprite.prototype,{
 	charName: null
 	,profileImage: null
 	,className: null
@@ -4110,7 +4110,7 @@ com_gamejam_character_Character.prototype = $extend(openfl_display_Sprite.protot
 	,entertainmentPoints: null
 	,socialMediaEngagement: null
 	,characterData: null
-	,__class__: com_gamejam_character_Character
+	,__class__: com_gamejam_game_Character
 });
 var com_gamejam_game_CharacterStatusDisplay = function(hungerLevelData,thirstLevelData) {
 	openfl_display_Sprite.call(this);
@@ -4260,76 +4260,6 @@ com_gamejam_game_MainGameState.prototype = {
 	}
 	,__class__: com_gamejam_game_MainGameState
 };
-var com_gamejam_locations_LocationSelection = function(locationSelectedFn) {
-	openfl_display_Sprite.call(this);
-	this.stageBg = new openfl_display_Sprite();
-	this.stageBg.get_graphics().beginFill(0);
-	this.stageBg.get_graphics().drawRect(0,0,openfl_Lib.current.stage.stageWidth,openfl_Lib.current.stage.stageHeight);
-	this.stageBg.get_graphics().endFill();
-	this.addChild(this.stageBg);
-	this.imageBg = new openfl_display_Bitmap(openfl_utils_Assets.getBitmapData("assets/images/SubwayMap.png"));
-	this.addChild(this.imageBg);
-	this.imageBg.set_x((openfl_Lib.current.stage.stageWidth - this.imageBg.get_width()) / 2);
-	this.textBg = new openfl_display_Sprite();
-	this.textBg.get_graphics().beginFill(0);
-	this.textBg.get_graphics().drawRect(0,0,500,150);
-	this.textBg.get_graphics().endFill();
-	this.addChild(this.textBg);
-	this.textBg.set_x(20);
-	this.textBg.set_y(20);
-	this.titleText = new openfl_text_TextField();
-	this.titleText.setTextFormat(com_gamejam_utils_TextFormats.SIZE_32);
-	this.titleText.set_width(500);
-	this.titleText.set_height(50);
-	this.titleText.set_text("Where are we going to next?");
-	this.titleText.set_autoSize(0);
-	this.textBg.addChild(this.titleText);
-	this.onLocationSelectedFn = locationSelectedFn;
-	this.availableLocations = [];
-};
-$hxClasses["com.gamejam.locations.LocationSelection"] = com_gamejam_locations_LocationSelection;
-com_gamejam_locations_LocationSelection.__name__ = ["com","gamejam","locations","LocationSelection"];
-com_gamejam_locations_LocationSelection.__super__ = openfl_display_Sprite;
-com_gamejam_locations_LocationSelection.prototype = $extend(openfl_display_Sprite.prototype,{
-	onLocationSelectedFn: null
-	,availableLocations: null
-	,locations: null
-	,stageBg: null
-	,imageBg: null
-	,textBg: null
-	,titleText: null
-	,setupLocationData: function(data) {
-		this.locations = data;
-		var _g = 0;
-		var _g1 = this.availableLocations;
-		while(_g < _g1.length) {
-			var btn = _g1[_g];
-			++_g;
-			btn.removeEventListener("click",$bind(this,this.onClickLocation));
-			this.removeChild(btn);
-			btn = null;
-		}
-		this.availableLocations = [];
-		var _g2 = 0;
-		while(_g2 < data.length) {
-			var location = data[_g2];
-			++_g2;
-			var btn1 = new com_gamejam_utils_TextButton(location.Name,500,40);
-			btn1.addEventListener("click",$bind(this,this.onClickLocation));
-			btn1.cargo = location;
-			this.addChild(btn1);
-			btn1.set_x(20);
-			btn1.set_y(185 + this.availableLocations.length * 55);
-			this.availableLocations.push(btn1);
-		}
-	}
-	,onClickLocation: function(e) {
-		var btn = js_Boot.__cast(e.currentTarget , com_gamejam_utils_TextButton);
-		var locationData = btn.cargo;
-		this.onLocationSelectedFn(locationData);
-	}
-	,__class__: com_gamejam_locations_LocationSelection
-});
 var com_gamejam_screens_CharacterSetup = function(characterClassData) {
 	var _gthis = this;
 	openfl_display_Sprite.call(this);
@@ -4406,7 +4336,7 @@ com_gamejam_screens_CharacterSetup.prototype = $extend(openfl_display_Sprite.pro
 		btn.setSelected(true);
 	}
 	,onClickCreateCharacter: function(e) {
-		this.createdCharacter = new com_gamejam_character_Character(this.characterNameText.get_text(),this.selectedCharacterClassData);
+		this.createdCharacter = new com_gamejam_game_Character(this.characterNameText.get_text(),this.selectedCharacterClassData);
 	}
 	,__class__: com_gamejam_screens_CharacterSetup
 });
@@ -4445,7 +4375,7 @@ var com_gamejam_screens_CityLocation = function(locations,gameOverHack) {
 	this.changeLocationButton.addEventListener("click",$bind(this,this.onClickChangeLocation));
 	this.changeLocationButton.set_x(openfl_Lib.current.stage.stageWidth - 320);
 	this.changeLocationButton.set_y(openfl_Lib.current.stage.stageHeight - 60);
-	this.locationSelection = new com_gamejam_locations_LocationSelection($bind(this,this.onNewLocationSelected));
+	this.locationSelectionScreen = new com_gamejam_screens_LocationSelection($bind(this,this.onNewLocationSelected));
 	this.isLocationSelectionOpen = false;
 	this.addEventListener("mouseWheel",$bind(this,this.onScrollMouseWheel));
 };
@@ -4463,7 +4393,7 @@ com_gamejam_screens_CityLocation.prototype = $extend(openfl_display_Sprite.proto
 	,maxActivitySelectionYPos: null
 	,activitySelection: null
 	,changeLocationButton: null
-	,locationSelection: null
+	,locationSelectionScreen: null
 	,isLocationSelectionOpen: null
 	,mainGameState: null
 	,gameOverHackFn: null
@@ -4505,13 +4435,13 @@ com_gamejam_screens_CityLocation.prototype = $extend(openfl_display_Sprite.proto
 	,onClickChangeLocation: function(e) {
 		if(!this.isLocationSelectionOpen) {
 			this.isLocationSelectionOpen = true;
-			this.locationSelection.setupLocationData(this.locationData);
-			this.addChild(this.locationSelection);
+			this.locationSelectionScreen.setupLocationData(this.locationData);
+			this.addChild(this.locationSelectionScreen);
 		}
 	}
 	,onNewLocationSelected: function(locData) {
 		this.isLocationSelectionOpen = false;
-		this.removeChild(this.locationSelection);
+		this.removeChild(this.locationSelectionScreen);
 		this.setupLocation(locData);
 	}
 	,onScrollMouseWheel: function(e) {
@@ -4552,6 +4482,76 @@ com_gamejam_screens_GameOver.prototype = $extend(openfl_display_Sprite.prototype
 	gameOverText: null
 	,restartButton: null
 	,__class__: com_gamejam_screens_GameOver
+});
+var com_gamejam_screens_LocationSelection = function(locationSelectedFn) {
+	openfl_display_Sprite.call(this);
+	this.stageBg = new openfl_display_Sprite();
+	this.stageBg.get_graphics().beginFill(0);
+	this.stageBg.get_graphics().drawRect(0,0,openfl_Lib.current.stage.stageWidth,openfl_Lib.current.stage.stageHeight);
+	this.stageBg.get_graphics().endFill();
+	this.addChild(this.stageBg);
+	this.imageBg = new openfl_display_Bitmap(openfl_utils_Assets.getBitmapData("assets/images/SubwayMap.png"));
+	this.addChild(this.imageBg);
+	this.imageBg.set_x((openfl_Lib.current.stage.stageWidth - this.imageBg.get_width()) / 2);
+	this.textBg = new openfl_display_Sprite();
+	this.textBg.get_graphics().beginFill(0);
+	this.textBg.get_graphics().drawRect(0,0,500,150);
+	this.textBg.get_graphics().endFill();
+	this.addChild(this.textBg);
+	this.textBg.set_x(20);
+	this.textBg.set_y(20);
+	this.titleText = new openfl_text_TextField();
+	this.titleText.setTextFormat(com_gamejam_utils_TextFormats.SIZE_32);
+	this.titleText.set_width(500);
+	this.titleText.set_height(50);
+	this.titleText.set_text("Where to next?");
+	this.titleText.set_autoSize(0);
+	this.textBg.addChild(this.titleText);
+	this.onLocationSelectedFn = locationSelectedFn;
+	this.availableLocations = [];
+};
+$hxClasses["com.gamejam.screens.LocationSelection"] = com_gamejam_screens_LocationSelection;
+com_gamejam_screens_LocationSelection.__name__ = ["com","gamejam","screens","LocationSelection"];
+com_gamejam_screens_LocationSelection.__super__ = openfl_display_Sprite;
+com_gamejam_screens_LocationSelection.prototype = $extend(openfl_display_Sprite.prototype,{
+	onLocationSelectedFn: null
+	,availableLocations: null
+	,locations: null
+	,stageBg: null
+	,imageBg: null
+	,textBg: null
+	,titleText: null
+	,setupLocationData: function(data) {
+		this.locations = data;
+		var _g = 0;
+		var _g1 = this.availableLocations;
+		while(_g < _g1.length) {
+			var btn = _g1[_g];
+			++_g;
+			btn.removeEventListener("click",$bind(this,this.onClickLocation));
+			this.removeChild(btn);
+			btn = null;
+		}
+		this.availableLocations = [];
+		var _g2 = 0;
+		while(_g2 < data.length) {
+			var location = data[_g2];
+			++_g2;
+			var btn1 = new com_gamejam_utils_TextButton(location.Name,500,40);
+			btn1.addEventListener("click",$bind(this,this.onClickLocation));
+			btn1.cargo = location;
+			this.addChild(btn1);
+			btn1.set_x(20);
+			btn1.set_y(185 + this.availableLocations.length * 55);
+			this.availableLocations.push(btn1);
+		}
+	}
+	,onClickLocation: function(e) {
+		var btn = js_Boot.__cast(e.currentTarget , com_gamejam_utils_TextButton);
+		var locationData = btn.cargo;
+		this.onLocationSelectedFn(locationData);
+	}
+	,__class__: com_gamejam_screens_LocationSelection
 });
 var com_gamejam_screens_Title = function() {
 	openfl_display_Sprite.call(this);
@@ -30522,7 +30522,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 944590;
+	this.version = 234186;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = ["lime","utils","AssetCache"];

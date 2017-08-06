@@ -5,7 +5,7 @@ import openfl.events.MouseEvent;
 import openfl.Lib;
 
 import com.gamejam.activities.ActivityAccomplished;
-import com.gamejam.character.Character;
+import com.gamejam.game.Character;
 
 
 // MainGameState contains the logic for running the game.

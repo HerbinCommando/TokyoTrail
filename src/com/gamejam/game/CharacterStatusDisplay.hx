@@ -5,7 +5,7 @@ import openfl.display.Sprite;
 import openfl.text.TextField;
 import openfl.text.TextFieldAutoSize;
 
-import com.gamejam.character.Character;
+import com.gamejam.game.Character;
 import com.gamejam.utils.TextFormats;
 
 

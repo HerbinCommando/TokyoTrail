@@ -31,7 +31,7 @@ class GameOver extends Sprite {
         gameOverText.x = (Lib.current.stage.stageWidth - gameOverText.width)/2;
         gameOverText.y = 20;
 
-        restartButton = new TextButton("Your next adventure awaits (Click anywhere...)", 300, 40);
+        restartButton = new TextButton("The next great adventure", 300, 40);
         addChild(restartButton);
         restartButton.x = Lib.current.stage.stageWidth - 320;
         restartButton.y = Lib.current.stage.stageHeight - 60;
